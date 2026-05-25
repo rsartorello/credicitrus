@@ -38,7 +38,7 @@ export default function ConsorciosParaSuaEmpresaPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-consorcio.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-consorcio.webp"
           titleLines={[
             "CONSÓRCIOS",
             "PARA SUA",
@@ -71,31 +71,31 @@ export default function ConsorciosParaSuaEmpresaPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-consorcios-empresa.png",
+              image: "/soltas/1-consorcios-empresa.webp",
               title: "Imóveis",
               description: "Adquira seu imóvel urbano, rural ou terreno."
             },
             {
               id: 2,
-              image: "/soltas/2-consorcios-empresa.png",
+              image: "/soltas/2-consorcios-empresa.webp",
               title: "Automóveis",
               description: "Compre seu automóvel ou moto, novo ou usado."
             },
             {
               id: 3,
-              image: "/soltas/3-consorcios-empresa.png",
+              image: "/soltas/3-consorcios-empresa.webp",
               title: "Serviços",
               description: "Contrate consultorias, projetos, viagens, saúde e festas."
             },
             {
               id: 4,
-              image: "/soltas/4-consorcios-empresa.png",
+              image: "/soltas/4-consorcios-empresa.webp",
               title: "Pesados",
               description: "Equipe a operação com caminhões, ônibus e implementos agrícolas."
             },
             {
               id: 5,
-              image: "/soltas/5-consorcios-empresa.png",
+              image: "/soltas/5-consorcios-empresa.webp",
               title: "Outros Bens",
               description: "Adquira bens móveis duráveis, como eletrônicos e eletrodomésticos."
             }
@@ -126,7 +126,7 @@ export default function ConsorciosParaSuaEmpresaPage() {
             "Nas assembleias do grupo (normalmente mensais), ocorrem as contemplações por sorteio e/ou lance, conforme o regulamento.",
             "Ao ser contemplado, você recebe uma carta de crédito, que é um valor aprovado para a aquisição do bem ou serviço, com poder de negociação semelhante ao pagamento à vista."
           ]}
-          imageSrc="/soltas/6-consorcios-empresa.png"
+          imageSrc="/soltas/6-consorcios-empresa.webp"
           imageAlt="Dinâmica do consórcio empresarial"
         />
 

@@ -12,7 +12,7 @@ export default function ParceiroPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/parceiro.jpg"
+          backgroundImage="/soltas/parceiro.webp"
           titleLines={["Parceiro certo", "para o seu", "agronegócio", "prosperar."]}
           subtitleColor="secondary"
           buttons={[{ label: "Abra já sua conta PJ", href: "#abra-conta-pj", variant: "secondary" }]}

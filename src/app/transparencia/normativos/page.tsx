@@ -31,7 +31,7 @@ export default function NormativosCredicitrusPage() {
       <main>
         {/* 1. Hero */}
         <Hero
-          backgroundImage="/soltas/hero-transparencia-normativos.jpg"
+          backgroundImage="/soltas/hero-transparencia-normativos.webp"
           titleLines={["NORMATIVOS", "CREDICITRUS"]}
           highlightIndices={[1]}
           buttons={[]}

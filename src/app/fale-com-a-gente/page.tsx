@@ -45,7 +45,7 @@ export default function FaleConoscoPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/fale-conosco.jpg"
+          backgroundImage="/soltas/fale-conosco.webp"
           titleLines={["FALE COM A", "CREDICITRUS:", "MAIS QUE UM BANCO,", "UM PARCEIRO PARA", "TODA A VIDA"]}
           highlightIndices={[2, 3, 4]}
           subtitleColor="secondary"

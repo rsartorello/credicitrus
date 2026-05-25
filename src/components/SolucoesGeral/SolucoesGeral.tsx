@@ -73,21 +73,21 @@ export interface SolucoesGeralProps {
 const defaultItems: SolucoesItem[] = [
   {
     id: 1,
-    image: '/soltas/emprestimo1.jpg',
+    image: '/soltas/emprestimo1.webp',
     title: 'Crédito para o dia a dia e fluxo de caixa',
     description: 'Mantenha o equilíbrio financeiro da sua empresa, pague fornecedores, renove estoque ou cubra despesas operacionais inesperadas.',
     href: '#',
   },
   {
     id: 2,
-    image: '/soltas/emprestimo2.jpg',
+    image: '/soltas/emprestimo2.webp',
     title: 'Financiamentos para expansão e modernização',
     description: 'Adquira novos equipamentos, reforme ou construa instalações, compre máquinas e modernize a infraestrutura do seu negócio.',
     href: '#',
   },
   {
     id: 3,
-    image: '/soltas/emprestimo3.jpg',
+    image: '/soltas/emprestimo3.webp',
     title: 'Crédito com garantia',
     description: 'Oferecemos linhas de crédito com taxas reduzidas utilizando bens (imóveis ou veículos) como garantia. Ideal para grandes projetos ou reestruturação.',
     href: '#',

@@ -36,7 +36,7 @@ export default function Depoimentos({
   slides = [
     {
       id: 'nelson',
-      imageSrc: '/depoimentos/depoimento-nelson.png',
+      imageSrc: '/depoimentos/depoimento-nelson.webp',
       name: 'Nelson',
       type: 'Cliente Agro',
       time: 'há 15 anos',
@@ -44,7 +44,7 @@ export default function Depoimentos({
     },
     {
       id: 'jaqueline',
-      imageSrc: '/depoimentos/depoimento-jaqueline.png',
+      imageSrc: '/depoimentos/depoimento-jaqueline.webp',
       name: 'Jaqueline',
       type: 'Cliente Empresa',
       time: 'há 5 anos',
@@ -52,7 +52,7 @@ export default function Depoimentos({
     },
     {
       id: 'nelson2',
-      imageSrc: '/depoimentos/depoimento-nelson.png',
+      imageSrc: '/depoimentos/depoimento-nelson.webp',
       name: 'Nelson Clone',
       type: 'Cliente Agro',
       time: 'há 15 anos',

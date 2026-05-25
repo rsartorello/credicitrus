@@ -44,7 +44,7 @@ export default function RecebaPraticidadeSegurancaPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-solucoes-de-recebimento.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-solucoes-de-recebimento.webp"
           titleLines={[
             "RECEBA COM",
             "MAIS PRATICIDADE",
@@ -77,21 +77,21 @@ export default function RecebaPraticidadeSegurancaPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-receber-praticidade-seguranca.png",
+              image: "/soltas/1-receber-praticidade-seguranca.webp",
               title: "Desconto de Recebíveis",
               titleColorClass: "text-primary",
               description: "Antecipe valores de cheques, duplicatas e notas promissórias e fortaleça o fluxo de caixa do seu negócio com agilidade, com um processo descomplicado e com taxas atrativas."
             },
             {
               id: 2,
-              image: "/soltas/2-receber-praticidade-seguranca.png",
+              image: "/soltas/2-receber-praticidade-seguranca.webp",
               title: "Cobrança de Títulos",
               titleColorClass: "text-primary",
               description: "Aprimore sua cobrança por boletos bancários com emissão simples, controle eficiente e condições competitivas. Deixe os boletos por nossa conta e ganhe previsibilidade e praticidade no seu recebimento."
             },
             {
               id: 3,
-              image: "/soltas/3-receber-praticidade-seguranca.png",
+              image: "/soltas/3-receber-praticidade-seguranca.webp",
               title: "Venda com Cartões",
               titleColorClass: "text-primary",
               description: "A solução ideal para estabelecimentos comerciais e profissionais liberais, com a segurança e agilidade da Sipag para vender no débito e crédito, controlar recebimentos e impulsionar os resultados."

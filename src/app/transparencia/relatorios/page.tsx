@@ -213,7 +213,7 @@ export default function RelatoriosCredicitrus1Page() {
       <main className="flex-grow">
         {/* 1. Hero */}
         <Hero
-          backgroundImage="/soltas/hero-transparencia-relatorios.jpg"
+          backgroundImage="/soltas/hero-transparencia-relatorios.webp"
           titleLines={["RELATÓRIOS", "CREDICITRUS"]}
           highlightIndices={[1]}
           subtitleColor="secondary"

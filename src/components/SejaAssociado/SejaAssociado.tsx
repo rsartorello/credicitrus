@@ -20,7 +20,7 @@ export default function SejaAssociado({
   description = 'Faça como mais de 170 mil\ncooperados. Abra sua conta\nagora mesmo e descubra todas\nas vantagens da Credicitrus!',
   buttonText = 'Abra já sua conta',
   buttonHref = '#',
-  imageSrc = '/soltas/cartoes.png'
+  imageSrc = '/soltas/cartoes.webp'
 }: SejaAssociadoProps) {
   return (
     <section className="w-full bg-white py-12 lg:py-24 xl:py-32 overflow-hidden">

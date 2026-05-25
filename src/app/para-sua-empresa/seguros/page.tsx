@@ -13,7 +13,7 @@ export default function SeguroEmpresarialPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-seguros.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-seguros.webp"
           titleLines={[
             "SEGURO",
             "EMPRESARIAL",
@@ -47,42 +47,42 @@ export default function SeguroEmpresarialPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-seguro-empresarial.png",
+              image: "/soltas/1-seguro-empresarial.webp",
               title: "Vida Empresarial",
               titleColorClass: "text-primary",
               description: "Proteção financeira para colaboradores, sócios e equipes, com coberturas completas e gestão simplificada."
             },
             {
               id: 2,
-              image: "/soltas/2-seguro-empresarial.png",
+              image: "/soltas/2-seguro-empresarial.webp",
               title: "Automóveis",
               titleColorClass: "text-primary",
               description: "Seguro completo para a frota, com coberturas contra colisão, roubo, incêndio, assistência 24 horas e muito mais."
             },
             {
               id: 3,
-              image: "/soltas/3-seguro-empresarial.png",
+              image: "/soltas/3-seguro-empresarial.webp",
               title: "Empresarial",
               titleColorClass: "text-primary",
               description: "Coberturas e serviços para todos os portes, com contratação rápida, aceitação ampla e proteção a comércio, indústria e serviços."
             },
             {
               id: 4,
-              image: "/soltas/4-seguro-empresarial.png",
+              image: "/soltas/4-seguro-empresarial.webp",
               title: "Máquinas e Equipamentos",
               titleColorClass: "text-primary",
               description: "Cobertura para máquinas e equipamentos essenciais ao negócio, incluindo danos físicos, subtração, danos elétricos e responsabilidade civil."
             },
             {
               id: 5,
-              image: "/soltas/5-seguro-empresarial.png",
+              image: "/soltas/5-seguro-empresarial.webp",
               title: "Responsabilidade Civil",
               titleColorClass: "text-primary",
               description: "Reembolsa responsabilidades civis por riscos contratados, com cobertura de danos materiais, corporais e morais a terceiros"
             },
             {
               id: 6,
-              image: "/soltas/6-seguro-empresarial.png",
+              image: "/soltas/6-seguro-empresarial.webp",
               title: "Garantia",
               titleColorClass: "text-primary",
               description: "Cobertura para descumprimento contratual em serviços, construção, fabricação e fornecimento. Atende licitações e contratos com garantia, nas modalidades judiciais/administrativas."

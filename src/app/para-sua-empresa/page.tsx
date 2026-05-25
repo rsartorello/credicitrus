@@ -13,7 +13,7 @@ export default function EmpresaPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-empresa.jpg"
+          backgroundImage="/soltas/hero-empresa.webp"
           titleLines={["Produtos e", "serviços para", "sua empresa", "prosperar."]}
           subtitleColor="secondary"
           buttons={[{ label: "Abra já sua conta PJ", href: "#abra-conta-pj", variant: "secondary" }]}

@@ -63,7 +63,7 @@ export default function DuvidasFrequentesPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-duvidas-frequentes.jpg"
+          backgroundImage="/soltas/hero-duvidas-frequentes.webp"
           titleLines={["Dúvidas", "Frequentes"]}
           subtitleColor="secondary"
         />

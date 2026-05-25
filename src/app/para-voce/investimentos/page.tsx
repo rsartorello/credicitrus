@@ -14,7 +14,7 @@ export default function InvestimentosObjetivosPage() {
       <main className="flex-grow">
         {/* 1. Hero */}
         <Hero
-          backgroundImage="/soltas/hero-para-voce-investimento.png"
+          backgroundImage="/soltas/hero-para-voce-investimento.webp"
           titleLines={["INVESTIMENTOS", "QUE ACOMPANHAM", "SEUS OBJETIVOS"]}
           highlightIndices={[2]}
           subtitleColor="secondary"
@@ -34,67 +34,67 @@ export default function InvestimentosObjetivosPage() {
           cards={[
             {
               id: 'lca',
-              image: '/soltas/investimento-1.jpg',
+              image: '/soltas/investimento-1.webp',
               title: 'LCA',
               description: 'Renda fixa de baixo risco, pós-fixada, com recursos direcionados ao agronegócio.'
             },
             {
               id: 'lci',
-              image: '/soltas/investimento-2.jpg',
+              image: '/soltas/investimento-2.webp',
               title: 'LCI',
               description: 'Renda fixa de baixo risco, pós-fixada, com recursos direcionados ao mercado imobiliário.'
             },
             {
               id: 'rdc',
-              image: '/soltas/investimento-3.jpg',
+              image: '/soltas/investimento-3.webp',
               title: 'RDC',
               description: 'Renda fixa da cooperativa, pós-fixada, semelhante ao CDB, para objetivos do dia a dia.'
             },
             {
               id: 'rdc-progressivo',
-              image: '/soltas/investimento-4.jpg',
+              image: '/soltas/investimento-4.webp',
               title: 'RDC Progressivo',
               description: 'Renda fixa pós-fixada, pensada para quem quer planejar objetivos com horizonte de tempo definido.'
             },
             {
               id: 'rdc-carencia',
-              image: '/soltas/investimento-5.jpg',
+              image: '/soltas/investimento-5.webp',
               title: 'RDC com carência',
               description: 'Renda fixa pós-fixada, com carência definida conforme as condições do produto.'
             },
             {
               id: 'rdc-fidelidade',
-              image: '/soltas/investimento-6.jpg',
+              image: '/soltas/investimento-6.webp',
               title: 'RDC Fidelidade DI',
               description: 'Renda fixa pós-fixada (Fidelidade DI), ideal para prazos mais longos.'
             },
             {
               id: 'fundos',
-              image: '/soltas/investimento-7.jpg',
+              image: '/soltas/investimento-7.webp',
               title: 'Fundos',
               description: 'Carteiras com gestão profissional e estratégias por perfil; destaque ao Referenciado DI atrelado ao CDI.'
             },
             {
               id: 'poupanca',
-              image: '/soltas/investimento-8.jpg',
+              image: '/soltas/investimento-8.webp',
               title: 'Poupança',
               description: 'A poupança é um investimento conservador, com rentabilidade padrão em todas as instituições financeiras.'
             },
             {
               id: 'previdencia',
-              image: '/soltas/investimento-9.jpg',
+              image: '/soltas/investimento-9.webp',
               title: 'Previdência',
               description: 'Ajuda você a planejar e garantir seu padrão de vida no futuro.'
             },
             {
               id: 'tesouro',
-              image: '/soltas/investimento-10.jpg',
+              image: '/soltas/investimento-10.webp',
               title: 'Tesouro Direto',
               description: 'Compra e venda de títulos públicos federais aos investidores pessoas físicas, pelo App Sicoob.'
             },
             {
               id: 'home-broker',
-              image: '/soltas/investimento-11.jpg',
+              image: '/soltas/investimento-11.webp',
               title: 'Home Broker',
               description: 'Ferramenta no App Sicoob que conecta o associado à Bolsa de Valores para investir em renda variável.'
             }
@@ -178,7 +178,7 @@ export default function InvestimentosObjetivosPage() {
           title={"Pronto para\nrealizar seus\nobjetivos?"}
           description={"Abra sua conta e invista com a confiança do cooperativismo: condições claras, taxas justas e potencial de retorno para impulsionar seus objetivos."}
           buttonText="Abra sua conta Pessoal"
-          imageSrc="/soltas/cartoes.png"
+          imageSrc="/soltas/cartoes.webp"
         />
       </main>
       <Rodape />

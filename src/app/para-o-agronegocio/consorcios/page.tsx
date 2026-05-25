@@ -67,7 +67,7 @@ export default function ConsorciosParaSuaFazendaPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-o-agronegocio-consorcio.jpg"
+          backgroundImage="/soltas/hero-para-o-agronegocio-consorcio.webp"
           titleLines={["CONSÓRCIOS PARA", "SUA FAZENDA", "CREDICITRUS"]}
           subtitleColor="secondary"
           buttons={[
@@ -91,7 +91,7 @@ export default function ConsorciosParaSuaFazendaPage() {
             "Nas assembleias do grupo (normalmente mensais), ocorrem as contemplações por sorteio e/ou lance, conforme o regulamento.",
             "Ao ser contemplado, você recebe uma carta de crédito, que é um valor aprovado para a aquisição do bem ou serviço, com poder de negociação semelhante ao pagamento à vista."
           ]}
-          imageSrc="/soltas/6-consorcios-fazenda.png"
+          imageSrc="/soltas/6-consorcios-fazenda.webp"
           imageAlt="Dinâmica do consórcio"
         />
 

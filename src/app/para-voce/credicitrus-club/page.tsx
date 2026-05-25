@@ -64,7 +64,7 @@ const faqClub = [
 const clubCards = [
   {
     id: 1,
-    image: "/soltas/1-credicitrus-club-1.png",
+    image: "/soltas/1-credicitrus-club-1.webp",
     title: "Vantagens para vendedores",
     titleColorClass: "text-[#00a99d]",
     href: "#",
@@ -91,7 +91,7 @@ const clubCards = [
   },
   {
     id: 2,
-    image: "/soltas/2-credicitrus-club-1.png",
+    image: "/soltas/2-credicitrus-club-1.webp",
     title: "Vantagens para compradores",
     titleColorClass: "text-[#00a99d]",
     href: "#",
@@ -123,7 +123,7 @@ export default function CredicitrusClub2Page() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-voce-credicitrus-club.jpg"
+          backgroundImage="/soltas/hero-para-voce-credicitrus-club.webp"
           titleLines={[
             "CREDICITRUS CLUB:",
             "BENEFÍCIOS QUE",

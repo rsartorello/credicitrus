@@ -38,19 +38,19 @@ export default function RecebaPraticidadeSeguranca1Page() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-receber-praticidade-seguranca-1.png",
+              image: "/soltas/1-receber-praticidade-seguranca-1.webp",
               title: "Desconto de Recebíveis",
               description: "Antecipe valores de cheques, duplicatas e notas promissórias e fortaleça o fluxo de caixa do seu negócio com agilidade, com um processo descomplicado e com taxas atrativas."
             },
             {
               id: 2,
-              image: "/soltas/2-receber-praticidade-seguranca-1.png",
+              image: "/soltas/2-receber-praticidade-seguranca-1.webp",
               title: "Cobrança de Títulos",
               description: "Aprimore sua cobrança por boletos bancários com emissão simples, controle eficiente e condições competitivas. Deixe os boletos por nossa conta e ganhe previsibilidade e praticidade no seu recebimento."
             },
             {
               id: 3,
-              image: "/soltas/3-receber-praticidade-seguranca-1.png",
+              image: "/soltas/3-receber-praticidade-seguranca-1.webp",
               title: "Vendas com Cartões",
               description: "A solução ideal para estabelecimentos comerciais e profissionais liberais, com a segurança e agilidade da Sipag para vender no débito e crédito, controlar recebimentos e impulsionar os resultados."
             }
@@ -150,7 +150,7 @@ export default function RecebaPraticidadeSeguranca1Page() {
           title={"Pronto para\nrealizar seus\nobjetivos?"}
           description={"Abra sua conta e invista com a\nconfiança do cooperativismo:\ncondições claras, taxas justas e\npotencial de retorno para\nimpulsionar seus objetivos."}
           buttonText="Abra sua conta"
-          imageSrc="/soltas/cartoes.png"
+          imageSrc="/soltas/cartoes.webp"
         />
       </main>
       <Rodape />

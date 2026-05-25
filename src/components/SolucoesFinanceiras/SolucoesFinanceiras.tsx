@@ -12,7 +12,7 @@ export default function SolucoesFinanceiras() {
   const slidesData = [
     {
       id: 1,
-      image: '/solucoes/para-sua-empresa.png',
+      image: '/solucoes/para-sua-empresa.webp',
       prefix: '#Para',
       mid: ' sua',
       line2: 'Empresa',
@@ -20,7 +20,7 @@ export default function SolucoesFinanceiras() {
     },
     {
       id: 2,
-      image: '/solucoes/para-voce.png',
+      image: '/solucoes/para-voce.webp',
       prefix: '#Para',
       mid: '',
       line2: 'Você',
@@ -28,7 +28,7 @@ export default function SolucoesFinanceiras() {
     },
     {
       id: 3,
-      image: '/solucoes/para-o-agro.png',
+      image: '/solucoes/para-o-agro.webp',
       prefix: '#Para',
       mid: '',
       line2: 'oAgro',

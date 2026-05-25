@@ -11,21 +11,21 @@ import SejaAssociado from "@/components/SejaAssociado/SejaAssociado";
 const paraOAgroItems = [
   {
     id: 1,
-    image: '/soltas/credito-rural-1.jpg',
+    image: '/soltas/credito-rural-1.webp',
     title: 'Fortaleça o Agronegócio',
     description: 'A Credicitrus faz uma gestão financeira eficiente e fortalece a economia do campo.',
     href: '#',
   },
   {
     id: 2,
-    image: '/soltas/credito-rural-2.jpg',
+    image: '/soltas/credito-rural-2.webp',
     title: 'Invista na sua propriedade',
     description: 'Adquira novos equipamentos, compre máquinas e modernize a infraestrutura do seu agronegócio.',
     href: '#',
   },
   {
     id: 3,
-    image: '/soltas/credito-rural-3.jpg',
+    image: '/soltas/credito-rural-3.webp',
     title: 'Atendimento exclusivo',
     description: 'A Credicitrus conta com uma equipe especializada que entende as necessidades de cada produtor rural.',
     href: '#',
@@ -87,7 +87,7 @@ export default function CreditoRuralPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-foto-credito-rural.jpg"
+          backgroundImage="/soltas/hero-foto-credito-rural.webp"
           titleLines={["CRÉDITO RURAL", "CREDICITRUS"]}
           subtitleColor="secondary"
           buttons={[

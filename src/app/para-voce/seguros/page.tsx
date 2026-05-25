@@ -15,7 +15,7 @@ export default function SeguroParaVocePage() {
       <main className="flex-grow">
         {/* 1. Hero */}
         <Hero
-          backgroundImage="/soltas/hero-para-voce-seguros.png"
+          backgroundImage="/soltas/hero-para-voce-seguros.webp"
           titleLines={["SEGURO", "PARA VOCÊ"]}
           highlightIndices={[0]}
           subtitleColor="secondary"
@@ -45,31 +45,31 @@ export default function SeguroParaVocePage() {
             cards={[
               {
                 id: 1,
-                image: "/soltas/1-seguro-voce.png",
+                image: "/soltas/1-seguro-voce.webp",
                 title: "Vida",
                 description: "Proteção financeira para você e sua família, com coberturas flexíveis que garantem amparo em imprevistos e segurança em cada fase da vida."
               },
               {
                 id: 2,
-                image: "/soltas/2-seguro-voce.png",
+                image: "/soltas/2-seguro-voce.webp",
                 title: "Residencial",
                 description: "Cobre danos ao imóvel e ao conteúdo da sua casa, incluindo incêndio, raio, explosão, danos elétricos e assistência 24h."
               },
               {
                 id: 3,
-                image: "/soltas/3-seguro-voce.png",
+                image: "/soltas/3-seguro-voce.webp",
                 title: "Veículos",
                 description: "Seguro completo para seu carro, com cobertura contra colisão, roubo, danos a terceiros e serviços de assistência."
               },
               {
                 id: 4,
-                image: "/soltas/4-seguro-voce.png",
+                image: "/soltas/4-seguro-voce.webp",
                 title: "Equipamentos Portáteis",
                 description: "Proteção para smartphones, tablets, notebooks, câmeras e outros dispositivos usados no dia a dia ou no trabalho, cobrindo danos e prejuízos materiais."
               },
               {
                 id: 5,
-                image: "/soltas/5-seguro-voce.png",
+                image: "/soltas/5-seguro-voce.webp",
                 title: "Responsabilidade Civil",
                 description: "Cobertura para profissionais que desejam se proteger contra prejuízos causados a terceiros no exercício da atividade, com garantias ajustadas a diferentes especialidades."
               }
@@ -155,7 +155,7 @@ export default function SeguroParaVocePage() {
           title={"Pronto para\nproteger o\nque importa?"}
           description={"Abra sua conta e contrate seguros\npessoais com a confiança do\ncooperativismo: proteção completa,\ncondições transparentes e\natendimento dedicado."}
           buttonText="Abra sua conta"
-          imageSrc="/soltas/cartoes.png"
+          imageSrc="/soltas/cartoes.webp"
         />
       </main>
       <Rodape />

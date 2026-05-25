@@ -15,7 +15,7 @@ export default function CartoesQueAcompanhamOSeuDiaADiaPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-voce-cartoes.jpg"
+          backgroundImage="/soltas/hero-para-voce-cartoes.webp"
           titleLines={[
             "CARTÕES QUE",
             "ACOMPANHAM O",
@@ -48,49 +48,49 @@ export default function CartoesQueAcompanhamOSeuDiaADiaPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-cartoes-dia-a-dia.png",
+              image: "/soltas/1-cartoes-dia-a-dia.webp",
               title: "Cartão Débito",
               description: "Para compras do dia a dia, com transações seguras, controle pelo app e pagamento por aproximação."
             },
             {
               id: 2,
-              image: "/soltas/2-cartoes-dia-a-dia.png",
+              image: "/soltas/2-cartoes-dia-a-dia.webp",
               title: "Vooz",
               description: "Cartão múltiplo com baixa mensalidade, pagamento por aproximação e pontos Coopera a cada dólar gasto."
             },
             {
               id: 3,
-              image: "/soltas/3-cartoes-dia-a-dia.png",
+              image: "/soltas/3-cartoes-dia-a-dia.webp",
               title: "Clássico",
               description: "Cartão com programa de pontos, benefícios das bandeiras e vantagens como cartão virtual e carteiras digitais."
             },
             {
               id: 4,
-              image: "/soltas/1-cartoes-dia-a-dia.png",
+              image: "/soltas/1-cartoes-dia-a-dia.webp",
               title: "Gold",
               description: "Para compras do dia a dia, com transações seguras, controle pelo app e pagamento por aproximação."
             },
             {
               id: 5,
-              image: "/soltas/2-cartoes-dia-a-dia.png",
+              image: "/soltas/2-cartoes-dia-a-dia.webp",
               title: "Platinum",
               description: "Cartão múltiplo com baixa mensalidade, pagamento por aproximação e pontos Coopera a cada dólar gasto."
             },
             {
               id: 6,
-              image: "/soltas/cartao-sicoob-black.png",
+              image: "/soltas/cartao-sicoob-black.webp",
               title: "Black",
               description: "Cartão com programa de pontos, benefícios das bandeiras e vantagens como cartão virtual e carteiras digitais."
             },
             {
               id: 7,
-              image: "/soltas/1-cartoes-dia-a-dia.png",
+              image: "/soltas/1-cartoes-dia-a-dia.webp",
               title: "Visa Infinite",
               description: "Para compras do dia a dia, com transações seguras, controle pelo app e pagamento por aproximação."
             },
             {
               id: 8,
-              image: "/soltas/2-cartoes-dia-a-dia.png",
+              image: "/soltas/2-cartoes-dia-a-dia.webp",
               title: "Zenith",
               description: "Cartão múltiplo com baixa mensalidade, pagamento por aproximação e pontos Coopera a cada dólar gasto."
             }
@@ -228,7 +228,7 @@ export default function CartoesQueAcompanhamOSeuDiaADiaPage() {
           title={"Pronto para\ncomeçar?"}
           description={"Abra sua conta e aproveite toda a praticidade e segurança dos cartões Credicitrus."}
           buttonText="Abra sua conta Pessoal"
-          imageSrc="/soltas/cartoes.png"
+          imageSrc="/soltas/cartoes.webp"
         />
 
         <CentralAtendimentoSection />

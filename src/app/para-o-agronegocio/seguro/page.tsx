@@ -11,21 +11,21 @@ import Faq from "@/components/Faq/Faq";
 const segurosAgro = [
   {
     id: 1,
-    image: "/soltas/1-seguro-agro.png",
+    image: "/soltas/1-seguro-agro.webp",
     title: "Seguro Agrícola (Safra)",
     description: "Protege a lavoura contra eventos climáticos e adversidades, com modalidades de custeio e produtividade conforme a cultura",
     href: "#"
   },
   {
     id: 2,
-    image: "/soltas/2-seguro-agro.png",
+    image: "/soltas/2-seguro-agro.webp",
     title: "Penhor Rural",
     description: "Cobre bens dados em garantia no crédito rural (agrícola, pecuário, aquícola ou florestal), com coberturas básicas e adicionais previstas em apólice",
     href: "#"
   },
   {
     id: 3,
-    image: "/soltas/3-seguro-agro.png",
+    image: "/soltas/3-seguro-agro.webp",
     title: "Máquinas e Equipamentos Agro",
     description: "Proteção para tratores, colheitadeiras e equipamentos essenciais, incluindo danos físicos, subtração e danos elétricos, conforme contratação",
     href: "#"
@@ -91,7 +91,7 @@ export default function SeguroAgroCredicitrusPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-o-agronegocio-seguros.jpg"
+          backgroundImage="/soltas/hero-para-o-agronegocio-seguros.webp"
           titleLines={["SEGURO AGRO", "CREDICITRUS"]}
           highlightIndices={[1]}
           subtitleColor="secondary"

@@ -48,7 +48,7 @@ export default function NossasRedesSociaisPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-nossas-redes-sociais.jpg"
+          backgroundImage="/soltas/hero-nossas-redes-sociais.webp"
           titleLines={["Nossas", "Redes Sociais"]}
           subtitleColor="secondary"
         />

@@ -24,7 +24,7 @@ export default function AppSicoob({
     'Acesse seus investimentos em tempo real.'
   ],
   ctaText = 'Baixe agora no seu Celular!',
-  imageSrc = '/sicoob/gerenciamento-financeiro.png'
+  imageSrc = '/sicoob/gerenciamento-financeiro.webp'
 }: AppSicoobProps) {
   return (
     <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center bg-[#ffffff] overflow-hidden">

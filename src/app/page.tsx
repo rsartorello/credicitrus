@@ -16,12 +16,12 @@ export default function Home() {
       <Hero
         isHome
         backgroundImage={[
-          "/soltas/hero-home.jpg",
-          "/soltas/hero-home.jpg"
+          "/soltas/hero-home.webp",
+          "/soltas/hero-home.webp"
         ]}
         mobileBackgroundImage={[
-          "/soltas/hero-home-mobile.jpg",
-          "/soltas/hero-home-mobile.jpg"
+          "/soltas/hero-home-mobile.webp",
+          "/soltas/hero-home-mobile.webp"
         ]}
         isSlider={true}
       />
@@ -33,7 +33,7 @@ export default function Home() {
         title="Por que escolher a Credicitrus?"
         highlightText={<>MODELO<br />COOPERATIVO<br />QUE CONECTA<br />E TRANSFORMA</>}
         description="Na Credicitrus, somos muito mais que uma instituição financeira. Nosso cooperativismo coloca as pessoas no centro, valorizando cada associado e impulsionando o desenvolvimento econômico e social da sua região"
-        imageSrc="/sobrenos/maos-unidas.png"
+        imageSrc="/sobrenos/maos-unidas.webp"
         imageAlt="Mãos unidas, cooperativismo"
         bgColor="bg-[#ffffff]"
         reverseOnMobile={true}
@@ -45,7 +45,7 @@ export default function Home() {
         imagePosition="left"
         highlightText={<>VOCÊ,<br />ASSOCIADO,<br />É PARTE<br />ESSENCIAL<br />DO NEGÓCIO</>}
         description="Aqui, você não é apenas um cliente, é dono da cooperativa! Sua voz tem poder nas decisões, contribuindo ativamente para o direcionamento da Credicitrus e o impacto positivo na sua comunidade"
-        imageSrc="/sobrenos/voce-associado.png"
+        imageSrc="/sobrenos/voce-associado.webp"
         imageAlt="Rosto de uma mulher sorrindo (Associada)"
         bgColor="bg-[#f8f8f8]"
         reverseOnMobile={true}
@@ -56,7 +56,7 @@ export default function Home() {
         title="Por que escolher a Credicitrus?"
         highlightText={<>CRESCIMENTO<br />SUSTENTÁVEL<br />PARA A<br />ECONOMIA<br />LOCAL</>}
         description="Acreditamos no potencial da nossa comunidade. Por isso, os recursos da Credicitrus são reinvestidos localmente, fortalecendo negócios, gerando prosperidade e promovendo o desenvolvimento regional."
-        imageSrc="/sobrenos/crescimento-sustentavel.png"
+        imageSrc="/sobrenos/crescimento-sustentavel.webp"
         imageAlt="Empreendedora sorrindo no seu comércio local"
         bgColor="bg-white"
         reverseOnMobile={true}
@@ -68,7 +68,7 @@ export default function Home() {
         imagePosition="left"
         highlightText={<>CONFIANÇA<br />MÚTUA:<br />ATENDIMENTO<br />PRÓXIMO E<br />GENUÍNO</>}
         description="Valorizamos o contato humano. Na Credicitrus, você encontra um atendimento personalizado, feito de pessoa para pessoa, construído na confiança, no respeito e na busca pelas melhores soluções para você"
-        imageSrc="/sobrenos/confianca-mutua.png"
+        imageSrc="/sobrenos/confianca-mutua.webp"
         imageAlt="Atendimento personalizado de confiança mútua"
         bgColor="bg-[#f8f8f8]"
         reverseOnMobile={true}

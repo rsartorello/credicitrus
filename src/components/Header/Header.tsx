@@ -152,7 +152,7 @@ export default function Header() {
             onClick={toggleSearch}
           >
             <Image
-              src="/header/lupa.png"
+              src="/header/lupa.webp"
               alt="Buscar"
               width={28}
               height={28}

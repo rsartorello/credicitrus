@@ -26,7 +26,7 @@ export default function ComoAbrirSuaConta() {
             {/* Imagem Centralizada (ajustada para parecer um vídeo) */}
             <div className="relative h-full aspect-[9/16]">
               <Image
-                src="/soltas/como-abrir.jpg"
+                src="/soltas/como-abrir.webp"
                 alt="Vídeo passo a passo abertura de conta"
                 fill
                 className="object-cover"

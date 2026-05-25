@@ -12,7 +12,7 @@ export default function AssembleiaCredicitrusPage() {
       <main className="flex-grow">
         {/* 1. Hero */}
         <Hero
-          backgroundImage="/soltas/hero-transparencia-assembleia.jpg"
+          backgroundImage="/soltas/hero-transparencia-assembleia.webp"
           titleLines={["ASSEMBLEIA", "CREDICITRUS"]}
           highlightIndices={[1]}
           buttons={[]}
@@ -104,7 +104,7 @@ export default function AssembleiaCredicitrusPage() {
                     style={{ height: '70%', minHeight: '500px' }}
                   >
                     <Image
-                      src="/soltas/1-assembleia-credicitrus.png"
+                      src="/soltas/1-assembleia-credicitrus.webp"
                       alt="O que é a Assembleia"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -143,7 +143,7 @@ export default function AssembleiaCredicitrusPage() {
             <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-16 max-w-5xl mx-auto w-full">
               <div className="w-full md:w-1/2">
                 <Image
-                  src="/soltas/2-assembleia-credicitrus.png"
+                  src="/soltas/2-assembleia-credicitrus.webp"
                   alt="App Moob"
                   width={600}
                   height={400}

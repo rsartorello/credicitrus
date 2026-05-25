@@ -282,10 +282,10 @@ export default function GerenciamentoRiscosCapitalPage1() {
                   {/* Videos Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto mt-12 mb-20">
                     {[
-                      { src: '/soltas/1-risco-capital-1.png', alt: 'Golpe 1' },
-                      { src: '/soltas/2-risco-capital-1.png', alt: 'Golpe 2' },
-                      { src: '/soltas/3-risco-capital-1.png', alt: 'Golpe 3' },
-                      { src: '/soltas/4-risco-capital-1.png', alt: 'Golpe 4' }
+                      { src: '/soltas/1-risco-capital-1.webp', alt: 'Golpe 1' },
+                      { src: '/soltas/2-risco-capital-1.webp', alt: 'Golpe 2' },
+                      { src: '/soltas/3-risco-capital-1.webp', alt: 'Golpe 3' },
+                      { src: '/soltas/4-risco-capital-1.webp', alt: 'Golpe 4' }
                     ].map((video, idx) => (
                       <div 
                         key={idx}

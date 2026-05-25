@@ -12,21 +12,21 @@ import Faq from "@/components/Faq/Faq";
 const cartoesPJ = [
   {
     id: 1,
-    image: "/soltas/1-cartoes-empresa.png",
+    image: "/soltas/1-cartoes-empresa.webp",
     title: "Conta Empresa",
     description: "Cartão de débito e múltiplo, ideal para movimentações do dia a dia da empresa, com segurança e controle pelo app.",
     href: "#"
   },
   {
     id: 2,
-    image: "/soltas/2-cartoes-empresa.png",
+    image: "/soltas/2-cartoes-empresa.webp",
     title: "Minha Empresa",
     description: "Cartão corporativo com função múltipla, limites adequados para empresas menores e benefícios das bandeiras Mastercard ou Visa.",
     href: "#"
   },
   {
     id: 3,
-    image: "/soltas/3-cartoes-empresa.png",
+    image: "/soltas/3-cartoes-empresa.webp",
     title: "Empresarial",
     description: "Cartão corporativo completo, com limites mais altos, programa de pontos, seguros, assistências e vantagens para viagens e compras corporativas.",
     href: "#"
@@ -96,7 +96,7 @@ export default function CartoesPJPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-cartoes-de-credito.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-cartoes-de-credito.webp"
           titleLines={["CARTÕES QUE", "IMPULSIONAM A", "SUA EMPRESA"]}
           highlightIndices={[1, 2]}
           subtitleColor="secondary"
@@ -142,7 +142,7 @@ export default function CartoesPJPage() {
             text: "www.shopcoopera.com.br",
             href: "https://www.shopcoopera.com.br"
           }}
-          imageSrc="/soltas/4-cartoes-empresa.png"
+          imageSrc="/soltas/4-cartoes-empresa.webp"
           imageAlt="Programa Coopera"
           imagePosition="right"
           imageAspectRatio="aspect-square"

@@ -48,7 +48,7 @@ export default function CartoesBeneficiosPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-cartoes-de-beneficios.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-cartoes-de-beneficios.webp"
           titleLines={[
             "CARTÕES",
             "BENEFÍCIOS",
@@ -82,42 +82,42 @@ export default function CartoesBeneficiosPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-cartoes-beneficios.png",
+              image: "/soltas/1-cartoes-beneficios.webp",
               title: "Coopcerto Alimentação",
               titleColorClass: "text-primary",
               description: "Com ele o colaborador tem várias opções de supermercados, açougues e padarias. E ainda simplifica a rotina da empresa, que não precisa armazenar cestas básicas ou fazer adiantamentos em dinheiro"
             },
             {
               id: 2,
-              image: "/soltas/2-cartoes-beneficios.png",
+              image: "/soltas/2-cartoes-beneficios.webp",
               title: "Coopcerto Refeição",
               titleColorClass: "text-primary",
               description: "Liberdade na escolha de refeições em restaurantes, lanchonetes e similares. É mais qualidade de vida para o funcionário e economia para a empresa"
             },
             {
               id: 3,
-              image: "/soltas/3-cartoes-beneficios.png",
+              image: "/soltas/3-cartoes-beneficios.webp",
               title: "Coopcerto Combustível",
               titleColorClass: "text-primary",
               description: "O jeito mais prático de pagar combustível, estacionamento e demais serviços automotivos, tornando mais fácil a rotina do colaborador e gestão da empresa"
             },
             {
               id: 4,
-              image: "/soltas/4-cartoes-beneficios.png",
+              image: "/soltas/4-cartoes-beneficios.webp",
               title: "Coopcerto Controle",
               titleColorClass: "text-primary",
               description: "Uma excelente solução para o pagamento de gastos em viagens e controle de despesas corporativas, facilitando a gestão financeira da empresa."
             },
             {
               id: 5,
-              image: "/soltas/5-cartoes-beneficios.png",
+              image: "/soltas/5-cartoes-beneficios.webp",
               title: "Coopcerto Presente",
               titleColorClass: "text-primary",
               description: "Ideal para datas comemorativas e ocasiões especiais. O presenteado pode escolher o que mais lhe agrada e a empresa ganha praticidade."
             },
             {
               id: 6,
-              image: "/soltas/6-cartoes-beneficios.png",
+              image: "/soltas/6-cartoes-beneficios.webp",
               title: "Coopcerto Premiação",
               titleColorClass: "text-primary",
               description: "A escolha certa para premiar os funcionários em ações internas, além de motivar o colaborador, a empresa faz a gestão total com facilidade."

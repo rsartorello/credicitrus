@@ -18,7 +18,7 @@ export default function ConsorciosParaCadaObjetivoPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-voce-consorcios.png"
+          backgroundImage="/soltas/hero-para-voce-consorcios.webp"
           titleLines={[
             "CONSÓRCIOS",
             "PARA CADA",
@@ -45,31 +45,31 @@ export default function ConsorciosParaCadaObjetivoPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-consorcios-objetivo.png",
+              image: "/soltas/1-consorcios-objetivo.webp",
               title: "Imóveis",
               description: "Adquira seu imóvel urbano, rural ou terreno."
             },
             {
               id: 2,
-              image: "/soltas/2-consorcios-objetivo.png",
+              image: "/soltas/2-consorcios-objetivo.webp",
               title: "Automóveis",
               description: "Compre seu automóvel ou moto, novo ou usado."
             },
             {
               id: 3,
-              image: "/soltas/3-consorcios-objetivo.png",
+              image: "/soltas/3-consorcios-objetivo.webp",
               title: "Serviços",
               description: "Contrate consultorias, projetos, viagens, saúde e festas."
             },
             {
               id: 4,
-              image: "/soltas/4-consorcios-objetivo.png",
+              image: "/soltas/4-consorcios-objetivo.webp",
               title: "Pesados",
               description: "Equipe a operação com caminhões, ônibus e implementos agrícolas."
             },
             {
               id: 5,
-              image: "/soltas/5-consorcios-objetivo.png",
+              image: "/soltas/5-consorcios-objetivo.webp",
               title: "Outros bens",
               description: "Adquira bens móveis duráveis, como eletrônicos e eletrodomésticos."
             }
@@ -115,7 +115,7 @@ export default function ConsorciosParaCadaObjetivoPage() {
               <div className="w-full md:w-[45%]">
                 <div className="relative aspect-square w-full overflow-hidden" style={{ borderRadius: '0 140px 0 140px' }}>
                   <Image
-                    src="/soltas/6-consorcios-objetivo.png"
+                    src="/soltas/6-consorcios-objetivo.webp"
                     alt="Família planejando o futuro"
                     fill
                     className="object-cover"
@@ -212,7 +212,7 @@ export default function ConsorciosParaCadaObjetivoPage() {
           title={"Pronto para\nconquistar\nseus objetivos?"}
           description={"Abra sua conta e transforme planos em conquistas: consórcio com taxas justas, previsibilidade e a solidez do cooperativismo."}
           buttonText="Abra sua conta Pessoal"
-          imageSrc="/soltas/cartoes.png"
+          imageSrc="/soltas/cartoes.webp"
         />
 
       </main>

@@ -7,31 +7,31 @@ import Link from 'next/link';
 const tiposConsorcio = [
   {
     id: 1,
-    image: '/soltas/1-consorcios-fazenda.png',
+    image: '/soltas/1-consorcios-fazenda.webp',
     title: 'Imóveis',
     description: 'Adquira seu imóvel urbano, rural ou terreno.',
   },
   {
     id: 2,
-    image: '/soltas/2-consorcios-fazenda.png',
+    image: '/soltas/2-consorcios-fazenda.webp',
     title: 'Automóveis',
     description: 'Compre seu automóvel ou moto, novo ou usado.',
   },
   {
     id: 3,
-    image: '/soltas/3-consorcios-fazenda.png',
+    image: '/soltas/3-consorcios-fazenda.webp',
     title: 'Serviços',
     description: 'Contrate consultorias, projetos, viagens, saúde e festas.',
   },
   {
     id: 4,
-    image: '/soltas/4-consorcios-fazenda.png',
+    image: '/soltas/4-consorcios-fazenda.webp',
     title: 'Pesados',
     description: 'Equipe a operação com caminhões, ônibus e implementos agrícolas.',
   },
   {
     id: 5,
-    image: '/soltas/5-consorcios-fazenda.png',
+    image: '/soltas/5-consorcios-fazenda.webp',
     title: 'Outros Bens',
     description: 'Adquira bens móveis duráveis, como eletrônicos e eletrodomésticos.',
   },

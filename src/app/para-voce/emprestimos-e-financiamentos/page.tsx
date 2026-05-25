@@ -70,7 +70,7 @@ export default function EmprestimoPJPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <HeroPJ
-          backgroundImage="/soltas/hero-emprestimo-p-j.png"
+          backgroundImage="/soltas/hero-emprestimo-p-j.webp"
           titleLines={["Empréstimos e", "financiamentos", "credicitrus"]}
           buttons={[
             { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },

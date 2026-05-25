@@ -44,25 +44,25 @@ export default function Informativo({
   articles = [
     {
       id: 'seguros',
-      imageSrc: '/soltas/fique-por-dentro1.png',
+      imageSrc: '/soltas/fique-por-dentro1.webp',
       title: 'Campanha de Seguros Gerais',
       linkHref: '#'
     },
     {
       id: 'gptw',
-      imageSrc: '/soltas/fique-por-dentro2.png',
+      imageSrc: '/soltas/fique-por-dentro2.webp',
       title: 'GPTW Agronegócio 2025',
       linkHref: '#'
     },
     {
       id: 'seguros-clone',
-      imageSrc: '/soltas/fique-por-dentro1.png',
+      imageSrc: '/soltas/fique-por-dentro1.webp',
       title: 'Campanha de Seguros Gerais',
       linkHref: '#'
     },
     {
       id: 'gptw-clone',
-      imageSrc: '/soltas/fique-por-dentro2.png',
+      imageSrc: '/soltas/fique-por-dentro2.webp',
       title: 'GPTW Agronegócio 2025',
       linkHref: '#'
     }

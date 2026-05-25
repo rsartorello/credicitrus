@@ -47,7 +47,7 @@ export default function AbraSuaContaPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <HeroAbraConta
-          backgroundImage="/soltas/hero-abra-sua-conta.jpg"
+          backgroundImage="/soltas/hero-abra-sua-conta.webp"
           titleLines={["SUA CONTA", "CREDICITRUS:", "MAIS QUE UM BANCO,", "UM PARCEIRO PARA", "TODA A VIDA"]}
           buttonLabel="Abra já sua conta PF"
           buttonHref="#abrir-conta"

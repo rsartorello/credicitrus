@@ -49,7 +49,7 @@ export default function AntecipacaoRecebiveisPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-antecipacao-de-recebiveis.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-antecipacao-de-recebiveis.webp"
           titleLines={[
             "ANTECIPAÇÃO",
             "DE RECEBÍVEIS"
@@ -81,14 +81,14 @@ export default function AntecipacaoRecebiveisPage() {
           cards={[
             {
               id: 1,
-              image: "/soltas/1-antecipacao-de-recebiveis.png",
+              image: "/soltas/1-antecipacao-de-recebiveis.webp",
               title: "Boleto",
               titleColorClass: "text-primary",
               description: "Antecipe seus boletos emitidos e traga previsibilidade ao seu negócio."
             },
             {
               id: 2,
-              image: "/soltas/2-antecipacao-de-recebiveis.png",
+              image: "/soltas/2-antecipacao-de-recebiveis.webp",
               title: "Máquina de Cartão (Sipag)",
               titleColorClass: "text-primary",
               description: "Antecipe suas vendas realizadas no cartão e fortaleça o caixa de forma segura."

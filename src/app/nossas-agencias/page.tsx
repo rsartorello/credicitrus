@@ -10,7 +10,7 @@ export default function NossasAgenciasPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-nossas-agencias.jpg"
+          backgroundImage="/soltas/hero-nossas-agencias.webp"
           titleLines={["NOSSAS", "AGÊNCIAS"]}
           highlightIndices={[1]}
           subtitleColor="secondary"

@@ -32,7 +32,7 @@ export default function EmprestimoPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero
-          backgroundImage="/soltas/hero-para-sua-empresa-emprestimos.jpg"
+          backgroundImage="/soltas/hero-para-sua-empresa-emprestimos.webp"
           titleLines={["Empréstimos e", "Financiamentos:", "Credicitrus"]}
           subtitleColor="secondary"
           buttons={[

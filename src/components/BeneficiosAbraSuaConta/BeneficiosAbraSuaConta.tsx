@@ -7,37 +7,37 @@ import Link from 'next/link';
 const beneficios = [
   {
     id: 1,
-    image: '/soltas/abra-1.jpg',
+    image: '/soltas/abra-1.webp',
     title: 'Soluções completas',
     description: 'Tudo que você precisa: Crédito pessoal, empresarial e rural, investimentos, Seguros, Consórcios e Cartões. Soluções para você, sua empresa e para o agronegócio.',
   },
   {
     id: 2,
-    image: '/soltas/abra-2.jpg',
+    image: '/soltas/abra-2.webp',
     title: 'Benefícios exclusivos',
     description: 'Nossas taxas em empréstimos, financiamentos e tarifas são mais competitivas, focadas no seu sucesso.',
   },
   {
     id: 3,
-    image: '/soltas/abra-3.jpg',
+    image: '/soltas/abra-3.webp',
     title: 'Retorno financeiro',
     description: 'Participe ativamente dos resultados anuais da Credicitrus. Seu relacionamento gera retorno direto para o seu bolso.',
   },
   {
     id: 4,
-    image: '/soltas/abra-4.jpg',
+    image: '/soltas/abra-4.webp',
     title: 'Proximidade',
     description: 'Conte com gerentes que conhecem a sua história para ajudar a tomar as melhores decisões financeiras.',
   },
   {
     id: 5,
-    image: '/soltas/abra-5.jpg',
+    image: '/soltas/abra-5.webp',
     title: 'Praticidade e facilidade',
     description: 'Crie a sua conta com praticidade e clareza em todo processo de abertura.',
   },
   {
     id: 6,
-    image: '/soltas/abra-6.jpg',
+    image: '/soltas/abra-6.webp',
     title: 'Pix gratuito e ilimitado',
     description: 'Você não paga nada nem para receber nem para fazer pagamentos e transferências.',
   },

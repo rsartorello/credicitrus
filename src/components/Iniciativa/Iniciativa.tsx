@@ -31,7 +31,7 @@ export default function Iniciativa({
   cards = [
     {
       id: 'credilitrus-club',
-      imageSrc: '/soltas/descubra-1.png',
+      imageSrc: '/soltas/descubra-1.webp',
       iconSrc: '/soltas/icone-cred-club.svg',
       iconBgColor: '#483c9a',
       title: 'Credicitrus Club',
@@ -41,8 +41,8 @@ export default function Iniciativa({
     },
     {
       id: 'instituto',
-      imageSrc: '/soltas/descubra-2.png',
-      iconSrc: '/soltas/icone-instituto.png',
+      imageSrc: '/soltas/descubra-2.webp',
+      iconSrc: '/soltas/icone-instituto.webp',
       iconBgColor: '#00a99d',
       title: 'Instituto Credicitrus',
       description: 'Nossa iniciativa de responsabilidade social, promovendo educação financeira e desenvolvimento sustentável nas comunidades.',
@@ -51,7 +51,7 @@ export default function Iniciativa({
     },
     {
       id: 'portal-agro',
-      imageSrc: '/soltas/descubra-3.png',
+      imageSrc: '/soltas/descubra-3.webp',
       iconSrc: '/soltas/icone-portal-agro.svg',
       iconBgColor: '#003641',
       title: 'Portal Agro',

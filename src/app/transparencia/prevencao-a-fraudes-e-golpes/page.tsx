@@ -33,7 +33,7 @@ export default function PrevencaoFraudesGolpesPage() {
       <main>
         {/* 1. Hero Section */}
         <Hero
-          backgroundImage="/soltas/hero-transparencia-prevencao-a-fraudes-e-golpes.jpg"
+          backgroundImage="/soltas/hero-transparencia-prevencao-a-fraudes-e-golpes.webp"
           titleLines={["PREVENÇÃO A", "FRAUDES E GOLPES"]}
           highlightIndices={[1]}
           buttons={[]}
@@ -65,7 +65,7 @@ export default function PrevencaoFraudesGolpesPage() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 max-w-4xl mx-auto">
               <div className="w-full md:w-auto flex justify-center">
                 <OptimizedImage
-                  src="/soltas/1-prevencao-fraudes.png"
+                  src="/soltas/1-prevencao-fraudes.webp"
                   alt="Selo de Prevenção a Fraudes"
                   width={180}
                   height={250}

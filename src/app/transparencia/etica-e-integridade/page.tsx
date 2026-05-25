@@ -41,7 +41,7 @@ export default function EticaEIntegridadePage() {
       <main>
         {/* 1. Hero Section */}
         <Hero
-          backgroundImage="/soltas/hero-transparencia-etica-e-integridade.jpg"
+          backgroundImage="/soltas/hero-transparencia-etica-e-integridade.webp"
           titleLines={["ÉTICA E", "INTEGRIDADE"]}
           highlightIndices={[1]}
           buttons={[]}
