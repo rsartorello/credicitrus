@@ -20,8 +20,24 @@ export default function AnimateIn({
   direction = 'up',
   distance = 50,
 }: AnimateInProps) {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const getVariants = () => {
-    switch (direction) {
+    // If on mobile, slide up instead of sliding horizontally to prevent horizontal scrollbars
+    const effectiveDirection = isMobile && (direction === 'left' || direction === 'right') 
+      ? 'up' 
+      : direction;
+
+    switch (effectiveDirection) {
       case 'up':
         return { hidden: { opacity: 0, y: distance }, visible: { opacity: 1, y: 0 } };
       case 'down':
@@ -50,3 +66,4 @@ export default function AnimateIn({
     </motion.div>
   );
 }
+
