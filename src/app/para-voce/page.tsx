@@ -55,42 +55,24 @@ export default function CartoesQueAcompanhamOSeuDiaADiaPage() {
             {
               id: 2,
               image: "/soltas/2-cartoes-dia-a-dia.webp",
-              title: "Vooz",
-              description: "Cartão múltiplo com baixa mensalidade, pagamento por aproximação e pontos Coopera a cada dólar gasto."
-            },
-            {
-              id: 3,
-              image: "/soltas/3-cartoes-dia-a-dia.webp",
-              title: "Clássico",
-              description: "Cartão com programa de pontos, benefícios das bandeiras e vantagens como cartão virtual e carteiras digitais."
-            },
-            {
-              id: 4,
-              image: "/soltas/1-cartoes-dia-a-dia.webp",
               title: "Gold",
               description: "Para compras do dia a dia, com transações seguras, controle pelo app e pagamento por aproximação."
             },
             {
-              id: 5,
-              image: "/soltas/2-cartoes-dia-a-dia.webp",
+              id: 3,
+              image: "/soltas/3-cartoes-dia-a-dia.webp",
               title: "Platinum",
               description: "Cartão múltiplo com baixa mensalidade, pagamento por aproximação e pontos Coopera a cada dólar gasto."
             },
             {
-              id: 6,
+              id: 4,
               image: "/soltas/cartao-sicoob-black.webp",
               title: "Black",
               description: "Cartão com programa de pontos, benefícios das bandeiras e vantagens como cartão virtual e carteiras digitais."
             },
             {
-              id: 7,
-              image: "/soltas/1-cartoes-dia-a-dia.webp",
-              title: "Visa Infinite",
-              description: "Para compras do dia a dia, com transações seguras, controle pelo app e pagamento por aproximação."
-            },
-            {
-              id: 8,
-              image: "/soltas/2-cartoes-dia-a-dia.webp",
+              id: 5,
+              image: "/soltas/5-cartoes-dia-a-dia.webp",
               title: "Zenith",
               description: "Cartão múltiplo com baixa mensalidade, pagamento por aproximação e pontos Coopera a cada dólar gasto."
             }

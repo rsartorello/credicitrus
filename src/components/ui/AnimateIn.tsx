@@ -10,6 +10,7 @@ interface AnimateInProps {
   className?: string;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
   distance?: number;
+  disableOnMobile?: boolean;
 }
 
 export default function AnimateIn({
@@ -19,25 +20,24 @@ export default function AnimateIn({
   className = '',
   direction = 'up',
   distance = 50,
+  disableOnMobile = false,
 }: AnimateInProps) {
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const media = window.matchMedia('(max-width: 767px)');
+    setIsMobile(media.matches);
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
   }, []);
 
-  const getVariants = () => {
-    // If on mobile, slide up instead of sliding horizontally to prevent horizontal scrollbars
-    const effectiveDirection = isMobile && (direction === 'left' || direction === 'right') 
-      ? 'up' 
-      : direction;
+  if (isMobile && disableOnMobile) {
+    return <div className={className}>{children}</div>;
+  }
 
-    switch (effectiveDirection) {
+  const getVariants = () => {
+    switch (direction) {
       case 'up':
         return { hidden: { opacity: 0, y: distance }, visible: { opacity: 1, y: 0 } };
       case 'down':

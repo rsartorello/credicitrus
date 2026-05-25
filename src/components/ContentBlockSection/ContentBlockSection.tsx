@@ -137,7 +137,7 @@ export default function ContentBlockSection({
           </AnimateIn>
 
           {/* Lado da Imagem */}
-          <AnimateIn direction="left" delay={0.2} className={`w-full md:w-1/2 flex justify-center ${isImageRight ? 'md:justify-start' : 'md:justify-end'}`}>
+          <AnimateIn direction="left" delay={0.2} disableOnMobile={true} className={`w-full md:w-1/2 flex justify-center ${isImageRight ? 'md:justify-start' : 'md:justify-end'}`}>
             <div
               className={`relative w-full max-w-[450px] md:max-w-[550px] ${imageAspectRatio} overflow-hidden ${noShadow ? '' : 'shadow-xl md:shadow-2xl'}`}
               style={{ borderRadius: '0 50px 0 50px' }} // Adjusted for mobile
