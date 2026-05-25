@@ -1,0 +1,100 @@
+/* Estilização customizada da paginação do Slider do SolucoesFinanceiras */
+.solucoes-bullet {
+  width: 40px;
+  height: 4px;
+  background-color: #d1d5db; /* gray-300 */
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.solucoes-bullet-active {
+  background-color: var(--color-secondary, #359e91);
+}
+
+.solucoes-btn-prev, .solucoes-btn-next {
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  user-select: none;
+}
+
+/* Container de Cards com Perspectiva 3D */
+.solucoes-cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Slot do Card Individual */
+.solucoes-card-slot {
+  position: absolute;
+  border-radius: 0 80px 0 80px !important;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0.6s ease;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Card Ativo no Centro */
+.solucoes-card-active {
+  transform: translate3d(0, 0, 0) scale(1.0);
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Card Inativo na Esquerda */
+.solucoes-card-left {
+  transform: translate3d(-260px, 0, -120px) rotateY(15deg) scale(0.85);
+  opacity: 0.6;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Card Inativo na Direita */
+.solucoes-card-right {
+  transform: translate3d(260px, 0, -120px) rotateY(-15deg) scale(0.85);
+  opacity: 0.6;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Ajustes de Responsividade */
+@media (max-width: 1024px) {
+  .solucoes-card-left {
+    transform: translate3d(-180px, 0, -100px) rotateY(12deg) scale(0.8);
+    opacity: 0.5;
+  }
+  .solucoes-card-right {
+    transform: translate3d(180px, 0, -100px) rotateY(-12deg) scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 640px) {
+  /* No mobile, oculta visualmente os cards laterais */
+  .solucoes-card-left {
+    transform: translate3d(-100%, 0, -100px) scale(0.7);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .solucoes-card-right {
+    transform: translate3d(100%, 0, -100px) scale(0.7);
+    opacity: 0;
+    pointer-events: none;
+  }
+}

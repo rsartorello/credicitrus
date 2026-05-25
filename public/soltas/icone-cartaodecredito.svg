@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="114" viewBox="0 0 59 114">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #359e91;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Forma_1" data-name="Forma 1" class="cls-1" d="M47.927,111.649L33.943,101.016a6.745,6.745,0,0,0-8.172,0L11.788,111.649A6.769,6.769,0,0,1,.931,106.223V7.3A6.788,6.788,0,0,1,7.7.495H52.013a6.788,6.788,0,0,1,6.771,6.8v98.924A6.769,6.769,0,0,1,47.927,111.649Z"/>
+  <image id="ICON_-_Cartao_de_Credito" data-name="ICON - Cartao de Credito" x="14" y="62" width="31" height="20" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAYAAAB1aeb6AAACHklEQVRIiWJkMHO0Y2BgWMjAwKDAQD/wgIGBIR4AAAD//wJZ/pCBgYGHgYFhGQMDw1862M/MwMAQxcDA8AUAAAD//2JhYGCQY2BgmMpwan8u3Txu5sjIwMCQDQAAAP//YoJy/9DNYph9DAwMAAAAAP//AvkcBLQYzBwT6Gi5FgMDAwMAAAD//wLF+X86WooADAwMAAAAAP//ggU7/QEDAwMAAAD//4IF+xsGBoandHSBNAMDgwgAAAD//4JZvpTh1P4Cullt5jiBgYEhHwAAAP//GrhgZ2BgAAAAAP//gvkcAswcWxgYGHTQ1EQzMDCIMTAw9KOJ72M4tX8Sg5ljHgMDgxOaXCEDA8MrcIiigvsMp/aD5BgYGBgYAAAAAP//QrWcgcGGgYHBHk2MlYGBgZ+BgcEfTfwDlDbCItfAwMDwHov4RTiLgYEBAAAA//9Ct7wGlBDQxL6CXczAEIgm/ghKT2JgYNiA4UMGhm9Y9HyEsxgYGAAAAAD//0K1/NT+I2iKkTWhWwDTc46BgQGEsQHsekCAgYEBAAAA//9Cj/NSaDbABU4xnNoPqoAoBwwMDAAAAAD//0IPdlDi0sdjMqjqpY7lDAwMAAAAAP//Qre8joGBQQiP+jvUspiBgYEBAAAA//+CWQ6hT+3fRE3D8drLwMAAAAAA//8auMYEA8MXAAAAAP//ArkgFhqXOXSwGAYeMDAwxAMAAAD//wMA9RVFlxhasWgAAAAASUVORK5CYII="/>
+</svg>

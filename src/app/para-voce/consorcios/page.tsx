@@ -1,0 +1,222 @@
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import Hero from "@/components/Hero/Hero";
+import Rodape from "@/components/Rodape/Rodape";
+import SejaAssociado from "@/components/SejaAssociado/SejaAssociado";
+import OutrasSolucoesGeral from "@/components/OutrasSolucoesGeral/OutrasSolucoesGeral";
+import Faq from "@/components/Faq/Faq";
+import FeatureCardsSection from "@/components/FeatureCardsSection/FeatureCardsSection";
+import ContentBlockSection from "@/components/ContentBlockSection/ContentBlockSection";
+import CentralAtendimentoSection from "@/components/CentralAtendimentoSection/CentralAtendimentoSection";
+import AnimateIn from '@/components/ui/AnimateIn';
+
+
+export default function ConsorciosParaCadaObjetivoPage() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-grow">
+        <Hero
+          backgroundImage="/soltas/hero-para-voce-consorcios.png"
+          titleLines={[
+            "CONSÓRCIOS",
+            "PARA CADA",
+            "OBJETIVO"
+          ]}
+          highlightIndices={[2]}
+          buttons={[
+            { label: "Abra já sua conta pessoal", href: "#", variant: "secondary" },
+            { label: "Já sou associado e quero solicitar", href: "#", variant: "primary" }
+          ]}
+        />
+
+        <FeatureCardsSection
+          sectionBgClass="bg-white"
+          cardBgClass="bg-white"
+          eyebrowText="PARA VOCÊ"
+          title={
+            <>
+              Consórcio para realizar <br />
+              seu próximo sonho
+            </>
+          }
+          description="Na Credicitrus, você transforma objetivo em conquista com compra planejada, sem juros, e carta de crédito para imóveis, veículos, serviços e muito mais."
+          cards={[
+            {
+              id: 1,
+              image: "/soltas/1-consorcios-objetivo.png",
+              title: "Imóveis",
+              description: "Adquira seu imóvel urbano, rural ou terreno."
+            },
+            {
+              id: 2,
+              image: "/soltas/2-consorcios-objetivo.png",
+              title: "Automóveis",
+              description: "Compre seu automóvel ou moto, novo ou usado."
+            },
+            {
+              id: 3,
+              image: "/soltas/3-consorcios-objetivo.png",
+              title: "Serviços",
+              description: "Contrate consultorias, projetos, viagens, saúde e festas."
+            },
+            {
+              id: 4,
+              image: "/soltas/4-consorcios-objetivo.png",
+              title: "Pesados",
+              description: "Equipe a operação com caminhões, ônibus e implementos agrícolas."
+            },
+            {
+              id: 5,
+              image: "/soltas/5-consorcios-objetivo.png",
+              title: "Outros bens",
+              description: "Adquira bens móveis duráveis, como eletrônicos e eletrodomésticos."
+            }
+          ]}
+          gridCols={3}
+          ctaTitle="Ficou na dúvida sobre o consórcio?"
+          ctaButtonText="Fale com nosso especialista!"
+        />
+
+        {/* Seção Como Funciona */}
+        <section id="como-funciona" className="w-full bg-white py-16 md:py-24 lg:py-32 overflow-hidden">
+          <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1200px]">
+            {/* Header */}
+            <div className="text-center mb-16 md:mb-24">
+              <h4 className="text-verdecredicitrus font-medium text-base md:text-lg lg:text-xl uppercase tracking-wider mb-4">
+                COMO FUNCIONA
+              </h4>
+              <h2 className="text-primary font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight">
+                Entenda a dinâmica do consórcio
+              </h2>
+            </div>
+
+            {/* Middle Block: Large Text + Image */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-8 mb-16 md:mb-24">
+              <div className="w-full md:w-[55%] flex justify-end">
+                <h3
+                  style={{
+                    fontSize: 'clamp(2.2rem, 7vw, 4rem)',
+                    lineHeight: '1.1',
+                    fontWeight: '500',
+                    letterSpacing: '0.15em',
+                    width: '100%'
+                  }}
+                  className="text-secondary uppercase text-center md:text-right"
+                >
+                  O CONSÓRCIO<br />
+                  É UMA FORMA<br />
+                  DE COMPRA<br />
+                  PARCELADA E<br />
+                  PROGRAMADA
+                </h3>
+              </div>
+              <div className="w-full md:w-[45%]">
+                <div className="relative aspect-square w-full overflow-hidden" style={{ borderRadius: '0 140px 0 140px' }}>
+                  <Image
+                    src="/soltas/6-consorcios-objetivo.png"
+                    alt="Família planejando o futuro"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Text */}
+            <div className="max-w-[1100px] mx-auto">
+              <p className="text-primary font-medium text-lg md:text-xl lg:text-[1.75rem] leading-relaxed text-center">
+                Sem juros, em que pessoas ou empresas se organizam em grupos para formar um fundo comum. Nas assembleias do grupo (normalmente mensais), ocorrem as contemplações por sorteio e/ou lance, conforme o regulamento. Ao ser contemplado, você recebe uma carta de crédito, que é um valor aprovado para a aquisição do bem ou serviço, com poder de negociação semelhante ao pagamento à vista.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção Outras Soluções */}
+        <OutrasSolucoesGeral
+          sectionSubtitle="SOLUÇÕES PARA VOCÊ"
+          sectionTitle={
+            <>
+              Explore outras vantagens de ser Credicitrus <br className="hidden md:block" />
+              e cresça com quem entende de gente
+            </>
+          }
+          slides={[
+            {
+              id: 1,
+              title: 'Empréstimos e Financiamentos',
+              description: 'Crédito para suas necessidades.',
+              icon: '/soltas/icone-emprestimos.svg',
+              link: '/para-voce/emprestimos-e-financiamentos'
+            },
+            {
+              id: 2,
+              title: 'Investimentos',
+              description: 'Faça seu dinheiro render mais.',
+              icon: '/soltas/icone-investimentos.svg',
+              link: '/para-voce/investimentos'
+            },
+            {
+              id: 3,
+              title: 'Seguros',
+              description: 'Proteção para você e sua família.',
+              icon: '/soltas/icone-seguro.svg',
+              link: '/para-voce/seguros'
+            },
+            {
+              id: 4,
+              title: 'Credicitrus Club',
+              description: 'Benefícios exclusivos para cooperados.',
+              icon: '/soltas/icone-credicitrusclub.svg',
+              link: '/para-voce/credicitrus-club'
+            }
+          ]}
+        />
+
+        <Faq
+          subtitle="DÚVIDAS FREQUENTES"
+          title="Tire suas dúvidas sobre consórcio:"
+          items={[
+            {
+              question: 'Como acontecem as contemplações?',
+              answer: 'As contemplações ocorrem em assembleias periódicas por sorteio e/ou lance, conforme o regulamento do grupo.'
+            },
+            {
+              question: 'O que é a carta de crédito e como você usa?',
+              answer: 'Ao ser contemplado(a), você recebe uma carta de crédito, que trata-se de um valor aprovado para adquirir o bem/serviço conforme o regulamento. Na prática, ela oferece poder de negociação semelhante ao pagamento à vista, dentro das regras do grupo.'
+            },
+            {
+              question: 'O consórcio tem juros?',
+              answer: 'Não. O consórcio não tem cobrança de juros. Você paga somente a taxa de administração e, conforme o grupo, fundo de reserva e seguro prestamista previstos no contrato.'
+            },
+            {
+              question: 'Posso antecipar minha contemplação com lance?',
+              answer: 'Sim. Você pode ofertar lance para tentar antecipar a contemplação, conforme as regras do grupo (tipos e condições variam).'
+            },
+            {
+              question: 'Qual a principal diferença entre consórcio e financiamento?',
+              answer: 'No consórcio, não há juros e a aquisição ocorre após contemplação (sorteio/lance); no financiamento, a compra é imediata, mas há juros embutidos nas parcela.'
+            }
+          ]}
+          cta={{
+            title: "Sua dúvida não foi resolvida?",
+            buttonText: "Fale com nosso especialista!",
+            href: "#"
+          }}
+        />
+
+        <SejaAssociado
+          subtitle="SEJA ASSOCIADO"
+          title={"Pronto para\nconquistar\nseus objetivos?"}
+          description={"Abra sua conta e transforme planos em conquistas: consórcio com taxas justas, previsibilidade e a solidez do cooperativismo."}
+          buttonText="Abra sua conta Pessoal"
+          imageSrc="/soltas/cartoes.png"
+        />
+
+      </main>
+      <Rodape />
+    </div>
+  );
+}

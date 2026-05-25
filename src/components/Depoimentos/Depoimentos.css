@@ -1,0 +1,38 @@
+/* Estilização customizada da paginação do Slider de Depoimentos */
+.depoimentos-pagination {
+  position: static !important;
+  width: auto !important;
+}
+
+.depoimentos-bullet {
+  width: 40px;
+  height: 4px;
+  background-color: #e5e7eb; /* gray-200 */
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+  opacity: 1 !important;
+}
+
+.depoimentos-bullet-active,
+.hero-bullet-active {
+  background-color: var(--color-secondary, #00a99d) !important;
+}
+
+.depoimentos-prev, .depoimentos-next {
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.depoimentos-prev svg path, .depoimentos-next svg path {
+  transition: stroke 0.3s ease;
+}
+
+.depoimentos-prev:hover svg path, .depoimentos-next:hover svg path {
+  stroke: var(--color-secondary, #00a99d);
+}
+

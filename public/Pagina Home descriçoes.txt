@@ -1,0 +1,57 @@
+Dentro da raiz do projeto existe um arquivo chamado Style_Guide.md com todas as instruções e parametrização deste projeto. Sempre utilize o para referencia de estilizações, padrões e parâmetros. 
+
+
+Header
+Crie um componente chamado Header baseado na imagem disponível na pasta @layouts. Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Como regra geral, as imagens utilizadas estão na pasta @soltas. Na duvida de alguma informação, sempre me perguntar.
+
+Hero
+Crie um componente chamado HeroHome baseado na imagem disponível na pasta @layouts. Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Como regra geral, as imagens utilizadas estão na pasta @soltas. Na duvida de alguma informação, sempre me perguntar. Ainda de acordo com o Style_Guide aplique o slide somente no botão disponível no layout. Faça duas copias do botão como marcação. Lembre se de aplicar a navegação personalizada para o slide seguindo o layout abaixo do botão (setas e linhas). Em todas as resoluções exibir somente 1 botão por slide. 
+
+Solucoes financeiras
+Crie um componente chamado SolucoesFinanceiras baseado na imagem disponível na pasta @layouts. Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Como regra geral, as imagens utilizadas estão na pasta @soltas. Na primeira linha de texto usadar a configuração de tipografia H4 com peso Medium, na segunda frase usar a tipografia H2 com peso ExtraBold e no terceiro texto usar a tipografia H3 com peso Bold. Na duvida de alguma informação, sempre me perguntar.
+As imagens são slides onde sua animação de transição devera ser baseada no efeito card do swipe. ative o loop não insira o autoplay e insira a navegação personalizada baseada no layout de setas e linhas abaixo das imagens, quanto aos textos e botões do slide, siga o arquivo Style_Guide
+
+Sobre Nos
+Crie um componente chamado SobreNos1 baseado na imagem disponível na pasta @layouts. Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Como regra geral, as imagens utilizadas estão na pasta @soltas, colocar elas com os parâmetros da imagem do layout. Na duvida de alguma informação, sempre me perguntar.Na primeira linha de texto usadar a configuração de tipografia H4 com peso Medium, na segunda frase usar a tipografia H2 com peso ExtraBold e no terceiro texto usar a tipografia H1, com tamanho 65 com peso Medium e na cor VerdeCredicitrus, o quarto texto aplicar H3 na cor primaria.
+
+Fazer ele ser reutilizável, fazer de uma forma onde a posição que contem a imagem com o texto ao lado possa ser alternada entre elas, exemplo, colocando a imagem na esquerda e o texto na direita, ou vice versa.
+
+
+Sobre Nos 2
+Crie um componente reutilizando o SobreNos1, utilizando a imagem de layout de referencia que esta na pasta @layouts com o nome SobreNos2 as imagens usadas estão na pasta @soltas. Aplique os elementos conforme o layout, mantendo as novas posições caso elas mudem.
+
+Sobre Nos 3
+Crie um componente reutilizando o SobreNos1, utilizando a imagem de layout de referencia que esta na pasta @layouts com o nome SobreNos3 as imagens usadas estão na pasta @soltas. Aplique os elementos conforme o layout, mantendo as novas posições caso elas mudem.
+
+Sobre Nos 4
+Crie um componente reutilizando o SobreNos1, utilizando a imagem de layout de referencia que esta na pasta @layouts com o nome SobreNos4 as imagens usadas estão na pasta @soltas. Aplique os elementos conforme o layout, mantendo as novas posições caso elas mudem. Mantenha todos os textos, mesmo que seja repetitivo
+
+Sobre Nos 5
+Crie um componente com base no layout de nome SobreNos5 que esta na pasta @layouts seguindo parâmetros e diretrizes. Em cada box, eles precisam ser clicáveis e totalmente editáveis os textos que contem dentro deles. A tipografia do texto 3 é H3, porem com a cor secundaria e tamanho de fonte 83,52pt. 
+
+AppSicoob
+Crie um componente com base no layout de nome AppSicoob que esta na pasta @layouts seguindo parâmetros e diretrizes. Onde aplicar para o primeiro texto a tipografia H4 Medium tamanho 20pt, Para o Segundo texto aplicar H1 com peso Extrabold tamanho 62,25pt, e para os textos 3, aplicar tipografia de peso SemiBold e tamanho 17,16pt e para o ultimo texto aplicar tipografia H2 de peso Bold e tamanho 25,63pt. As imagens usadas estão dentro de @soltas.
+
+Depoimentos
+Crie um componente com base no layout de nome Depoimentos que esta na pasta @layouts seguindo parâmetros e diretrizes.Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Onde as imagens vao seguir o padrão de carrossel em loop, sendo textox dAS IMAGENS AJUSTAGENS E ELAS SERAO CLICAVEIS COMO BOTOES. ao lago, tem as setas, o layout que vai acompanhar esses box de depoimentos. as imagens estão na pasta @soltas. Primeiro Texto segue o padrão H4 de peso Medium, o segundo texto de H1 com peso ExtraBold com tamanho 62,25pt e o terceiro texto em H3.
+
+
+Iniciativa
+Crie um componente com base no layout de nome Iniciativa que esta na pasta @layouts seguindo parâmetros e diretrizes. Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Onde o primeiro texto segue o padrão H4 de peso Medium, o segundo texto de H1 com peso ExtraBold com tamanho 62,25pt e os textos dentro dos box sendo o primeiro texto H3 de tamanho 19,33pt e peso bold, o segundo texto H4 de cor primaria e peso médium de tamanho 13, e o texto dentro do botão H3 de tamanho 14pt e peso bold. Os box tem que ser totalmente ajustáveis os itens que contem neles. as imagens estão na pasta @soltas.
+
+Iniciativa
+Crie um componente com base no layout de nome Iniciativa que esta na pasta @layouts seguindo parâmetros e diretrizes. Utilize o arquivo STYLE_GUIDE como referencia para os estilos.as imagens estão na pasta @soltas.as imagens vao seguir o padrão de carrossel em loop, sendo textox dAS IMAGENS AJUSTAGENS E ELAS SERAO CLICAVEIS COMO BOTOES. abaixo, tem as setas, o layout que vai acompanhar esses box. o primeiro texto segue o padrão H4 de peso Medium, o segundo texto de H1 com peso ExtraBold com tamanho 62,25pt. Os box tem que ser totalmente ajustáveis os itens que contem neles. Primeiro texto do box sera fonte Montserrat, peso Light, tamanho 21,67pt, e o outro texto abaixo sera H3 de tamanho 12,21pt de peso Bold.
+
+Acesso Rápido
+Crie um componente com base no layout de nome AcessoRapido que esta na pasta @layouts seguindo parâmetros e diretrizes. Utilize o arquivo STYLE_GUIDE como referencia para os estilos. Onde o primeiro texto segue o padrão H4 de peso Medium, o segundo texto de H1 com peso ExtraBold com tamanho 62,25pt. Ox textos dentro dox box precisam ser 100% ajustáveis. Os ícones e posição de cada ícone de cada box tem que ser respeitado o layout. Fique atento a hover quando o mouse ficar por cima de um dos quadros. 
+
+SejaAssociado
+Crie um componente com base no layout de nome SejaAssociado que esta na pasta @layouts seguindo parâmetros e diretrizes. Utilize o arquivo STYLE_GUIDE como referencia para os estilos.Onde o primeiro texto segue o padrão H4 de peso Medium, o segundo texto de H1 com peso ExtraBold com tamanho 62,25pt, o terceiro texto em H3 de peso Bold.as imagens estão na pasta @soltas.
+
+Rodape
+Crie um componente com base no layout de nome Rodape que esta na pasta @layouts seguindo parâmetros e diretrizes. Utilize o arquivo STYLE_GUIDE como referencia para os estilos.
+Onde os textos da parte antes dos ícones na parte superior serão de tamanho 13, usando os pesos Bold e Regular. O texto abaixo da Linha tamanho 10 e peso Regular. Todos os textox precisam ter ações como botão. somente onde esta o CNPJ que não precisa e o texto de peso 10. A ultima imagem, não precisa ter nenhum efeito.
+
+
+Todas as imagens enviadas como referencia de Layout estão com largura de 2912px.como utilizamos os breakspoints do tailwind, cuja a largura máxima é 1536px, Reescreva todos os tamanhos de fontes e imagens e espaçamentos baseados nessa proporção, por exemplo, o titulo do banner esta em 52pt, levando em consideração a largura de 2912px, esse tamanho precisa ser convertido para REM mantendo a proporção para cada um dos breakspoints nativos do tailwind. Antes de fazer qualquer ação, me explique o que sera feito para que eu possa ver se o que eu te pedi esta correto e foi entendido.
+

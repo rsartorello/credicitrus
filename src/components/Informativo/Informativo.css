@@ -1,0 +1,22 @@
+/* Estilização customizada da paginação do Slider do Informativo (Fique Por Dentro) */
+.informativo-bullet {
+  width: 40px;
+  height: 4px;
+  background-color: #6b7280; /* gray-500 */
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.informativo-bullet-active {
+  background-color: var(--color-secondary, #359e91);
+}
+
+.informativo-prev, .informativo-next {
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,40 @@
+/* Estilização customizada da paginação do Slider do Hero */
+.hero-bullet {
+  width: 40px !important;
+  height: 4px !important;
+  background: #E2E8F0 !important; /* Solid light grey for inactive bullets */
+  opacity: 1 !important;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn-pagination .hero-bullet.swiper-pagination-bullet-active {
+  background: var(--color-secondary, #00a99d) !important;
+  opacity: 1 !important;
+}
+
+.hero-btn-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 20px !important; /* Unified gap between bullets */
+  position: static !important;
+  width: auto !important;
+}
+
+.hero-btn-prev, .hero-btn-next {
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E2E8F0; /* Matching light grey for the arrows */
+  transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero-btn-prev:hover, .hero-btn-next:hover {
+  transform: scale(1.1);
+  color: var(--color-secondary, #00a99d);
+}
