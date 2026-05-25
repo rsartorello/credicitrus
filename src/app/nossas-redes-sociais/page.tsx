@@ -37,10 +37,10 @@ const YoutubeIcon = ({ size = 24, strokeWidth = 2, className = "" }) => (
 );
 
 const redesSociais = [
-  { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/credicitrus/' },
-  { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/sicoobcredicitrus/' },
+  { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/SicoobCredicitrus/' },
+  { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/credicitrus/' },
   { name: 'LinkedIn', icon: LinkedinIcon, href: 'https://www.linkedin.com/company/sicoob-credicitrus/' },
-  { name: 'Youtube', icon: YoutubeIcon, href: 'https://www.youtube.com/c/SicoobCredicitrus' },
+  { name: 'Youtube', icon: YoutubeIcon, href: 'https://www.youtube.com/channel/UCjdKzIzfl5Ywst_XO_tsJjA/featured?view_as=subscriber' },
 ];
 
 export default function NossasRedesSociaisPage() {
@@ -73,6 +73,8 @@ export default function NossasRedesSociaisPage() {
                   <a
                     key={idx}
                     href={rede.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-white rounded-[2rem] p-8 md:p-6 lg:p-8 flex flex-col sm:aspect-square shadow-[0_4px_20px_0_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 group max-w-[280px] sm:max-w-[240px] mx-auto w-full"
                   >
                     <div className="text-secondary mb-8 sm:mb-0">

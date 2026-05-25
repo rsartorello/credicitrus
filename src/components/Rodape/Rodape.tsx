@@ -138,11 +138,11 @@ export default function Rodape() {
         {/* Social Icons Strip (Border Top/Bot) */}
         <div className="w-full border-t border-b border-[#00a99d]/40 py-8 mb-8 flex items-center justify-center gap-6 md:gap-8">
 
-          <Link href="https://www.instagram.com/sicoobcredicitrus/" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.instagram.com/credicitrus/" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
             <InstagramIcon />
           </Link>
 
-          <Link href="https://www.facebook.com/credicitrus/" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.facebook.com/SicoobCredicitrus/" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
             <FacebookIcon />
           </Link>
 
@@ -154,7 +154,7 @@ export default function Rodape() {
             <TikTokIcon />
           </Link>
 
-          <Link href="https://www.youtube.com/c/SicoobCredicitrus" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.youtube.com/channel/UCjdKzIzfl5Ywst_XO_tsJjA/featured?view_as=subscriber" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
             <YouTubeIcon />
           </Link>
 
