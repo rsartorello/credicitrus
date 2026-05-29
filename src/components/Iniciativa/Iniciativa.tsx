@@ -37,7 +37,7 @@ export default function Iniciativa({
       title: 'Credicitrus Club',
       description: 'Programa de benefícios exclusivos para nossos cooperados, com descontos e vantagens em estabelecimentos parceiros.',
       buttonText: 'Saiba mais',
-      buttonHref: '#'
+      buttonHref: 'https://credicitrusclub.com.br'
     },
     {
       id: 'instituto',
@@ -47,7 +47,7 @@ export default function Iniciativa({
       title: 'Instituto Credicitrus',
       description: 'Nossa iniciativa de responsabilidade social, promovendo educação financeira e desenvolvimento sustentável nas comunidades.',
       buttonText: 'Conheça o Instituto',
-      buttonHref: '#'
+      buttonHref: 'https://institutocredicitrus.com.br'
     },
     {
       id: 'portal-agro',
@@ -57,7 +57,7 @@ export default function Iniciativa({
       title: 'Portal Agro',
       description: 'Plataforma digital completa para o agronegócio, com soluções tecnológicas e informações especializadas para o campo.',
       buttonText: 'Acesse o Portal',
-      buttonHref: '#'
+      buttonHref: 'https://portalagro.sicoobcredicitrus.com.br/'
     }
   ]
 }: IniciativaProps) {
@@ -214,11 +214,10 @@ export default function Iniciativa({
                 <button
                   key={index}
                   onClick={() => swiperRef.current?.slideTo(index)}
-                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${
-                    activeIndex === index
+                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${activeIndex === index
                       ? 'bg-[#8fb534]'
                       : 'bg-[#003641]/20'
-                  }`}
+                    }`}
                   style={{ height: '2px' }}
                 />
               ))}

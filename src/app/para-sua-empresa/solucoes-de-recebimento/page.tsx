@@ -53,8 +53,8 @@ export default function RecebaPraticidadeSegurancaPage() {
           highlightIndices={0}
           subtitleColor="secondary"
           buttons={[
-            { label: "Abra já sua conta PJ", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero receber melhor", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero receber melhor", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 

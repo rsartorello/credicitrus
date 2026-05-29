@@ -132,8 +132,8 @@ export default function SolucoesEmpresaGrid() {
                     <div className="shrink-0 w-[56px] ml-6" />
 
                     {/* Title Column */}
-                    <div className="flex-1 flex items-center pl-4 pr-6 py-4">
-                      <h3 className="text-primary font-extrabold text-[1.1rem] leading-snug">
+                    <div className="flex-1 min-w-0 flex items-center pl-4 pr-6 py-4">
+                      <h3 className="text-primary font-extrabold text-[0.95rem] sm:text-[1rem] leading-snug w-full">
                         {item.title}
                       </h3>
                     </div>
@@ -217,8 +217,8 @@ export default function SolucoesEmpresaGrid() {
                   <div className="shrink-0 w-[56px] ml-6 md:ml-8" />
 
                   {/* Title Column */}
-                  <div className="flex-1 flex items-center pl-4 pr-6 py-4">
-                    <h3 className="text-primary font-extrabold text-[1.1rem] md:text-[1.15rem] lg:text-[1.25rem] leading-snug">
+                  <div className="flex-1 min-w-0 flex items-center pl-4 pr-6 py-4">
+                    <h3 className="text-primary font-extrabold text-[0.95rem] md:text-[0.95rem] lg:text-[0.95rem] xl:text-[1.1rem] 2xl:text-[1.2rem] leading-snug w-full">
                       {item.title}
                     </h3>
                   </div>

@@ -21,8 +21,8 @@ export default function SeguroParaVocePage() {
           subtitleColor="secondary"
           mirrorImage={false}
           buttons={[
-            { label: "Para você e vida", href: "#vida", variant: "secondary" },
-            { label: "Para seu patrimônio e bens", href: "#bens", variant: "primary" }
+            { label: "Abra sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero contratar", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 
@@ -87,27 +87,41 @@ export default function SeguroParaVocePage() {
           slides={[
             {
               id: 1,
+              title: 'Cartões de Crédito',
+              description: 'Cartões com benefícios exclusivos.',
+              icon: '/soltas/icone-cartaodecredito.svg',
+              link: '/para-voce/cartoes-de-credito'
+            },
+            {
+              id: 2,
               title: 'Empréstimos e Financiamentos',
               description: 'Crédito para suas necessidades.',
               icon: '/soltas/icone-emprestimos.svg',
               link: '/para-voce/emprestimos-e-financiamentos'
             },
             {
-              id: 2,
+              id: 3,
               title: 'Investimentos',
               description: 'Faça seu dinheiro render mais.',
               icon: '/soltas/icone-investimentos.svg',
               link: '/para-voce/investimentos'
             },
             {
-              id: 3,
+              id: 4,
               title: 'Consórcio',
               description: 'Realize seus sonhos de forma planejada.',
               icon: '/soltas/icone-consorcio.svg',
               link: '/para-voce/consorcios'
             },
             {
-              id: 4,
+              id: 5,
+              title: 'Soluções de Recebimento',
+              description: 'Facilidade para receber e gerenciar seus pagamentos diários.',
+              icon: '/soltas/icone-solucoesderecebimento.svg',
+              link: '/para-voce/solucoes-de-recebimento'
+            },
+            {
+              id: 6,
               title: 'Credicitrus Club',
               description: 'Benefícios exclusivos para cooperados.',
               icon: '/soltas/icone-credicitrusclub.svg',
@@ -145,7 +159,7 @@ export default function SeguroParaVocePage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 

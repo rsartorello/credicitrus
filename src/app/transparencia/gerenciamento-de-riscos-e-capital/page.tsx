@@ -1,11 +1,143 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FileText, ChevronRight } from 'lucide-react';
 import Hero from '@/components/Hero/Hero';
 import Rodape from '@/components/Rodape/Rodape';
 
+const riskCapitalItems = [
+  {
+    id: "pilar-3",
+    title: "Relatório de Pilar 3",
+    subtitle: "Gerenciamento de Riscos",
+    options: [
+      { label: "4º Trimestre", year: "2025", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2025_4T.pdf" },
+      { label: "3º Trimestre", year: "2025", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2025_3T.pdf" },
+      { label: "2º Trimestre", year: "2025", quarter: "2T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2025_2T.pdf" },
+      { label: "1º Trimestre", year: "2025", quarter: "1T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2025_1T.pdf" },
+      { label: "4º Trimestre", year: "2024", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2024_4T.pdf" },
+      { label: "3º Trimestre", year: "2024", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2024_3T.pdf" },
+      { label: "2º Trimestre", year: "2024", quarter: "2T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2024_2T.pdf" },
+      { label: "1º Trimestre", year: "2024", quarter: "1T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2024_1T.pdf" },
+      { label: "4º Trimestre", year: "2023", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2023_4T.pdf" },
+      { label: "3º Trimestre", year: "2023", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2023_3T.pdf" },
+      { label: "2º Trimestre", year: "2023", quarter: "2T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2023_2T.pdf" },
+      { label: "1º Trimestre", year: "2023", quarter: "1T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2023_1T.pdf" },
+      { label: "4º Trimestre", year: "2022", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2022_4T.pdf" },
+      { label: "3º Trimestre", year: "2022", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2022_3T.pdf" },
+      { label: "4º Trimestre", year: "2021", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2021_4T.pdf" },
+      { label: "4º Trimestre", year: "2020", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/pilar-3/2020_4T.pdf" }
+    ]
+  },
+  {
+    id: "anexos-pilar-3",
+    title: "Anexos Pilar 3",
+    subtitle: "Gerenciamento de Riscos",
+    options: [
+      { label: "4º Trimestre", year: "2025", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2025_4T.xlsx" },
+      { label: "3º Trimestre", year: "2025", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2025_3T.xlsx" },
+      { label: "2º Trimestre", year: "2025", quarter: "2T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2025_2T.xlsx" },
+      { label: "1º Trimestre", year: "2025", quarter: "1T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2025_1T.xlsx" },
+      { label: "4º Trimestre", year: "2024", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2024_4T.xlsx" },
+      { label: "3º Trimestre", year: "2024", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2024_3T.xlsx" },
+      { label: "2º Trimestre", year: "2024", quarter: "2T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2024_2T.xlsx" },
+      { label: "1º Trimestre", year: "2024", quarter: "1T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2024_1T.xlsx" },
+      { label: "4º Trimestre", year: "2023", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2023_4T.xlsx" },
+      { label: "3º Trimestre", year: "2023", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2023_3T.xlsx" },
+      { label: "2º Trimestre", year: "2023", quarter: "2T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2023_2T.xlsx" },
+      { label: "1º Trimestre", year: "2023", quarter: "1T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2023_1T.xlsx" },
+      { label: "4º Trimestre", year: "2022", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2022_4T.xlsx" },
+      { label: "3º Trimestre", year: "2022", quarter: "3T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/anexos-pilar-3/2022_3T.xlsx" }
+    ]
+  },
+  {
+    id: "grsac",
+    title: "Relatório de GRSAC",
+    subtitle: "Riscos e Oportunidades\nSociais, Ambientais\ne Climáticas",
+    options: [
+      { label: "4º Trimestre", year: "2025", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/grsac/2025_4T.pdf" },
+      { label: "4º Trimestre", year: "2024", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/grsac/2024_4T.pdf" },
+      { label: "4º Trimestre", year: "2023", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/grsac/2023_4T.pdf" },
+      { label: "4º Trimestre", year: "2022", quarter: "4T", url: "/files/transparencia/gerenciamento-de-riscos-e-capital/grsac/2022_4T.pdf" }
+    ]
+  }
+] as const;
+
 export default function GerenciamentoRiscosCapitalPage2() {
+  const [selectedYears, setSelectedYears] = useState<{ [key: string]: string }>(() => {
+    const initial: { [key: string]: string } = {};
+    riskCapitalItems.forEach(item => {
+      const years = Array.from(new Set(item.options.map(opt => opt.year))).sort((a, b) => b.localeCompare(a));
+      initial[item.id] = years[0] || '';
+    });
+    return initial;
+  });
+
+  const renderCard = (cardId: 'pilar-3' | 'anexos-pilar-3' | 'grsac') => {
+    const item = riskCapitalItems.find(i => i.id === cardId);
+    if (!item) return null;
+
+    const years = Array.from(new Set(item.options.map(opt => opt.year))).sort((a, b) => b.localeCompare(a));
+    const currentYear = selectedYears[cardId] || years[0] || '';
+    const filteredOptions = item.options.filter(opt => opt.year === currentYear).sort((a, b) => a.quarter.localeCompare(b.quarter));
+
+    return (
+      <div className="bg-[#0f2e2d] rounded-[2rem] p-6 md:p-10 flex flex-col justify-between min-h-[380px] shadow-sm hover:shadow-xl transition-all duration-300 w-full border border-white/5">
+        <div className="flex flex-col items-start w-full">
+          <div className="bg-[#00a99d]/10 rounded-xl p-3 mb-6">
+            <FileText className="w-8 h-8 text-[#00a99d]" />
+          </div>
+          <h3 className="text-white font-extrabold text-xl md:text-[1.35rem] leading-snug whitespace-pre-line">{item.title}</h3>
+          <p className="text-white/70 text-sm mt-2 whitespace-pre-line leading-relaxed">{item.subtitle}</p>
+        </div>
+
+        {/* Selector and Options */}
+        <div className="w-full mt-6">
+          <div className="w-full">
+            <label className="block text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1.5">Ano de Referência</label>
+            <select
+              value={currentYear}
+              onChange={(e) => setSelectedYears(prev => ({ ...prev, [cardId]: e.target.value }))}
+              className="w-full bg-[#123938] text-white border border-[#00a99d]/30 focus:border-[#00a99d] rounded-xl px-4 py-2.5 text-xs font-bold outline-none cursor-pointer transition-all duration-200"
+            >
+              {years.map(y => (
+                <option key={y} value={y} className="bg-[#0f2e2d] text-white">
+                  {y}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Quarters list */}
+          <div className="mt-4 flex flex-col gap-2">
+            {filteredOptions.map((opt, idx) => {
+              const qLabel = opt.quarter === '1T' ? '1º Trimestre' :
+                             opt.quarter === '2T' ? '2º Trimestre' :
+                             opt.quarter === '3T' ? '3º Trimestre' :
+                             opt.quarter === '4T' ? '4º Trimestre' : 'Trimestre';
+              return (
+                <a
+                  key={idx}
+                  href={opt.url}
+                  download
+                  className="group flex items-center justify-between bg-[#123938] hover:bg-[#00a99d] border border-[#00a99d]/10 hover:border-[#00a99d] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all duration-200"
+                >
+                  <span className="flex items-center gap-2">
+                    <svg className="w-3.5 h-3.5 text-[#00a99d] group-hover:text-white shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span>{qLabel}</span>
+                  </span>
+                  <ChevronRight className="w-3.5 h-3.5 text-white/50 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <main>
@@ -48,7 +180,7 @@ export default function GerenciamentoRiscosCapitalPage2() {
                     assessorar o Conselho de Administração na definição de diretrizes e estratégias relativas ao gerenciamento de
                     riscos e de capital, visando o cumprimento e a observância de políticas aplicáveis à Instituição. A estrutura de
                     Gerenciamento Integrado de Riscos e de Capital da Credicitrus é compatível com o modelo de negócio, a
-                    natureza das operações e a complexidade dos produtos, serviços, atividades e processos da instituição,
+                    natureza das operações e a complexidade dos produtos, serviços, activities e processos da instituição,
                     proporcionais à dimensão e relevância dos riscos aos quais a Cooperativa está exposta, de forma a assegurar o
                     seu efetivo gerenciamento.
                   </p>
@@ -89,7 +221,7 @@ export default function GerenciamentoRiscosCapitalPage2() {
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">•</span>
-                      <span>Coordenar suas atividades com o Comitê de Auditoria, de modo a facilitar a troca de informação, os ajustes necessários à estrutura de governança de riscos e o efetivo tratamento dos riscos a que a cooperativa está exposta;</span>
+                      <span>Coordenar suas atividades com o Comitê de Auditoria, de modo a facilitar a troca de informação, os adjustments necessários à estrutura de governança de riscos e o efetivo tratamento dos riscos a que a cooperativa está exposta;</span>
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">•</span>
@@ -105,7 +237,7 @@ export default function GerenciamentoRiscosCapitalPage2() {
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">•</span>
-                      <span>Reunir-se com o Conselho de Administração, mediante convocação deste, no mínimo semestralmente, para, dentre outras matérias eventualmente pertinentes, discutir acerca de políticas, práticas e procedimentos identificados no âmbito das suas respectivas competências;</span>
+                      <span>Reunir-se com o Conselho de Administração, mediante convocação deste, no mínimo semestralmente, para, dentre outras matérias eventualmente pertinentes, discutir acerca de políticas, práticas e procedures identificados no âmbito das suas respectivas competências;</span>
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">•</span>
@@ -117,55 +249,14 @@ export default function GerenciamentoRiscosCapitalPage2() {
             </div>
 
             {/* Download Blocks Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-
-              {/* Block 1 */}
-              <a href="#" className="group bg-primary rounded-[2rem] p-6 md:p-10 flex flex-col items-start justify-between min-h-[280px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="flex flex-col items-start">
-                  <div className="bg-[#00a99d]/10 rounded-xl p-3 mb-8">
-                    <FileText className="w-8 h-8 text-[#00a99d]" />
-                  </div>
-                  <h3 className="text-white font-extrabold text-xl md:text-[1.35rem] leading-snug whitespace-pre-line">{`RELATÓRIO\nDE PILAR 3`}</h3>
-                  <p className="text-white/70 text-sm mt-2">Gerenciamento de Riscos</p>
-                </div>
-                <div className="flex items-center gap-2 text-[#00a99d] font-bold text-lg mt-8 group-hover:gap-4 transition-all">
-                  Baixar <ChevronRight className="w-5 h-5" />
-                </div>
-              </a>
-
-              {/* Block 2 */}
-              <a href="#" className="group bg-primary rounded-[2rem] p-6 md:p-10 flex flex-col items-start justify-between min-h-[280px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="flex flex-col items-start">
-                  <div className="bg-[#00a99d]/10 rounded-xl p-3 mb-8">
-                    <FileText className="w-8 h-8 text-[#00a99d]" />
-                  </div>
-                  <h3 className="text-white font-extrabold text-xl md:text-[1.35rem] leading-snug whitespace-pre-line">{`ANEXOS\nPILAR 3`}</h3>
-                  <p className="text-white/70 text-sm mt-2">Gerenciamento de Riscos</p>
-                </div>
-                <div className="flex items-center gap-2 text-[#00a99d] font-bold text-lg mt-8 group-hover:gap-4 transition-all">
-                  Baixar <ChevronRight className="w-5 h-5" />
-                </div>
-              </a>
-
-              {/* Block 3 */}
-              <a href="#" className="group bg-primary rounded-[2rem] p-6 md:p-10 flex flex-col items-start justify-between min-h-[280px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="flex flex-col items-start">
-                  <div className="bg-[#00a99d]/10 rounded-xl p-3 mb-8">
-                    <FileText className="w-8 h-8 text-[#00a99d]" />
-                  </div>
-                  <h3 className="text-white font-extrabold text-xl md:text-[1.35rem] leading-snug whitespace-pre-line">{`RELATÓRIO\nDE GRSAC`}</h3>
-                  <p className="text-white/70 text-sm mt-2 whitespace-pre-line">{`Riscos e Oportunidades\nSociais, Ambientais\ne Clim\u00e1ticas`}</p>
-                </div>
-                <div className="flex items-center gap-2 text-[#00a99d] font-bold text-lg mt-8 group-hover:gap-4 transition-all">
-                  Baixar <ChevronRight className="w-5 h-5" />
-                </div>
-              </a>
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+              {renderCard('pilar-3')}
+              {renderCard('anexos-pilar-3')}
+              {renderCard('grsac')}
             </div>
+
           </div>
         </section>
-
-
 
       </main>
       <Rodape />

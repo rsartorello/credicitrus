@@ -13,7 +13,7 @@ export default function RelatoriosCredicitrus2Page() {
         {/* 1. Hero */}
         <Hero
           backgroundImage="/soltas/hero-transparencia-seguranca-e-privacidade.webp"
-          titleLines={["RELATÓRIOS", "CREDICITRUS"]}
+          titleLines={["SEGURANÇA E", "PRIVACIDADE"]}
           highlightIndices={[1]}
           subtitleColor="secondary"
           mirrorImage={false}
@@ -52,7 +52,7 @@ export default function RelatoriosCredicitrus2Page() {
           items={[
             {
               question: "O que é a Lei Geral de Proteção de Dados (LGPD)?",
-              answer: ""
+              answer: "A LGPD estabelece regras para tratamento de dados pessoais, como o uso, coleta, armazenamento e compartilhamento. Possui como principal objetivo conferir mais privacidade, transparência e segurança no uso de informações pessoais, não alcançando os dados titularizados por pessoas jurídicas – os quais não são considerados dados pessoais para os efeitos da Lei."
             },
             {
               question: "O que são dados pessoais?",

@@ -133,8 +133,7 @@ export default function GridEmprestimoPJ() {
           >
             {beneficios.map((item) => (
               <SwiperSlide key={item.id} className="h-auto flex pb-6">
-                <Link
-                  href="#"
+                <div
                   className="flex flex-col bg-[#f8f8f8] rounded-3xl overflow-hidden transition-all duration-300 transform h-full w-full"
                 >
                   {/* Imagem com cantos superiores arredondados */}
@@ -153,26 +152,11 @@ export default function GridEmprestimoPJ() {
                     <h3 className="text-primary font-bold text-lg leading-[1.2] mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-primary/70 font-regular text-xs leading-snug mb-6 flex-grow">
+                    <p className="text-primary/70 font-regular text-xs leading-snug flex-grow">
                       {item.description}
                     </p>
-
-                    {/* Ícone de Seta */}
-                    <div className="self-end mt-auto">
-                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    </div>
                   </div>
-                </Link>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -193,11 +177,10 @@ export default function GridEmprestimoPJ() {
                 <button
                   key={index}
                   onClick={() => swiperRef.current?.slideTo(index)}
-                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${
-                    activeIndex === index
+                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${activeIndex === index
                       ? 'bg-secondary'
                       : 'bg-primary/20'
-                  }`}
+                    }`}
                   style={{ height: '2px' }}
                 />
               ))}
@@ -216,10 +199,9 @@ export default function GridEmprestimoPJ() {
         {/* Versão Grade (Desktop apenas) */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-20">
           {beneficios.map((item) => (
-            <Link
+            <div
               key={item.id}
-              href="#"
-              className="group flex flex-col bg-[#f8f8f8] rounded-3xl overflow-hidden hover:shadow-[0_10px_30px_rgba(32,28,28,0.15)] transition-all duration-300 transform hover:-translate-y-2"
+              className="flex flex-col bg-[#f8f8f8] rounded-3xl overflow-hidden transition-all duration-300 h-full w-full"
             >
               {/* Imagem com cantos superiores arredondados */}
               <div className="relative aspect-[440/280] w-full overflow-hidden rounded-t-3xl border-b border-gray-100">
@@ -227,7 +209,7 @@ export default function GridEmprestimoPJ() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
@@ -237,26 +219,11 @@ export default function GridEmprestimoPJ() {
                 <h3 className="text-primary font-bold text-[1.25rem] md:text-[1.35rem] xl:text-[1.5rem] leading-[1.2] mb-4">
                   {item.title}
                 </h3>
-                <p className="text-primary/70 font-regular text-sm md:text-base lg:text-lg leading-snug mb-8 flex-grow">
+                <p className="text-primary/70 font-regular text-sm md:text-base lg:text-lg leading-snug flex-grow">
                   {item.description}
                 </p>
-
-                {/* Ícone de Seta (Representado pelo círculo com seta no canto inferior direito conforme layout) */}
-                <div className="self-end mt-auto">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-secondary transition-colors duration-300">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 

@@ -13,9 +13,9 @@ export default function ParceiroPage() {
       <main className="flex-grow">
         <Hero
           backgroundImage="/soltas/parceiro.webp"
-          titleLines={["Parceiro certo", "para o seu", "agronegócio", "prosperar."]}
+          titleLines={["Parceiro certo", "para a sua", "fazenda", "prosperar"]}
           subtitleColor="secondary"
-          buttons={[{ label: "Abra já sua conta PJ", href: "#abra-conta-pj", variant: "secondary" }]}
+          buttons={[{ label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" }]}
         />
 
         <SolucoesParceiroGrid />
@@ -29,6 +29,7 @@ export default function ParceiroPage() {
             'Acesse os investimentos em tempo real.'
           ]}
           ctaText="Baixe agora no seu celular!"
+          withSejaAssociado={true}
         />
 
         <SejaAssociado
@@ -36,6 +37,7 @@ export default function ParceiroPage() {
           title="Pronto para começar?"
           description={"Abra a conta do seu agronegócio\nagora mesmo, seja associado e\ndescubra todas as vantagens de\nser um parceiro da Credicitrus!"}
           buttonText="Abra já sua conta"
+          withAppSicoob={true}
         />
 
       </main>

@@ -7,30 +7,45 @@ import Faq from "@/components/Faq/Faq";
 import GridEmprestimoPJ from "@/components/GridEmprestimoPJ/GridEmprestimoPJ";
 import OutrasSolucoesGeral from "@/components/OutrasSolucoesGeral/OutrasSolucoesGeral";
 import SejaAssociado from "@/components/SejaAssociado/SejaAssociado";
+
 const outrasSolucoesSlides = [
   {
     id: 1,
+    title: 'Cartões de Crédito',
+    description: 'Cartões com benefícios exclusivos.',
+    icon: '/soltas/icone-cartaodecredito.svg',
+    link: '/para-voce/cartoes-de-credito'
+  },
+  {
+    id: 2,
     title: 'Investimentos',
     description: 'Faça seu dinheiro render mais.',
     icon: '/soltas/icone-investimentos.svg',
     link: '/para-voce/investimentos'
   },
   {
-    id: 2,
+    id: 3,
     title: 'Consórcio',
     description: 'Realize seus sonhos de forma planejada.',
     icon: '/soltas/icone-consorcio.svg',
     link: '/para-voce/consorcios'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Seguros',
     description: 'Proteção para você e sua família.',
     icon: '/soltas/icone-seguro.svg',
     link: '/para-voce/seguros'
   },
   {
-    id: 4,
+    id: 5,
+    title: 'Soluções de Recebimento',
+    description: 'Facilidade para receber e gerenciar seus pagamentos diários.',
+    icon: '/soltas/icone-solucoesderecebimento.svg',
+    link: '/para-voce/solucoes-de-recebimento'
+  },
+  {
+    id: 6,
     title: 'Credicitrus Club',
     description: 'Benefícios exclusivos para cooperados.',
     icon: '/soltas/icone-credicitrusclub.svg',
@@ -74,7 +89,7 @@ export default function EmprestimoPJPage() {
           titleLines={["Empréstimos e", "financiamentos", "credicitrus"]}
           buttons={[
             { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "#solicitar", variant: "primary" }
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 

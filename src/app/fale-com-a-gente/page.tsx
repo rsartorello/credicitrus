@@ -54,11 +54,6 @@ export default function FaleConoscoPage() {
 
         <DuvidasFaleConosco />
 
-        <Faq
-          title="Ficou com alguma dúvida?"
-          items={faqItems}
-          cta={{ text: "Fale com nosso especialista!", href: "/contato-especialista" }}
-        />
       </main>
       <Rodape />
     </div>

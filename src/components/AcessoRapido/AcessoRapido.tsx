@@ -26,7 +26,7 @@ export default function AcessoRapido({
       iconSrc: '/soltas/icone-quem-somos-00ae9d.svg',
       title: 'Quem somos',
       description: 'Saiba mais sobre a Credicitrus',
-      href: '#'
+      href: '/quem-somos'
     },
     {
       id: 'agencias',

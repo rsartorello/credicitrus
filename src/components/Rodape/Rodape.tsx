@@ -5,6 +5,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { InstagramIcon, FacebookIcon, LinkedInIcon, TikTokIcon, YouTubeIcon } from './Icons';
 
+interface FooterLink {
+  label: string;
+  href?: string;
+  download?: boolean;
+  target?: string;
+}
+
+interface FooterSection {
+  id: string;
+  title: string;
+  links: FooterLink[];
+}
+
 export default function Rodape() {
   const [openSection, setOpenSection] = React.useState<string | null>(null);
 
@@ -12,14 +25,14 @@ export default function Rodape() {
     setOpenSection(openSection === section ? null : section);
   };
 
-  const sections = [
+  const sections: FooterSection[] = [
     {
       id: 'produtos',
       title: 'Produtos',
       links: [
-        { label: 'Para Você', href: 'para-voce' },
-        { label: 'Para Empresas', href: 'para-sua-empresa' },
-        { label: 'Para o Agro', href: 'para-o-agronegocio' },
+        { label: 'Para Você', href: '/para-voce' },
+        { label: 'Para Empresas', href: '/para-sua-empresa' },
+        { label: 'Para o Agro', href: '/para-o-agronegocio' },
       ]
     },
     {
@@ -28,14 +41,14 @@ export default function Rodape() {
       links: [
         { label: 'FAQ', href: '/duvidas-frequentes' },
         { label: 'Credicitrus Club', href: '/para-voce/credicitrus-club' },
-        { label: 'Quem somos', href: '#' },
-        { label: 'Nossos diferenciais', href: '#' },
-        { label: 'Estrutura de governança', href: '#' },
-        { label: 'Sustentabilidade', href: '#' },
-        { label: 'Capital social', href: '#' },
-        { label: 'Blog Credicitrus', href: '#' },
-        { label: 'Instituto Credicitrus', href: '#' },
-        { label: 'Trabalhe conosco', href: '#' },
+        { label: 'Quem somos', href: '/quem-somos' },
+        { label: 'Nossos diferenciais', href: '/quem-somos#diferenciais' },
+        { label: 'Estrutura de governança', href: '/quem-somos#governanca' },
+        { label: 'Sustentabilidade', href: '/quem-somos#sustentabilidade' },
+        { label: 'Capital social', href: '/capital-social' },
+        { label: 'Blog Credicitrus', href: 'https://credicitrus.blog', target: '_blank' },
+        { label: 'Instituto Credicitrus', href: 'https://institutocredicitrus.com.br/', target: '_blank' },
+        { label: 'Trabalhe conosco', href: 'https://credicitrus.vagas.solides.com.br/#quem-somos', target: '_blank' },
       ]
     },
     {
@@ -57,17 +70,17 @@ export default function Rodape() {
       id: 'contato',
       title: 'Fale com a gente',
       links: [
-        { label: 'Telefone', href: '#' },
+        { label: 'Telefone' },
         { label: '(17) 3345-9000', href: 'tel:+551733459000' },
-        { label: 'WhatsApp:', href: '#' },
+        { label: 'WhatsApp:' },
         { label: '(17) 3344-5020', href: 'https://wa.me/551733445020', target: '_blank' },
-        { label: 'Ouvidoria', href: '#' },
+        { label: 'Ouvidoria' },
         { label: '0800 770 6883', href: 'tel:08007706883' },
         { label: 'Redes Sociais', href: '/nossas-redes-sociais' },
         { label: 'Nossas agências', href: '/nossas-agencias' },
         { label: 'Fale conosco', href: '/fale-com-a-gente' },
-        { label: 'Termos de uso', href: '#' },
-        { label: 'Política de privacidade', href: '#' },
+        { label: 'Termos de uso', href: '/files/TERMOS-E-CONDICOES-DE-USO-DO-SITE-INSTITUCIONAL.pdf', target: '_blank' },
+        { label: 'Política de privacidade', href: '/files/AVISO-DE-PRIVACIDADE-E-TRATAMENTO-DE-DADOS-CREDICITRUS.pdf', target: '_blank' },
       ]
     }
   ];
@@ -97,6 +110,16 @@ export default function Rodape() {
                 ${openSection === section.id ? 'max-h-[500px] pb-6' : 'max-h-0 lg:max-h-none opacity-0 lg:opacity-100'}
               `}>
                 {section.links.map((link, idx) => {
+                  if (!link.href) {
+                    return (
+                      <span
+                        key={idx}
+                        className="text-xs lg:text-sm font-bold text-white mt-2 lg:mt-3 first:mt-0 select-none"
+                      >
+                        {link.label}
+                      </span>
+                    );
+                  }
                   if (link.download) {
                     return (
                       <a
@@ -150,7 +173,7 @@ export default function Rodape() {
             <LinkedInIcon />
           </Link>
 
-          <Link href="https://www.tiktok.com/@sicoob_credicitrus" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.tiktok.com/@credicitrus" className="w-12 h-12 rounded-full bg-[#00a99d] flex items-center justify-center text-[#003641] hover:scale-110 hover:bg-white transition-all transform duration-300" target="_blank" rel="noopener noreferrer">
             <TikTokIcon />
           </Link>
 
@@ -162,8 +185,8 @@ export default function Rodape() {
 
         {/* Footer Text 10pt scaled */}
         <div className="flex justify-center mb-8">
-          <p className="text-[10px] font-normal text-center text-white/70">
-            © 2024 Credicitrus. Todos os direitos reservados.
+          <p className="text-[10px] font-normal text-center text-white/70" suppressHydrationWarning>
+            © {new Date().getFullYear()} Credicitrus. Todos os direitos reservados.
           </p>
         </div>
 

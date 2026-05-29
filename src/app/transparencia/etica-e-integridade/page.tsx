@@ -5,7 +5,7 @@ import Hero from '@/components/Hero/Hero';
 import Rodape from '@/components/Rodape/Rodape';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
-import { FileText, ChevronRight } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
 
 const documentCards = [
   {
@@ -87,7 +87,7 @@ export default function EticaEIntegridadePage() {
 
                   <div className="mt-auto flex items-center justify-between text-[#00a99d] font-normal text-sm lg:text-base">
                     <span>Baixar</span>
-                    <ChevronRight className="w-5 h-5 text-[#00a99d] group-hover:translate-x-1 transition-transform" />
+                    <Download className="w-5 h-5 text-[#00a99d] group-hover:translate-y-1 transition-transform" />
                   </div>
                 </a>
               ))}

@@ -15,13 +15,13 @@ export default function RecebaPraticidadeSeguranca1Page() {
       <main className="flex-grow">
         {/* 1. Hero */}
         <Hero
-          backgroundImage="/soltas/hero-receber-praticidade-seguranca-1.png"
+          backgroundImage="/soltas/hero-para-voce-solucoes-de-recebimento.webp"
           titleLines={["RECEBA COM MAIS", "PRATICIDADE E", "SEGURANÇA"]}
           subtitleColor="secondary"
           mirrorImage={false}
           buttons={[
-            { label: "Abra já sua conta", href: "#", variant: "secondary" },
-            { label: "Já sou associado e quero receber melhor", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero receber melhor", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 
@@ -67,34 +67,41 @@ export default function RecebaPraticidadeSeguranca1Page() {
           slides={[
             {
               id: 1,
+              title: 'Cartões de Crédito',
+              description: 'Cartões com benefícios exclusivos.',
+              icon: '/soltas/icone-cartaodecredito.svg',
+              link: '/para-voce/cartoes-de-credito'
+            },
+            {
+              id: 2,
               title: 'Empréstimos e Financiamentos',
               description: 'Crédito para suas necessidades.',
               icon: '/soltas/icone-emprestimos.svg',
               link: '/para-voce/emprestimos-e-financiamentos'
             },
             {
-              id: 2,
+              id: 3,
               title: 'Investimentos',
               description: 'Faça seu dinheiro render mais.',
               icon: '/soltas/icone-investimentos.svg',
               link: '/para-voce/investimentos'
             },
             {
-              id: 3,
+              id: 4,
               title: 'Consórcio',
               description: 'Realize seus sonhos de forma planejada.',
               icon: '/soltas/icone-consorcio.svg',
               link: '/para-voce/consorcios'
             },
             {
-              id: 4,
+              id: 5,
               title: 'Seguros',
               description: 'Proteção para você e sua família.',
               icon: '/soltas/icone-seguro.svg',
               link: '/para-voce/seguros'
             },
             {
-              id: 5,
+              id: 6,
               title: 'Credicitrus Club',
               description: 'Benefícios exclusivos para cooperados.',
               icon: '/soltas/icone-credicitrusclub.svg',

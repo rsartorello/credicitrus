@@ -154,10 +154,10 @@ export default function OutrasSolucoesGeral({
               1024: { slidesPerView: 3.2, spaceBetween: 24 },
               1280: { slidesPerView: 4, spaceBetween: 28 },
             }}
-            className="pb-12 pt-[10px] -mt-[10px]"
+            className="pb-12 pt-[10px] -mt-[10px] !items-stretch"
           >
             {swiperSlides.map((slide) => (
-              <SwiperSlide key={slide.id} className="h-auto overflow-visible relative pt-2.5 pb-6 flex flex-col">
+              <SwiperSlide key={slide.id} className="!h-auto flex flex-col overflow-visible relative pt-2.5 pb-6">
                 {/* Ribbon Column (Absolute to slide container to bypass card border-radius clipping) */}
                 <div
                   className="absolute left-6 md:left-8 top-0 shrink-0 w-[56px] h-[96px] z-10 pt-[10px]"
@@ -171,7 +171,7 @@ export default function OutrasSolucoesGeral({
                   />
                 </div>
 
-                <div className="bg-white rounded-[2rem] flex flex-col min-h-[250px] flex-grow shadow-lg md:group md:hover:shadow-2xl transition-all duration-300 overflow-visible">
+                <div className="bg-white rounded-[2rem] flex flex-1 flex-col h-full min-h-[250px] shadow-lg md:group md:hover:shadow-2xl transition-all duration-300 overflow-visible">
 
                   {/* ─── Top Row: Ribbon Space + Title ─── */}
                   <div className="relative flex items-stretch min-h-[6rem] shrink-0 pt-0 overflow-visible">
@@ -180,16 +180,16 @@ export default function OutrasSolucoesGeral({
                     <div className="shrink-0 w-[56px] ml-6 md:ml-8" />
 
                     {/* Title Column */}
-                    <div className="flex-1 flex items-center pl-4 pr-6 py-4">
-                      <h3 className="text-primary font-extrabold text-[1.1rem] md:text-[1.15rem] lg:text-[1.25rem] leading-snug">
+                    <div className="flex-1 min-w-0 flex items-center pl-4 pr-6 py-4">
+                      <h3 className="text-primary font-extrabold text-[0.95rem] md:text-[0.95rem] lg:text-[0.95rem] xl:text-[1.1rem] 2xl:text-[1.2rem] leading-snug w-full">
                         {slide.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* ─── Body: Description + Button ─── */}
-                  <div className="flex flex-col flex-grow p-6 md:p-8 pt-4">
-                    <p className="text-primary/80 font-medium text-[1rem] md:text-[1.05rem] leading-relaxed flex-grow mb-8 min-h-[110px]">
+                  <div className="flex flex-1 flex-col p-6 md:p-8 pt-4">
+                    <p className="text-primary/80 font-medium text-[1rem] md:text-[1.05rem] leading-relaxed flex-1 mb-8">
                       {slide.description}
                     </p>
 
@@ -215,12 +215,12 @@ export default function OutrasSolucoesGeral({
             </button>
 
             {/* Linhas de Progresso Dinâmicas */}
-            <div className="flex gap-1.5 md:gap-4 py-2 w-full max-w-[240px] md:max-w-none justify-center">
-              {slides.map((_, index) => (
+            <div className="flex gap-1.5 md:gap-4 py-2 shrink-0">
+              {filteredSlides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => swiperRef.current?.slideToLoop(index)}
-                  className={`flex-1 md:flex-initial max-w-[56px] md:w-14 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer ${activeIndex % slides.length === index
+                  className={`w-8 md:w-14 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer ${activeIndex % (filteredSlides.length || 1) === index
                     ? 'bg-secondary'
                     : 'bg-white/20'
                     }`}

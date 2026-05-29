@@ -26,8 +26,8 @@ export default function ConsorciosParaCadaObjetivoPage() {
           ]}
           highlightIndices={[2]}
           buttons={[
-            { label: "Abra já sua conta pessoal", href: "#", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "#", variant: "primary" }
+            { label: "Abra já sua conta pessoal", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 
@@ -79,60 +79,25 @@ export default function ConsorciosParaCadaObjetivoPage() {
           ctaButtonText="Fale com nosso especialista!"
         />
 
-        {/* Seção Como Funciona */}
-        <section id="como-funciona" className="w-full bg-white py-16 md:py-24 lg:py-32 overflow-hidden">
-          <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-[1200px]">
-            {/* Header */}
-            <div className="text-center mb-16 md:mb-24">
-              <h4 className="text-verdecredicitrus font-medium text-base md:text-lg lg:text-xl uppercase tracking-wider mb-4">
-                COMO FUNCIONA
-              </h4>
-              <h2 className="text-primary font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight">
-                Entenda a dinâmica do consórcio
-              </h2>
-            </div>
-
-            {/* Middle Block: Large Text + Image */}
-            <div className="flex flex-col-reverse md:flex-row items-center gap-4 md:gap-8 mb-16 md:mb-24">
-              <div className="w-full md:w-[55%] flex justify-end">
-                <h3
-                  style={{
-                    fontSize: 'clamp(2.2rem, 7vw, 4rem)',
-                    lineHeight: '1.1',
-                    fontWeight: '500',
-                    letterSpacing: '0.15em',
-                    width: '100%'
-                  }}
-                  className="text-secondary uppercase text-center md:text-right"
-                >
-                  O CONSÓRCIO<br />
-                  É UMA FORMA<br />
-                  DE COMPRA<br />
-                  PARCELADA E<br />
-                  PROGRAMADA
-                </h3>
-              </div>
-              <div className="w-full md:w-[45%]">
-                <div className="relative aspect-square w-full overflow-hidden" style={{ borderRadius: '0 140px 0 140px' }}>
-                  <Image
-                    src="/soltas/6-consorcios-objetivo.webp"
-                    alt="Família planejando o futuro"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Text */}
-            <div className="max-w-[1100px] mx-auto">
-              <p className="text-primary font-medium text-lg md:text-xl lg:text-[1.75rem] leading-relaxed text-center">
-                Sem juros, em que pessoas ou empresas se organizam em grupos para formar um fundo comum. Nas assembleias do grupo (normalmente mensais), ocorrem as contemplações por sorteio e/ou lance, conforme o regulamento. Ao ser contemplado, você recebe uma carta de crédito, que é um valor aprovado para a aquisição do bem ou serviço, com poder de negociação semelhante ao pagamento à vista.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ContentBlockSection
+          eyebrowText="COMO FUNCIONA"
+          titleWeight="font-medium"
+          paragraphWeight="font-regular"
+          title={
+            <>
+              ENTENDA A <br />
+              DINÂMICA DO <br />
+              CONSÓRCIO
+            </>
+          }
+          paragraphs={[
+            "O consórcio é uma forma de compra parcelada e programada, sem juros, em que pessoas ou empresas se organizam em grupos para formar um fundo comum.",
+            "Nas assembleias do grupo (normalmente mensais), ocorrem as contemplações por sorteio e/ou lance, conforme o regulamento.",
+            "Ao ser contemplado, você recebe uma carta de crédito, que é um valor aprovado para a aquisição do bem ou serviço, com poder de negociação semelhante ao pagamento à vista."
+          ]}
+          imageSrc="/soltas/6-consorcios-objetivo.webp"
+          imageAlt="Família planejando o futuro"
+        />
 
         {/* Seção Outras Soluções */}
         <OutrasSolucoesGeral
@@ -146,27 +111,41 @@ export default function ConsorciosParaCadaObjetivoPage() {
           slides={[
             {
               id: 1,
+              title: 'Cartões de Crédito',
+              description: 'Cartões com benefícios exclusivos.',
+              icon: '/soltas/icone-cartaodecredito.svg',
+              link: '/para-voce/cartoes-de-credito'
+            },
+            {
+              id: 2,
               title: 'Empréstimos e Financiamentos',
               description: 'Crédito para suas necessidades.',
               icon: '/soltas/icone-emprestimos.svg',
               link: '/para-voce/emprestimos-e-financiamentos'
             },
             {
-              id: 2,
+              id: 3,
               title: 'Investimentos',
               description: 'Faça seu dinheiro render mais.',
               icon: '/soltas/icone-investimentos.svg',
               link: '/para-voce/investimentos'
             },
             {
-              id: 3,
+              id: 4,
               title: 'Seguros',
               description: 'Proteção para você e sua família.',
               icon: '/soltas/icone-seguro.svg',
               link: '/para-voce/seguros'
             },
             {
-              id: 4,
+              id: 5,
+              title: 'Soluções de Recebimento',
+              description: 'Facilidade para receber e gerenciar seus pagamentos diários.',
+              icon: '/soltas/icone-solucoesderecebimento.svg',
+              link: '/para-voce/solucoes-de-recebimento'
+            },
+            {
+              id: 6,
               title: 'Credicitrus Club',
               description: 'Benefícios exclusivos para cooperados.',
               icon: '/soltas/icone-credicitrusclub.svg',
@@ -203,7 +182,7 @@ export default function ConsorciosParaCadaObjetivoPage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 
@@ -213,10 +192,3 @@ export default function ConsorciosParaCadaObjetivoPage() {
           description={"Abra sua conta e transforme planos em conquistas: consórcio com taxas justas, previsibilidade e a solidez do cooperativismo."}
           buttonText="Abra sua conta Pessoal"
           imageSrc="/soltas/cartoes.webp"
-        />
-
-      </main>
-      <Rodape />
-    </div>
-  );
-}

@@ -15,65 +15,21 @@ export default function DuvidasFaleConosco() {
             Precisa de ajuda ou está com dúvidas?
           </h2>
           <p className="text-white/90 font-regular text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto leading-relaxed">
-            Estamos à disposição também, através da central de atendimento, no 0800 XXX XXXX (todas as localidades) para assuntos relacionados à produtos, tais como: Pix, Cartões, Aplicativo e Internet Banking e muito mais. Além disso, o associado Credicitrus pode contar com nossa inteligência artificial, o Léo, através do WhatsApp XXXXXXXX.
+            Estamos à disposição também, através da central de atendimento, no <a href="tel:+551733459000" className="text-verdecredicitrus hover:underline font-bold">(17) 3345-9000</a> (todas as localidades) para assuntos relacionados à produtos, tais como: Pix, Cartões, Aplicativo e Internet Banking e muito mais. Além disso, o associado Credicitrus pode contar com nossa inteligência artificial, o Léo, através do WhatsApp <a href="https://wa.me/551733445020" target="_blank" rel="noopener noreferrer" className="text-verdecredicitrus hover:underline font-bold">(17) 3344-5020</a>.
           </p>
         </div>
 
-        {/* Formulário de Contato */}
-        <form className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* Coluna Esquerda: Nome, E-mail, Telefone */}
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <label htmlFor="nome" className="sr-only">Nome:</label>
-              <input
-                type="text"
-                id="nome"
-                placeholder="Nome:"
-                className="w-full bg-white rounded-xl py-4 px-6 text-primary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
-              />
-            </div>
-            
-            <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="sr-only">E-mail:</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="E-mail:"
-                className="w-full bg-white rounded-xl py-4 px-6 text-primary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
-              />
-            </div>
-            
-            <div className="flex flex-col gap-2">
-              <label htmlFor="telefone" className="sr-only">Telefone:</label>
-              <input
-                type="tel"
-                id="telefone"
-                placeholder="Telefone:"
-                className="w-full bg-white rounded-xl py-4 px-6 text-primary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
-              />
-            </div>
-          </div>
-
-          {/* Coluna Direita: Mensagem e Botão Enviar */}
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2 h-full">
-              <label htmlFor="mensagem" className="sr-only">Mensagem:</label>
-              <textarea
-                id="mensagem"
-                placeholder="Mensagem:"
-                rows={4}
-                className="w-full bg-white rounded-xl py-4 px-6 text-primary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary transition-all h-full resize-none"
-              ></textarea>
-            </div>
-            
-            <button
-              type="submit"
-              className="w-full bg-secondary hover:bg-white text-white hover:text-secondary border-2 border-transparent hover:border-secondary font-bold py-4 rounded-xl transition-all duration-300 uppercase shadow-lg"
-            >
-              Enviar
-            </button>
-          </div>
-        </form>
+        {/* Botão de Contato Central de Relacionamento */}
+        <div className="flex justify-center">
+          <a
+            href="https://sicoobsaccredicitrus.omd.com.br/sac/externo/cadastro.do"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-secondary hover:bg-white text-white hover:text-secondary border-2 border-transparent hover:border-secondary font-bold px-8 py-4 rounded-xl transition-all duration-300 uppercase shadow-lg text-center"
+          >
+            Falar com a Central de Relacionamento
+          </a>
+        </div>
       </div>
     </section>
   );

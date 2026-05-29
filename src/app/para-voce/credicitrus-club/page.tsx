@@ -10,32 +10,46 @@ import FeatureCardsSection from "@/components/FeatureCardsSection/FeatureCardsSe
 const outrasSolucoesClub = [
   {
     id: 1,
+    title: 'Cartões de Crédito',
+    description: 'Cartões com benefícios exclusivos.',
+    icon: '/soltas/icone-cartaodecredito.svg',
+    link: '/para-voce/cartoes-de-credito'
+  },
+  {
+    id: 2,
     title: 'Empréstimos e Financiamentos',
     description: 'Crédito para suas necessidades.',
     icon: '/soltas/icone-emprestimos.svg',
     link: '/para-voce/emprestimos-e-financiamentos'
   },
   {
-    id: 2,
+    id: 3,
     title: 'Investimentos',
     description: 'Faça seu dinheiro render mais.',
     icon: '/soltas/icone-investimentos.svg',
     link: '/para-voce/investimentos'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Consórcio',
     description: 'Realize seus sonhos de forma planejada.',
     icon: '/soltas/icone-consorcio.svg',
     link: '/para-voce/consorcios'
   },
   {
-    id: 4,
+    id: 5,
     title: 'Seguros',
     description: 'Proteção para você e sua família.',
     icon: '/soltas/icone-seguro.svg',
     link: '/para-voce/seguros'
   },
+  {
+    id: 6,
+    title: 'Soluções de Recebimento',
+    description: 'Facilidade para receber e gerenciar seus pagamentos diários.',
+    icon: '/soltas/icone-solucoesderecebimento.svg',
+    link: '/para-voce/solucoes-de-recebimento'
+  }
 ];
 
 const faqClub = [
@@ -67,7 +81,6 @@ const clubCards = [
     image: "/soltas/1-credicitrus-club-1.webp",
     title: "Vantagens para vendedores",
     titleColorClass: "text-[#00a99d]",
-    href: "#",
     description: (
       <ul className="flex flex-col gap-8">
         {[
@@ -94,7 +107,6 @@ const clubCards = [
     image: "/soltas/2-credicitrus-club-1.webp",
     title: "Vantagens para compradores",
     titleColorClass: "text-[#00a99d]",
-    href: "#",
     description: (
       <ul className="flex flex-col gap-8">
         {[
@@ -134,7 +146,7 @@ export default function CredicitrusClub2Page() {
           highlightIndices={[0]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Acesse o Credicitrus Club", href: "https://www.credicitrus.com.br/para-voce/credicitrus-club", variant: "primary", target: "_blank" }
+            { label: "Acesse o Credicitrus Club", href: "https://www.credicitrusclub.com.br/", variant: "primary", target: "_blank" }
           ]}
         />
 
@@ -159,6 +171,7 @@ export default function CredicitrusClub2Page() {
           gridCols={2}
           ctaTitle="Quer fazer uma simulação?"
           ctaButtonText="Clique aqui!"
+          ctaButtonHref="https://www.credicitrusclub.com.br/"
         />
 
         <OutrasSolucoesGeral
@@ -195,7 +208,7 @@ export default function CredicitrusClub2Page() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 
@@ -203,10 +216,3 @@ export default function CredicitrusClub2Page() {
           title={`Pronto para\ncomeçar?`}
           description={`Abra sua conta e aproveite as\nvantagens do Credicitrus Club:\nbenefícios exclusivos e\ncondições diferenciadas`}
           buttonText="Abra sua conta Pessoal"
-        />
-
-      </main>
-      <Rodape />
-    </div>
-  );
-}

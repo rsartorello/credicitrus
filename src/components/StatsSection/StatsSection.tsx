@@ -83,10 +83,6 @@ export default function StatsSection({
                     </div>
                   </div>
                 </div>
-
-                <div className="relative md:absolute md:bottom-6 md:right-6 text-secondary group-hover:translate-x-2 transition-transform duration-300 z-10 shrink-0 ml-2 md:ml-0">
-                  <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
-                </div>
               </Link>
             );
           })}

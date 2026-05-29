@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -40,35 +40,97 @@ export default function Informativo({
   subtitle = 'INFORMATIVO',
   title = 'Fique por dentro das novidades Credicitrus',
   buttonText = 'Ir para o Blog',
-  buttonHref = '#',
+  buttonHref = 'https://credicitrus.blog',
   articles = [
     {
       id: 'seguros',
       imageSrc: '/soltas/fique-por-dentro1.webp',
       title: 'Campanha de Seguros Gerais',
-      linkHref: '#'
+      linkHref: 'https://credicitrus.blog'
     },
     {
       id: 'gptw',
       imageSrc: '/soltas/fique-por-dentro2.webp',
       title: 'GPTW Agronegócio 2025',
-      linkHref: '#'
+      linkHref: 'https://credicitrus.blog'
     },
     {
       id: 'seguros-clone',
       imageSrc: '/soltas/fique-por-dentro1.webp',
       title: 'Campanha de Seguros Gerais',
-      linkHref: '#'
+      linkHref: 'https://credicitrus.blog'
     },
     {
       id: 'gptw-clone',
       imageSrc: '/soltas/fique-por-dentro2.webp',
       title: 'GPTW Agronegócio 2025',
-      linkHref: '#'
+      linkHref: 'https://credicitrus.blog'
     }
   ]
 }: InformativoProps) {
   const swiperRef = useRef<SwiperType | null>(null);
+  const [blogArticles, setBlogArticles] = useState<InformativoArticle[]>(articles);
+
+  useEffect(() => {
+    async function fetchBlogPosts() {
+      const CACHE_KEY = 'credicitrus_blog_posts';
+      const CACHE_TIME_KEY = 'credicitrus_blog_posts_timestamp';
+      const ONE_HOUR = 3600 * 1000; // 1 hora em milissegundos
+
+      try {
+        if (typeof window !== 'undefined') {
+          const cachedData = localStorage.getItem(CACHE_KEY);
+          const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+          
+          if (cachedData && cachedTime) {
+            const age = Date.now() - parseInt(cachedTime, 10);
+            if (age < ONE_HOUR) {
+              setBlogArticles(JSON.parse(cachedData));
+              return;
+            }
+          }
+        }
+
+        const res = await fetch('https://credicitrus.blog/wp-json/wp/v2/posts?per_page=4&_embed');
+        if (!res.ok) return;
+        const posts = await res.json();
+        
+        const decodedArticles = posts.map((post: any) => {
+          let featuredMediaUrl = '/soltas/fique-por-dentro1.webp';
+          if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
+            featuredMediaUrl = post._embedded['wp:featuredmedia'][0].source_url || featuredMediaUrl;
+          }
+          
+          let decodedTitle = post.title?.rendered || '';
+          if (typeof document !== 'undefined') {
+            const textArea = document.createElement('textarea');
+            textArea.innerHTML = decodedTitle;
+            decodedTitle = textArea.value;
+          }
+          
+          return {
+            id: post.id.toString(),
+            imageSrc: featuredMediaUrl,
+            title: decodedTitle,
+            linkHref: post.link || 'https://credicitrus.blog',
+          };
+        });
+
+        if (decodedArticles.length > 0) {
+          setBlogArticles(decodedArticles);
+          
+          if (typeof window !== 'undefined') {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(decodedArticles));
+            localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching WordPress posts:', err);
+      }
+    }
+
+    fetchBlogPosts();
+  }, []);
 
   return (
     <section className="relative w-full flex flex-col xl:flex-row overflow-hidden">
@@ -90,6 +152,8 @@ export default function Informativo({
           {/* Master Button scaled */}
           <Link 
             href={buttonHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-[#00a99d] hover:bg-[#003641] text-white text-sm md:text-base font-bold px-8 py-3 lg:py-4 rounded-lg transition-colors duration-300 shadow-md"
           >
             {buttonText}
@@ -111,7 +175,7 @@ export default function Informativo({
             1280: { slidesPerView: 2.5, spaceBetween: 30 },
             1536: { slidesPerView: 2.8, spaceBetween: 40 }
           }}
-          loop={articles.length >= 6}
+          loop={blogArticles.length >= 6}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -125,12 +189,14 @@ export default function Informativo({
           }}
           className="w-full"
         >
-          {articles.map((article) => (
+          {blogArticles.map((article) => (
             <SwiperSlide key={article.id} className="flex flex-col h-auto py-4">
               {/* Card Container */}
               <Link 
                 href={article.linkHref}
-                className="group flex flex-col bg-[#f9fafb] rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col bg-[#f9fafb] rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform duration-300 h-full"
               >
                 {/* Image Area */}
                 <div className="relative w-full aspect-[16/10] overflow-hidden">

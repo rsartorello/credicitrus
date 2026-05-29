@@ -103,7 +103,14 @@ export default function SolucoesFinanceiras() {
               return (
                 <div
                   key={slide.id}
-                  className={`solucoes-card-slot solucoes-card-${position} relative w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] h-full overflow-hidden group transicaoborda`}
+                  onClick={() => {
+                    if (!isActive) {
+                      setActiveIndex(index);
+                    }
+                  }}
+                  className={`solucoes-card-slot solucoes-card-${position} relative w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] h-full overflow-hidden group transicaoborda ${
+                    !isActive ? 'cursor-pointer' : ''
+                  }`}
                 >
                   {/* Background Image */}
                   <Image
@@ -131,6 +138,11 @@ export default function SolucoesFinanceiras() {
                     <Link
                       href={slide.link}
                       tabIndex={isActive ? 0 : -1}
+                      onClick={(e) => {
+                        if (!isActive) {
+                          e.preventDefault();
+                        }
+                      }}
                       className="inline-flex justify-center items-center bg-secondary hover:bg-primary text-white text-sm lg:text-base font-bold py-3 px-8 rounded-full transition-colors w-full max-w-[240px]"
                     >
                       Saiba mais

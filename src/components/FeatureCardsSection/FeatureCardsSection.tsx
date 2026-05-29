@@ -19,50 +19,55 @@ export interface FeatureCard {
   titleColorClass?: string;
 }
 
-const FeatureCardItem = ({ item, cardBgClass }: { item: FeatureCard, cardBgClass: string }) => (
-  <Link
-    href={item.href || '#'}
-    className={`group flex flex-col ${cardBgClass} overflow-hidden md:hover:shadow-[0_15px_45px_rgba(0,0,0,0.12)] transition-all duration-300 transform md:hover:-translate-y-2 border border-gray-100 h-full`}
-    style={{ borderRadius: '50px' }}
-  >
-    {/* Imagem com cantos superiores arredondados */}
-    <div className="relative w-full overflow-hidden" style={{ height: '220px' }}>
-      <Image
-        src={item.image}
-        alt={item.title}
-        fill
-        className="object-cover md:group-hover:scale-105 transition-transform duration-500"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-    </div>
-
-    {/* Conteúdo do Card */}
-    <div className="flex flex-col p-8 md:p-10 lg:p-12 flex-grow relative">
-      <h3 className={`${item.titleColorClass || 'text-primary'} font-extrabold text-[1.4rem] md:text-[1.55rem] xl:text-[1.85rem] leading-tight mb-6`}>
-        {item.title}
-      </h3>
-      <div className="text-primary font-regular text-xs md:text-base lg:text-[1.1rem] leading-relaxed mb-8 flex-grow">
-        {item.description}
+const FeatureCardItem = ({ item, cardBgClass, compact }: { item: FeatureCard, cardBgClass: string, compact?: boolean }) => {
+  const content = (
+    <>
+      {/* Imagem com cantos superiores arredondados */}
+      <div className="relative w-full overflow-hidden" style={{ height: compact ? '180px' : '220px' }}>
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className={`object-cover ${item.href ? 'md:group-hover:scale-105' : ''} transition-transform duration-500`}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </div>
 
-      {/* Ícone de Seta/Link */}
-      <div className="self-end mt-auto">
-        <div className="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center md:group-hover:bg-primary md:group-hover:text-white transition-colors duration-300">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="transform md:group-hover:translate-x-1 transition-transform"
-          >
-            <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+      {/* Conteúdo do Card */}
+      <div className={`flex flex-col ${compact ? 'p-6 pb-8' : 'p-8 md:p-10 lg:p-12'} flex-grow relative`}>
+        <h3 className={`${item.titleColorClass || 'text-primary'} font-extrabold ${compact ? 'text-lg md:text-[1.35rem] mb-3' : 'text-[1.4rem] md:text-[1.55rem] xl:text-[1.85rem] leading-tight mb-6'}`}>
+          {item.title}
+        </h3>
+        <div className={`text-primary font-regular flex-grow ${compact ? 'text-xs md:text-sm leading-relaxed mb-2' : 'text-xs md:text-base lg:text-[1.1rem] leading-relaxed mb-8'}`}>
+          {item.description}
         </div>
       </div>
+    </>
+  );
+
+  const borderRadiusVal = compact ? '32px' : '50px';
+
+  if (item.href) {
+    return (
+      <Link
+        href={item.href}
+        className={`group flex flex-col ${cardBgClass} overflow-hidden md:hover:shadow-[0_15px_45px_rgba(0,0,0,0.12)] transition-all duration-300 transform md:hover:-translate-y-2 border border-gray-100 h-full`}
+        style={{ borderRadius: borderRadiusVal }}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className={`group flex flex-col ${cardBgClass} overflow-hidden border border-gray-100 h-full cursor-default`}
+      style={{ borderRadius: borderRadiusVal }}
+    >
+      {content}
     </div>
-  </Link>
-);
+  );
+};
 
 export interface FeatureCardsSectionProps {
   /** Cor de fundo da seção (ex: 'bg-white' ou 'bg-[#f8f9fa]') */
@@ -94,6 +99,9 @@ export interface FeatureCardsSectionProps {
   ctaButtonHref?: string;
   /** Aviso legal pequeno (disclaimer) no rodapé da seção */
   disclaimer?: React.ReactNode;
+
+  /** Se deve renderizar em layout compacto */
+  compact?: boolean;
 }
 
 export default function FeatureCardsSection({
@@ -107,8 +115,9 @@ export default function FeatureCardsSection({
   gridCols = 3,
   ctaTitle,
   ctaButtonText = 'Fale com nosso especialista!',
-  ctaButtonHref = '#',
+  ctaButtonHref = 'https://wa.me/551633445020',
   disclaimer,
+  compact,
 }: FeatureCardsSectionProps) {
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -144,7 +153,7 @@ export default function FeatureCardsSection({
         <div className={`hidden md:grid ${gridColsClass} gap-8 md:gap-10 lg:gap-12 mb-20 md:mb-24`}>
           {cards.map((item, idx) => (
             <AnimateIn key={item.id} delay={0.1 * (idx + 1)}>
-              <FeatureCardItem item={item} cardBgClass={cardBgClass} />
+              <FeatureCardItem item={item} cardBgClass={cardBgClass} compact={compact} />
             </AnimateIn>
           ))}
         </div>
@@ -162,7 +171,7 @@ export default function FeatureCardsSection({
           >
             {cards.map((item) => (
               <SwiperSlide key={item.id} className="h-auto flex pb-6">
-                <FeatureCardItem item={item} cardBgClass={cardBgClass} />
+                <FeatureCardItem item={item} cardBgClass={cardBgClass} compact={compact} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -183,11 +192,10 @@ export default function FeatureCardsSection({
                 <button
                   key={index}
                   onClick={() => swiperRef.current?.slideTo(index)}
-                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${
-                    activeIndex === index
-                      ? 'bg-secondary'
-                      : 'bg-primary/20'
-                  }`}
+                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${activeIndex === index
+                    ? 'bg-secondary'
+                    : 'bg-primary/20'
+                    }`}
                   style={{ height: '2px' }}
                 />
               ))}

@@ -124,12 +124,12 @@ export default function Home() {
         buttonHref="#"
       />
 
-      <AppSicoob />
+      <AppSicoob withSejaAssociado={true} />
       <Depoimentos />
       <Iniciativa />
       <Informativo />
       <AcessoRapido />
-      <SejaAssociado />
+      <SejaAssociado withAppSicoob={true} />
       <Rodape />
     </>
   );

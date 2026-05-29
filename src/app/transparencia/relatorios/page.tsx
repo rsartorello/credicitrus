@@ -171,11 +171,11 @@ const reportItems: DocumentItem[] = [
       { label: "2024 (2º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2024_2S.pdf" },
       { label: "2024 (1º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2024_1S.pdf" },
       { label: "2023 (2º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2023_2S.pdf" },
-      { label: "2023", url: "/files/transparencia/relatorios/ouvidoria/2023.pdf" },
+      { label: "2023 (1º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2023.pdf" },
+      { label: "2022 (2º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2022.pdf" },
       { label: "2022 (1º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2022_1S.pdf" },
-      { label: "2022", url: "/files/transparencia/relatorios/ouvidoria/2022.pdf" },
       { label: "2021 (1º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2021_1S.pdf" },
-      { label: "2020", url: "/files/transparencia/relatorios/ouvidoria/2020.pdf" }
+      { label: "2020 (2º Semestre)", url: "/files/transparencia/relatorios/ouvidoria/2020.pdf" }
     ]
   },
   {
@@ -196,10 +196,10 @@ const reportItems: DocumentItem[] = [
     ]
   },
   {
-    title: "Relatórios do Transparência Salarial",
+    title: "Relatórios de Transparência Salarial",
     type: "annual",
     options: [
-      { label: "2026", url: "/files/transparencia/relatorios/transparencia-salarial/2026.pdf" },
+      { label: "2026 (1º Semestre)", url: "/files/transparencia/relatorios/transparencia-salarial/2026.pdf" },
       { label: "2025 (2º Semestre)", url: "/files/transparencia/relatorios/transparencia-salarial/2025_2S.pdf" },
       { label: "2025 (1º Semestre)", url: "/files/transparencia/relatorios/transparencia-salarial/2025_1S.pdf" },
       { label: "2024 (2º Semestre)", url: "/files/transparencia/relatorios/transparencia-salarial/2024_2S.pdf" }

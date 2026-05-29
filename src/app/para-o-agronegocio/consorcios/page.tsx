@@ -71,8 +71,8 @@ export default function ConsorciosParaSuaFazendaPage() {
           titleLines={["CONSÓRCIOS PARA", "SUA FAZENDA", "CREDICITRUS"]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Abra já sua conta", href: "#", variant: "secondary" },
-            { label: "Falar com especialista", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Falar com especialista", href: "https://api.whatsapp.com/send?phone=551633445020", variant: "primary" }
           ]}
         />
         <TiposConsorcioFazenda />

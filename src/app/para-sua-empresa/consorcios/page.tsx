@@ -46,8 +46,8 @@ export default function ConsorciosParaSuaEmpresaPage() {
           ]}
           highlightIndices={[2]}
           buttons={[
-            { label: "Abra já sua conta PJ", href: "#", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 
@@ -171,7 +171,7 @@ export default function ConsorciosParaSuaEmpresaPage() {
         <SejaAssociado
           title={"Pronto para\nconquistar seus\nobjetivos?"}
           description={"Abra sua conta e transforme planos em conquistas:\nconsórcio com taxas justas, previsibilidade e a solidez do cooperativismo"}
-          buttonText="Abra já sua conta PJ"
+          buttonText="Abra já sua conta"
         />
 
       </main>

@@ -105,7 +105,7 @@ export default function CredicitrusClubPage() {
           highlightIndices={[0]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Acesse o Credicitrus Club", href: "#", variant: "secondary" }
+            { label: "Acesse o Credicitrus Club", href: "https://www.credicitrusclub.com.br", variant: "secondary" }
           ]}
         />
 
@@ -130,6 +130,7 @@ export default function CredicitrusClubPage() {
           gridCols={2}
           ctaTitle="Quer fazer uma simulação?"
           ctaButtonText="Clique aqui!"
+          ctaButtonHref="https://www.credicitrusclub.com.br/"
         />
 
         <OutrasSolucoesGeral
@@ -149,14 +150,14 @@ export default function CredicitrusClubPage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 
         <SejaAssociado
           title={`Pronto para\ncomeçar?`}
           description={`Abra sua conta e aproveite as\nvantagens do Credicitrus Club:\nbenefícios exclusivos e\ncondições diferenciadas`}
-          buttonText="Abra sua conta Pessoal"
+          buttonText="Abra sua conta"
         />
 
       </main>

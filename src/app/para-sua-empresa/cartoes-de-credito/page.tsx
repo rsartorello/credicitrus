@@ -101,8 +101,8 @@ export default function CartoesPJPage() {
           highlightIndices={[1, 2]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Abra já sua conta PJ", href: "#", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 
@@ -170,14 +170,14 @@ export default function CartoesPJPage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 
         <SejaAssociado
           title={`Pronto para\ncomeçar?`}
           description={`Abra sua conta e conte com\ncartões seguros, digitais e\nadequados para impulsionar\nsuas operações.`}
-          buttonText="Abra já sua conta PJ"
+          buttonText="Abra já sua conta"
         />
 
       </main>

@@ -12,6 +12,7 @@ export interface SejaAssociadoProps {
   buttonText?: string;
   buttonHref?: string;
   imageSrc?: string;
+  withAppSicoob?: boolean;
 }
 
 export default function SejaAssociado({
@@ -19,9 +20,15 @@ export default function SejaAssociado({
   title = 'Pronto para\ncomeçar?',
   description = 'Faça como mais de 170 mil\ncooperados. Abra sua conta\nagora mesmo e descubra todas\nas vantagens da Credicitrus!',
   buttonText = 'Abra já sua conta',
-  buttonHref = '#',
-  imageSrc = '/soltas/cartoes.webp'
+  buttonHref = '/abra-sua-conta',
+  imageSrc,
+  withAppSicoob = false
 }: SejaAssociadoProps) {
+  const resolvedImageSrc = imageSrc ?? (
+    withAppSicoob
+      ? '/soltas/seja-associado-alternativa.webp'
+      : '/sicoob/gerenciamento-financeiro.webp'
+  );
   return (
     <section className="w-full bg-white py-12 lg:py-24 xl:py-32 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-6 xl:px-8 max-w-7xl">
@@ -60,7 +67,7 @@ export default function SejaAssociado({
             {/* Flutuabilidade hover e drop-shadow para os cartões Sicoob */}
             <div className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-square transform hover:scale-105 hover:-rotate-1 transition-all duration-700">
               <Image
-                src={imageSrc}
+                src={resolvedImageSrc}
                 alt="Cartões Credicitrus Sicoob Gold e Black"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

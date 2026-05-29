@@ -43,7 +43,7 @@ const solucoes: SolucaoParceiro[] = [
     icon: '/soltas/icone-portaldoagro.svg',
     title: 'Portal Agro',
     description: 'Informações, cotações e as principais novidades do agronegócio em tempo real.',
-    href: '#',
+    href: 'https://portalagro.sicoobcredicitrus.com.br',
   },
   {
     id: 5,
@@ -67,7 +67,7 @@ export default function SolucoesParceiroGrid() {
             PARA O AGRO
           </h4>
           <h2 className="text-primary font-extrabold text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] leading-tight max-w-4xl mx-auto">
-            Credicitrus tem o produto ideal para o seu agronegócio crescer ainda mais
+            Credicitrus tem o produto ideal para o sua fazenda crescer ainda mais
           </h2>
         </div>
 
@@ -80,10 +80,10 @@ export default function SolucoesParceiroGrid() {
               swiperRef.current = swiper;
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            className="w-full pb-12 pt-[10px] -mt-[10px]"
+            className="w-full pb-12 pt-[10px] -mt-[10px] !items-stretch"
           >
             {solucoes.map((item) => (
-              <SwiperSlide key={item.id} className="h-auto flex flex-col pt-2.5 pb-6 overflow-visible relative">
+              <SwiperSlide key={item.id} className="!h-auto flex flex-col pt-2.5 pb-6 overflow-visible relative">
                 {/* Ribbon Column (Absolute to slide container to bypass card border-radius clipping) */}
                 <div
                   className="absolute left-6 top-0 shrink-0 w-[56px] h-[96px] z-10 pt-[10px]"
@@ -97,28 +97,30 @@ export default function SolucoesParceiroGrid() {
                   />
                 </div>
 
-                <div className="bg-white rounded-[2rem] flex flex-col min-h-[200px] h-full shadow-lg transition-all duration-300 overflow-visible flex-grow">
+                <div className="bg-white rounded-[2rem] flex flex-1 flex-col h-full min-h-[200px] shadow-lg transition-all duration-300 overflow-visible">
                   {/* ─── Top Row: Ribbon Space + Title ─── */}
                   <div className="relative flex items-stretch min-h-[6rem] shrink-0 pt-0 overflow-visible">
                     {/* Spacer Column to reserve space for the absolute ribbon */}
                     <div className="shrink-0 w-[56px] ml-6" />
 
                     {/* Title Column */}
-                    <div className="flex-1 flex items-center pl-4 pr-6 py-4">
-                      <h3 className="text-primary font-extrabold text-[1.1rem] leading-snug">
+                    <div className="flex-1 min-w-0 flex items-center pl-4 pr-6 py-4">
+                      <h3 className="text-primary font-extrabold text-[0.95rem] sm:text-[1rem] leading-snug w-full">
                         {item.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* ─── Body: Description + Button ─── */}
-                  <div className="flex flex-col flex-grow p-6 pt-4">
-                    <p className="text-primary/80 font-medium text-[1rem] leading-relaxed flex-grow mb-8 min-h-[110px]">
+                  <div className="flex flex-1 flex-col p-6 pt-4">
+                    <p className="text-primary/80 font-medium text-[1rem] leading-relaxed flex-1 mb-8">
                       {item.description}
                     </p>
 
                     <Link
                       href={item.href}
+                      target={item.href.startsWith('http') || item.href.startsWith('//') ? '_blank' : undefined}
+                      rel={item.href.startsWith('http') || item.href.startsWith('//') ? 'noopener noreferrer' : undefined}
                       className="w-full text-center border-2 border-secondary text-secondary font-bold text-[1.1rem] py-3 rounded-2xl hover:bg-secondary hover:text-white transition-all duration-300"
                     >
                       Saiba mais
@@ -145,11 +147,10 @@ export default function SolucoesParceiroGrid() {
                 <button
                   key={index}
                   onClick={() => swiperRef.current?.slideTo(index)}
-                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${
-                    activeIndex === index
-                      ? 'bg-secondary'
-                      : 'bg-primary/20'
-                  }`}
+                  className={`flex-1 transition-all duration-300 border-none p-0 focus:outline-none cursor-pointer max-w-[56px] ${activeIndex === index
+                    ? 'bg-secondary'
+                    : 'bg-primary/20'
+                    }`}
                   style={{ height: '2px' }}
                 />
               ))}
@@ -166,9 +167,9 @@ export default function SolucoesParceiroGrid() {
         </div>
 
         {/* Versão Grade (Desktop apenas) */}
-        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-20 md:mb-24 overflow-visible">
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-20 md:mb-24 overflow-visible items-stretch">
           {solucoes.map((item) => (
-            <div key={item.id} className="h-auto overflow-visible relative pt-2.5">
+            <div key={item.id} className="flex h-full flex-col overflow-visible relative pt-2.5">
               {/* Ribbon Column */}
               <div
                 className="absolute left-6 md:left-8 top-0 shrink-0 w-[56px] h-[96px] z-10 pt-[10px]"
@@ -182,28 +183,30 @@ export default function SolucoesParceiroGrid() {
                 />
               </div>
 
-              <div className="bg-white rounded-[2rem] flex flex-col min-h-[200px] h-full shadow-lg group hover:shadow-2xl transition-all duration-300 overflow-visible">
+              <div className="bg-white rounded-[2rem] flex flex-1 flex-col h-full min-h-[200px] shadow-lg group hover:shadow-2xl transition-all duration-300 overflow-visible">
                 {/* ─── Top Row: Ribbon Space + Title ─── */}
                 <div className="relative flex items-stretch min-h-[6rem] shrink-0 pt-0 overflow-visible">
                   {/* Spacer Column to reserve space for the absolute ribbon */}
                   <div className="shrink-0 w-[56px] ml-6 md:ml-8" />
 
                   {/* Title Column */}
-                  <div className="flex-1 flex items-center pl-4 pr-6 py-4">
-                    <h3 className="text-primary font-extrabold text-[1.1rem] md:text-[1.15rem] lg:text-[1.25rem] leading-snug">
+                  <div className="flex-1 min-w-0 flex items-center pl-4 pr-6 py-4">
+                    <h3 className="text-primary font-extrabold text-[0.95rem] md:text-[0.95rem] lg:text-[0.95rem] xl:text-[1.1rem] 2xl:text-[1.2rem] leading-snug w-full">
                       {item.title}
                     </h3>
                   </div>
                 </div>
 
                 {/* ─── Body: Description + Button ─── */}
-                <div className="flex flex-col flex-grow p-6 md:p-8 pt-4">
-                  <p className="text-primary/80 font-medium text-[1rem] md:text-[1.05rem] leading-relaxed flex-grow mb-8 min-h-[110px]">
+                <div className="flex flex-1 flex-col p-6 md:p-8 pt-4">
+                  <p className="text-primary/80 font-medium text-[1rem] md:text-[1.05rem] leading-relaxed flex-1 mb-8">
                     {item.description}
                   </p>
 
                   <Link
                     href={item.href}
+                    target={item.href.startsWith('http') || item.href.startsWith('//') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') || item.href.startsWith('//') ? 'noopener noreferrer' : undefined}
                     className="w-full text-center border-2 border-secondary text-secondary font-bold text-[1.1rem] py-3 rounded-2xl hover:bg-secondary hover:text-white transition-all duration-300"
                   >
                     Saiba mais

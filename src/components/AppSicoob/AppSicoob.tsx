@@ -11,6 +11,7 @@ export interface AppSicoobProps {
   listItems?: string[];
   ctaText?: string;
   imageSrc?: string;
+  withSejaAssociado?: boolean;
 }
 
 export default function AppSicoob({
@@ -24,14 +25,20 @@ export default function AppSicoob({
     'Acesse seus investimentos em tempo real.'
   ],
   ctaText = 'Baixe agora no seu Celular!',
-  imageSrc = '/sicoob/gerenciamento-financeiro.webp'
+  imageSrc,
+  withSejaAssociado = false
 }: AppSicoobProps) {
+  const resolvedImageSrc = imageSrc ?? (
+    withSejaAssociado
+      ? '/sicoob/gerenciamento-financeiro.webp'
+      : '/sicoob/gerenciamento-financeiro.webp'
+  );
   return (
     <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center bg-[#ffffff] overflow-hidden">
       {/* Background partition: Dark Green on Left */}
       <div className="absolute top-0 left-0 w-full lg:w-[75%] xl:w-[80%] h-full bg-[#003641] z-0"></div>
 
-      <div className="container relative z-10 mx-auto px-4 lg:px-6 xl:px-8 py-20 lg:py-24 flex flex-col lg:flex-row items-center">
+      <div className="container relative z-10 mx-auto px-4 lg:px-6 xl:px-8 py-20 lg:py-24 flex flex-col lg:flex-row items-center max-w-7xl">
 
         {/* Left Content */}
         <div className="w-full lg:w-[75%] xl:w-[80%] flex flex-col pt-8 lg:pt-0">
@@ -70,14 +77,14 @@ export default function AppSicoob({
             </h2>
 
             <div className="flex items-center gap-4">
-              <Link href="#" className="hover:scale-105 transition-transform duration-300 drop-shadow-md">
+              <Link href="https://play.google.com/store/apps/details?id=br.com.sicoobnet" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300 drop-shadow-md">
                 <img
                   src="/soltas/botao-google-play.svg"
                   alt="Disponível no Google Play"
                   className="h-[36px] lg:h-[40px] w-auto"
                 />
               </Link>
-              <Link href="#" className="hover:scale-105 transition-transform duration-300 drop-shadow-md">
+              <Link href="https://apps.apple.com/br/app/sicoob-pix-conta-empr%C3%A9stimo/id416696406" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300 drop-shadow-md">
                 <img
                   src="/soltas/botao-apple-store.svg"
                   alt="Disponível na App Store"
@@ -91,7 +98,7 @@ export default function AppSicoob({
         <div className="w-full lg:w-[25%] xl:w-[20%] flex justify-center lg:justify-end mt-16 lg:mt-0 relative">
           <div className="relative w-full aspect-[2/3] -translate-x-8 lg:-translate-x-24 xl:-translate-x-36 drop-shadow-[0_25px_35px_rgba(0,0,0,0.35)] lg:scale-[2] origin-center">
             <Image
-              src={imageSrc}
+              src={resolvedImageSrc}
               alt="Aplicativo Sicoob Credicitrus"
               fill
               className="object-contain object-center"

@@ -207,11 +207,11 @@ export default function Header() {
                   <h3 className="text-secondary font-bold text-lg mb-4 uppercase tracking-wider">A Credicitrus</h3>
                   <ul className="space-y-3 flex flex-col items-start">
                     <li><Link href="/duvidas-frequentes" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">FAQ</Link></li>
-                    <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Quem somos</Link></li>
+                    <li><Link href="/quem-somos" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Quem somos</Link></li>
                     <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Nossos diferenciais</Link></li>
                     <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Estrutura de governança</Link></li>
                     <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Sustentabilidade</Link></li>
-                    <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Capital social</Link></li>
+                    <li><Link href="/capital-social" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Capital social</Link></li>
                     <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Blog Credicitrus</Link></li>
                     <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Instituto Credicitrus</Link></li>
                     <li><Link href="#" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Trabalhe conosco</Link></li>

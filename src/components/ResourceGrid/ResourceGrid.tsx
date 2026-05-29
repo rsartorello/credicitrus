@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FileText, ChevronRight } from 'lucide-react';
+import { FileText, ChevronRight, Download } from 'lucide-react';
 import Link from 'next/link';
 
 interface ResourceCard {
@@ -63,9 +63,13 @@ export default function ResourceGrid({
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-2 text-[#00a99d] font-bold text-lg mt-8 group-hover:gap-4 transition-all">
-                  Saiba mais
-                  <ChevronRight className="w-5 h-5" />
+                <div className="flex items-center gap-2 text-[#00a99d] font-bold text-lg mt-8 transition-all">
+                  {isFile ? 'Baixar' : 'Saiba mais'}
+                  {isFile ? (
+                    <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                  ) : (
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  )}
                 </div>
               </>
             );

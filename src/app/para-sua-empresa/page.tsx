@@ -14,9 +14,9 @@ export default function EmpresaPage() {
       <main className="flex-grow">
         <Hero
           backgroundImage="/soltas/hero-empresa.webp"
-          titleLines={["Produtos e", "serviços para", "sua empresa", "prosperar."]}
+          titleLines={["Produtos e", "serviços para", "sua empresa", "prosperar"]}
           subtitleColor="secondary"
-          buttons={[{ label: "Abra já sua conta PJ", href: "#abra-conta-pj", variant: "secondary" }]}
+          buttons={[{ label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" }]}
         />
 
         <SolucoesEmpresaGrid />
@@ -30,13 +30,15 @@ export default function EmpresaPage() {
             'Acesse os investimentos empresariais em tempo real.'
           ]}
           ctaText="Baixe agora em seu celular"
+          withSejaAssociado={true}
         />
 
         <SejaAssociado
           subtitle="SEJA ASSOCIADO"
           title="Pronto para começar?"
           description="Abra a conta da sua empresa agora mesmo, seja associado e descubra todas as vantagens da Credicitrus!"
-          buttonText="ABRA JÁ SUA CONTA PJ"
+          buttonText="ABRA JÁ SUA CONTA"
+          withAppSicoob={true}
         />
 
       </main>

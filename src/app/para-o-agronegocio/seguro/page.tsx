@@ -96,8 +96,8 @@ export default function SeguroAgroCredicitrusPage() {
           highlightIndices={[1]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Proteja sua lavoura e bens", href: "#lavoura", variant: "secondary" },
-            { label: "Proteja seu maquinário", href: "#maquinario", variant: "primary" }
+            { label: "Abra sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero contratar", href: "https://api.whatsapp.com/send?phone=551633445020", variant: "primary" }
           ]}
         />
 

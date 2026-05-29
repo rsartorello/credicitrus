@@ -127,7 +127,7 @@ export default function ContentBlockSection({
             {paragraphsInside && paragraphs.length > 0 && (
               <div className="flex flex-col gap-6 md:gap-8 mb-12 w-full items-center md:items-start text-center md:text-left">
                 {paragraphs.map((p, idx) => (
-                  <p key={idx} className={`text-[#58595b] ${paragraphWeight} text-sm md:text-lg lg:text-xl leading-relaxed max-w-xl text-center md:text-left`}>
+                  <p key={idx} className={`text-[#58595b] ${paragraphWeight} text-sm md:text-lg lg:text-xl leading-relaxed text-center md:text-left`}>
                     {p}
                   </p>
                 ))}
@@ -187,7 +187,7 @@ export default function ContentBlockSection({
 
         {/* Bloco Inferior: Parágrafos (apenas se não estiverem na lateral) */}
         {!paragraphsInside && paragraphs.length > 0 && (
-          <AnimateIn delay={0.3} className={`w-full flex flex-col gap-6 ${paragraphsCentered ? 'mx-auto text-center items-center max-w-5xl' : 'max-w-4xl'}`}>
+          <AnimateIn delay={0.3} className={`w-full flex flex-col gap-6 ${paragraphsCentered ? 'mx-auto text-center items-center max-w-full' : 'max-w-full'}`}>
             {paragraphs.map((p, idx) => (
               <p key={idx} className={`text-[#58595b] ${paragraphWeight} text-base md:text-lg leading-relaxed`}>
                 {p}

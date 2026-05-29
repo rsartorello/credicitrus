@@ -59,29 +59,55 @@
 
 /* Card Inativo na Esquerda */
 .solucoes-card-left {
-  transform: translate3d(-260px, 0, -120px) rotateY(15deg) scale(0.85);
+  transform: translate3d(-260px, 0, 0px) rotateY(15deg) scale(0.85);
   opacity: 0.6;
   z-index: 5;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.solucoes-card-left:hover {
+  z-index: 20;
+  transform: translate3d(-260px, 0, 0px) rotateY(15deg) scale(0.88);
+  opacity: 0.85;
 }
 
 /* Card Inativo na Direita */
 .solucoes-card-right {
-  transform: translate3d(260px, 0, -120px) rotateY(-15deg) scale(0.85);
+  transform: translate3d(260px, 0, 0px) rotateY(-15deg) scale(0.85);
   opacity: 0.6;
   z-index: 5;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.solucoes-card-right:hover {
+  z-index: 20;
+  transform: translate3d(260px, 0, 0px) rotateY(-15deg) scale(0.88);
+  opacity: 0.85;
 }
 
 /* Ajustes de Responsividade */
 @media (max-width: 1024px) {
   .solucoes-card-left {
-    transform: translate3d(-180px, 0, -100px) rotateY(12deg) scale(0.8);
+    transform: translate3d(-180px, 0, 0px) rotateY(12deg) scale(0.8);
     opacity: 0.5;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .solucoes-card-left:hover {
+    z-index: 20;
+    transform: translate3d(-180px, 0, 0px) rotateY(12deg) scale(0.83);
+    opacity: 0.75;
   }
   .solucoes-card-right {
-    transform: translate3d(180px, 0, -100px) rotateY(-12deg) scale(0.8);
+    transform: translate3d(180px, 0, 0px) rotateY(-12deg) scale(0.8);
     opacity: 0.5;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .solucoes-card-right:hover {
+    z-index: 20;
+    transform: translate3d(180px, 0, 0px) rotateY(-12deg) scale(0.83);
+    opacity: 0.75;
   }
 }
 

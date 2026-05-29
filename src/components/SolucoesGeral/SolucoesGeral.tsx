@@ -19,7 +19,7 @@ export interface SolucoesItem {
 const SolutionCard = ({ item }: { item: SolucoesItem }) => (
   <Link
     href={item.href || '#'}
-    className="group flex flex-col bg-white rounded-[2.5rem] overflow-hidden md:hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-300 transform md:hover:-translate-y-2 border border-gray-100 h-full"
+    className="group flex flex-1 flex-col w-full h-full bg-white rounded-[2.5rem] overflow-hidden md:hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-300 transform md:hover:-translate-y-2 border border-gray-100"
   >
     {/* Imagem com cantos superiores arredondados */}
     <div className="relative aspect-[440/280] w-full overflow-hidden rounded-t-[2.5rem]">
@@ -33,11 +33,11 @@ const SolutionCard = ({ item }: { item: SolucoesItem }) => (
     </div>
 
     {/* Conteúdo do Card */}
-    <div className="flex flex-col p-8 lg:p-10 flex-grow relative">
+    <div className="flex flex-1 flex-col p-8 lg:p-10 relative">
       <h3 className="text-primary font-bold text-[1.3rem] md:text-[1.5rem] lg:text-[1.6rem] leading-tight mb-4 md:group-hover:text-secondary transition-colors duration-300">
         {item.title}
       </h3>
-      <p className="text-primary/80 font-medium text-xs md:text-base lg:text-[1.1rem] leading-relaxed mb-12 flex-grow">
+      <p className="text-primary/80 font-medium text-xs md:text-base lg:text-[1.1rem] leading-relaxed mb-12 flex-1">
         {item.description}
       </p>
 
@@ -123,9 +123,11 @@ export default function SolucoesGeral({
         </div>
 
         {/* Grade de Cards (Desktop) */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-20 md:mb-24">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-20 md:mb-24 items-stretch">
           {items.map((item) => (
-            <SolutionCard key={item.id} item={item} />
+            <div key={item.id} className="flex h-full min-h-0">
+              <SolutionCard item={item} />
+            </div>
           ))}
         </div>
 
@@ -138,11 +140,13 @@ export default function SolucoesGeral({
               swiperRef.current = swiper;
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            className="w-full pb-12 pt-[10px] -mt-[10px]"
+            className="w-full pb-12 pt-[10px] -mt-[10px] !items-stretch"
           >
             {items.map((item) => (
-              <SwiperSlide key={item.id} className="h-auto flex pb-6">
-                <SolutionCard item={item} />
+              <SwiperSlide key={item.id} className="!h-auto flex flex-col pb-6">
+                <div className="flex flex-1 flex-col h-full w-full">
+                  <SolutionCard item={item} />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -68,9 +68,9 @@ export default function Faq({
                   className={`transition-all duration-300 ease-in-out px-8 md:px-16 overflow-hidden ${activeIndex === index ? 'max-h-[500px] pb-6 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                 >
-                  <p className="text-primary font-medium text-xs md:text-base lg:text-lg text-center leading-relaxed">
+                  <div className="text-primary font-medium text-xs md:text-base lg:text-lg text-center leading-relaxed">
                     {item.answer}
-                  </p>
+                  </div>
                 </div>
               </div>
             </AnimateIn>

@@ -14,21 +14,21 @@ const paraOAgroItems = [
     image: '/soltas/credito-rural-1.webp',
     title: 'Fortaleça o Agronegócio',
     description: 'A Credicitrus faz uma gestão financeira eficiente e fortalece a economia do campo.',
-    href: '#',
+    href: 'https://wa.me/551633445020',
   },
   {
     id: 2,
     image: '/soltas/credito-rural-2.webp',
     title: 'Invista na sua propriedade',
     description: 'Adquira novos equipamentos, compre máquinas e modernize a infraestrutura do seu agronegócio.',
-    href: '#',
+    href: 'https://wa.me/551633445020',
   },
   {
     id: 3,
     image: '/soltas/credito-rural-3.webp',
     title: 'Atendimento exclusivo',
     description: 'A Credicitrus conta com uma equipe especializada que entende as necessidades de cada produtor rural.',
-    href: '#',
+    href: 'https://wa.me/551633445020',
   },
 ];
 
@@ -66,19 +66,27 @@ const agroSolucoesOutras = [
 const faqItems = [
   {
     question: "Quem pode solicitar o Crédito Rural na Credicitrus?",
-    answer: ""
+    answer: "Podem solicitar o Crédito Rural pessoas físicas ou jurídicas, incluindo produtores rurais com CNPJ individual ou coletivo. É necessário que o tomador esteja inscrito no Cadastro de Contribuintes de ICMS do seu Estado."
   },
   {
     question: "Quais são os documentos necessários?",
-    answer: ""
-  },
-  {
-    question: "Como funciona a participação nos resultados (sobras) para associados PJ?",
-    answer: ""
+    answer: (
+      <>
+        <p className="mb-3">Os principais documentos exigidos incluem:</p>
+        <ul className="list-disc list-inside space-y-1 text-left">
+          <li>Orçamento, plano ou projeto da operação (exceto para desconto)</li>
+          <li>Nota Fiscal de insumos, emitida para o tomador (PF ou PJ), com o valor total do empreendimento</li>
+          <li>Declaração de Imposto de Renda, com rendimentos da atividade rural</li>
+          <li>Matrícula do imóvel, quando aplicável</li>
+          <li>Ficha sanitária ou equivalente</li>
+        </ul>
+        <p className="mt-3">Outros documentos podem ser solicitados conforme o tipo de operação e as regras do crédito rural.</p>
+      </>
+    )
   },
   {
     question: "Crédito Rural é um tipo de financiamento?",
-    answer: ""
+    answer: "Sim. O Crédito Rural é uma modalidade de financiamento voltada a produtores rurais (PF ou PJ), destinada ao custeio, investimento ou comercialização das atividades agropecuárias."
   }
 ];
 
@@ -91,8 +99,8 @@ export default function CreditoRuralPage() {
           titleLines={["CRÉDITO RURAL", "CREDICITRUS"]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Abra já sua conta PJ", href: "#abra-conta-pj", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "#ja-sou-associado", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 
@@ -113,7 +121,7 @@ export default function CreditoRuralPage() {
         <Faq
           title="Tire suas dúvidas sobre Crédito Rural"
           items={faqItems}
-          cta={{ text: "Fale com nosso especialista!", href: "#" }}
+          cta={{ text: "Fale com nosso especialista!", href: "https://wa.me/551633445020" }}
         />
 
         <SejaAssociado

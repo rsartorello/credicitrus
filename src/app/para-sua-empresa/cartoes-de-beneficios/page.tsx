@@ -58,8 +58,8 @@ export default function CartoesBeneficiosPage() {
           highlightIndices={[2, 3]}
           subtitleColor="secondary"
           buttons={[
-            { label: "Abra já sua conta PJ", href: "#", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 
@@ -151,14 +151,14 @@ export default function CartoesBeneficiosPage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 
         <SejaAssociado
           title={`Pronto para\nestruturar seu\nprograma de\nbenefícios?`}
           description={`Abra sua conta e conte com\ncartões de benefícios para\nfortalecer a experiência do\ncolaborador.`}
-          buttonText="Abra já sua conta PJ"
+          buttonText="Abra já sua conta"
         />
 
       </main>

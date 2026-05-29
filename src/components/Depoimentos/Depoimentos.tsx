@@ -15,11 +15,12 @@ import './Depoimentos.css';
 
 export interface DepoimentoSlide {
   id: string;
-  imageSrc: string;
+  imageSrc?: string;
   name: string;
-  type: string;
-  time: string;
-  videoUrl?: string; // links the play button click
+  type?: string;
+  time?: string;
+  videoUrl?: string;
+  embedUrl?: string;
 }
 
 export interface DepoimentosProps {
@@ -35,28 +36,14 @@ export default function Depoimentos({
   description = 'Confie na Credicitrus para realizar seus sonhos e fazer seus negócios crescerem.',
   slides = [
     {
-      id: 'nelson',
-      imageSrc: '/depoimentos/depoimento-nelson.webp',
-      name: 'Nelson',
-      type: 'Cliente Agro',
-      time: 'há 15 anos',
-      videoUrl: '#'
+      id: 'joaquim',
+      name: 'Entrevista Joaquim',
+      embedUrl: 'https://www.youtube.com/embed/gX_UC3ehVaE',
     },
     {
-      id: 'jaqueline',
-      imageSrc: '/depoimentos/depoimento-jaqueline.webp',
-      name: 'Jaqueline',
-      type: 'Cliente Empresa',
-      time: 'há 5 anos',
-      videoUrl: '#'
-    },
-    {
-      id: 'nelson2',
-      imageSrc: '/depoimentos/depoimento-nelson.webp',
-      name: 'Nelson Clone',
-      type: 'Cliente Agro',
-      time: 'há 15 anos',
-      videoUrl: '#'
+      id: 'depoimentos-credicitrus',
+      name: 'DEPOIMENTOS CREDICITRUS',
+      embedUrl: 'https://www.youtube.com/embed/igegpZ4p9gA',
     }
   ]
 }: DepoimentosProps) {
@@ -90,25 +77,39 @@ export default function Depoimentos({
           >
             {slides.map((slide) => (
               <SwiperSlide key={slide.id} className="flex flex-col">
-                <button 
-                  className="group relative w-full aspect-[3/4.5] rounded-3xl overflow-hidden mb-4 lg:mb-6 block text-left transition-transform duration-300 hover:-translate-y-2 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] focus:outline-none"
-                  onClick={() => window.open(slide.videoUrl, '_blank')}
-                  aria-label={`Ver depoimento em vídeo de ${slide.name}`}
-                >
-                  <Image 
-                    src={slide.imageSrc}
-                    alt={`Depoimento ${slide.name}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                  {/* Overlay for Play Button */}
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] border-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <Play className="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="white" strokeWidth={1.5} />
-                    </div>
+                {slide.embedUrl ? (
+                  <div className="w-full aspect-[3/4.5] rounded-3xl overflow-hidden mb-4 lg:mb-6 block transition-transform duration-300 hover:-translate-y-2 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-black">
+                    <iframe
+                      src={slide.embedUrl}
+                      title={slide.name}
+                      className="w-full h-full border-none"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
                   </div>
-                </button>
+                ) : (
+                  <button 
+                    className="group relative w-full aspect-[3/4.5] rounded-3xl overflow-hidden mb-4 lg:mb-6 block text-left transition-transform duration-300 hover:-translate-y-2 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] focus:outline-none"
+                    onClick={() => window.open(slide.videoUrl, '_blank')}
+                    aria-label={`Ver depoimento em vídeo de ${slide.name}`}
+                  >
+                    {slide.imageSrc && (
+                      <Image 
+                        src={slide.imageSrc}
+                        alt={`Depoimento ${slide.name}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    )}
+                    {/* Overlay for Play Button */}
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] border-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <Play className="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                  </button>
+                )}
                 
                 {/* Text below image */}
                 <div className="flex flex-col px-2">
@@ -123,45 +124,47 @@ export default function Depoimentos({
                       ))}
                     </div>
                   </div>
-                  <p className="text-xs lg:text-sm text-[#003641] font-normal leading-[1.3]">{slide.type}</p>
-                  <p className="text-xs lg:text-sm text-[#003641] font-normal leading-[1.3]">{slide.time}</p>
+                  {slide.type && <p className="text-xs lg:text-sm text-[#003641] font-normal leading-[1.3]">{slide.type}</p>}
+                  {slide.time && <p className="text-xs lg:text-sm text-[#003641] font-normal leading-[1.3]">{slide.time}</p>}
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
           {/* Custom Navigation & Pagination (Mobile only) */}
-          <div className="flex lg:hidden items-center justify-center gap-4 mt-8">
-            <button 
-              className="depoimentos-prev transition-transform hover:scale-110"
-              onClick={() => swiperRef.current?.slidePrev()}
-            >
-              <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.5 27.5L3 15L15.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+          {slides.length > 2 && (
+            <div className="flex lg:hidden items-center justify-center gap-4 mt-8">
+              <button 
+                className="depoimentos-prev transition-transform hover:scale-110"
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.5 27.5L3 15L15.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
 
-            {/* Pagination container */}
-            <div className="flex items-center gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => swiperRef.current?.slideTo(index)}
-                  className={`depoimentos-bullet border-none p-0 ${activeIndex === index ? 'hero-bullet-active' : ''}`}
-                  aria-label={`Ir para depoimento ${index + 1}`}
-                />
-              ))}
+              {/* Pagination container */}
+              <div className="flex items-center gap-2">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => swiperRef.current?.slideTo(index)}
+                    className={`depoimentos-bullet border-none p-0 ${activeIndex === index ? 'hero-bullet-active' : ''}`}
+                    aria-label={`Ir para depoimento ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button 
+                className="depoimentos-next transition-transform hover:scale-110"
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 27.5L15 15L2.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
             </div>
-
-            <button 
-              className="depoimentos-next transition-transform hover:scale-110"
-              onClick={() => swiperRef.current?.slideNext()}
-            >
-              <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 27.5L15 15L2.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
+          )}
         </div>
 
         {/* Right Content (Texts and Pagination) */}
@@ -179,37 +182,39 @@ export default function Depoimentos({
           </h3>
 
           {/* Custom Navigation & Pagination (Desktop only) */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button 
-              className="depoimentos-prev transition-transform hover:scale-110"
-              onClick={() => swiperRef.current?.slidePrev()}
-            >
-              <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.5 27.5L3 15L15.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+          {slides.length > 2 && (
+            <div className="hidden lg:flex items-center gap-4">
+              <button 
+                className="depoimentos-prev transition-transform hover:scale-110"
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.5 27.5L3 15L15.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
 
-            {/* Pagination container */}
-            <div className="flex items-center gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => swiperRef.current?.slideTo(index)}
-                  className={`depoimentos-bullet border-none p-0 ${activeIndex === index ? 'hero-bullet-active' : ''}`}
-                  aria-label={`Ir para depoimento ${index + 1}`}
-                />
-              ))}
+              {/* Pagination container */}
+              <div className="flex items-center gap-2">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => swiperRef.current?.slideTo(index)}
+                    className={`depoimentos-bullet border-none p-0 ${activeIndex === index ? 'hero-bullet-active' : ''}`}
+                    aria-label={`Ir para depoimento ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button 
+                className="depoimentos-next transition-transform hover:scale-110"
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 27.5L15 15L2.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
             </div>
-
-            <button 
-              className="depoimentos-next transition-transform hover:scale-110"
-              onClick={() => swiperRef.current?.slideNext()}
-            >
-              <svg width="18" height="30" viewBox="0 0 18 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 27.5L15 15L2.5 2.5" stroke="#E1E1E1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
+          )}
         </div>
 
       </div>

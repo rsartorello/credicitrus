@@ -7,6 +7,8 @@ import Rodape from "@/components/Rodape/Rodape";
 import Button from "@/components/ui/Button";
 
 export default function AssembleiaCredicitrusPage() {
+  const [playVideo, setPlayVideo] = React.useState(false);
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
@@ -28,22 +30,16 @@ export default function AssembleiaCredicitrusPage() {
               </h2>
             </div>
 
+            {/* Top row: 3 topics on the left, video card on the right */}
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
-              {/* Coluna Esquerda: Lista de Tópicos */}
+              {/* Coluna Esquerda: 3 primeiros tópicos */}
               <div className="w-full lg:w-[55%] flex flex-col gap-6">
                 {[
                   {
                     title: "O que são as Assembleias?",
                     content: (
                       <>
-                        A Assembleia é um momento fundamental para a <br className="hidden lg:block" />
-                        Cooperativa e para cada cooperado. É por meio dela que a <br className="hidden lg:block" />
-                        Credicitrus reafirma seu compromisso com a democracia, <br className="hidden lg:block" />
-                        a transparência e a participação ativa dos associados. Na <br className="hidden lg:block" />
-                        Assembleia, você contribui diretamente para as decisões <br className="hidden lg:block" />
-                        que definem os rumos da Cooperativa. Aqui todos têm o <br className="hidden lg:block" />
-                        mesmo direito. Um voto por associado. É justo, igualitário <br className="hidden lg:block" />
-                        e democrático.
+                        A Assembleia é um momento fundamental para a Cooperativa e para cada cooperado. É por meio dela que a Credicitrus reafirma seu compromisso com a democracia, a transparência e a participação ativa dos associados. Na Assembleia, você contribui diretamente para as decisões que definem os rumos da Cooperativa. Aqui todos têm o mesmo direito. Um voto por associado. É justo, igualitário e democrático.
                       </>
                     )
                   },
@@ -51,12 +47,8 @@ export default function AssembleiaCredicitrusPage() {
                     title: "Quais são as modalidades de Assembleia?",
                     content: (
                       <>
-                        Assembleia Geral Ordinária (AGO): ocorre uma vez por ano <br className="hidden lg:block" />
-                        e aborda assuntos ordinários e obrigatórios da <br className="hidden lg:block" />
-                        governança. <br />
-                        Assembleia Geral Extraordinária (AGE): é convocada <br className="hidden lg:block" />
-                        conforme a necessidade, sem periodicidade fixa, para <br className="hidden lg:block" />
-                        assuntos não rotineiros e estruturantes.
+                        Assembleia Geral Ordinária (AGO): ocorre uma vez por ano e aborda assuntos ordinários e obrigatórios da governança. <br />
+                        Assembleia Geral Extraordinária (AGE): é convocada conforme a necessidade, sem periodicidade fixa, para assuntos não rotineiros e estruturantes.
                       </>
                     )
                   },
@@ -64,22 +56,8 @@ export default function AssembleiaCredicitrusPage() {
                     title: "Sua participação faz a diferença.",
                     content: (
                       <>
-                        Participar da Assembleia é exercer seu papel de dono da <br className="hidden lg:block" />
-                        Cooperativa. Na Credicitrus, ninguém decide sozinho: <br className="hidden lg:block" />
-                        cada associado importa e cada participação faz a <br className="hidden lg:block" />
-                        diferença.
+                        Participar da Assembleia é exercer seu papel de dono da Cooperativa. Na Credicitrus, ninguém decide sozinho: cada associado importa e cada participação faz a diferença.
                       </>
-                    )
-                  },
-                  {
-                    title: "O que é discutido nas Assembleias?",
-                    content: (
-                      <ul className="list-none p-0 flex flex-col gap-3">
-                        <li>• <strong>Prestação de contas:</strong> acompanhamento dos resultados <br className="hidden lg:block" /> e das evidências de gestão do último período.</li>
-                        <li>• <strong>Eleição de conselheiros:</strong> quando previsto, os associados <br className="hidden lg:block" /> elegem representantes.</li>
-                        <li>• <strong>Direcionamento do futuro:</strong> deliberação sobre <br className="hidden lg:block" /> prioridades e próximos passos da Credicitrus.</li>
-                        <li>• <strong>Fortalecimento da governança:</strong> decisões coletivas, com <br className="hidden lg:block" /> base em transparência e responsabilidade.</li>
-                      </ul>
                     )
                   }
                 ].map((item, idx) => (
@@ -96,28 +74,39 @@ export default function AssembleiaCredicitrusPage() {
 
               {/* Coluna Direita: Card de Vídeo */}
               <div className="w-full lg:w-[45%] flex flex-col">
-                <div className="bg-white rounded-[2.5rem] md:rounded-[3.75rem] lg:rounded-[5rem] p-6 lg:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.08)] overflow-hidden flex-grow flex flex-col md:min-h-[800px] lg:min-h-[1000px]">
+                <div className="bg-white rounded-[2rem] p-6 lg:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.08)] overflow-hidden flex-grow flex flex-col justify-between">
                   {/* Área da Imagem / Vídeo */}
-                  <a
-                    href="#"
-                    className="relative w-full block group overflow-hidden bg-[#003b2a] rounded-[2rem] lg:rounded-[3rem]"
-                    style={{ height: '70%', minHeight: '500px' }}
-                  >
-                    <Image
-                      src="/soltas/1-assembleia-credicitrus.webp"
-                      alt="O que é a Assembleia"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    {/* Play Button Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors">
-                      <div className="w-24 h-24 lg:w-32 lg:h-32 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110">
-                        <div className="w-0 h-0 border-t-[15px] lg:border-t-[20px] border-t-transparent border-l-[25px] lg:border-l-[35px] border-l-primary border-b-[15px] lg:border-b-[20px] border-b-transparent ml-2 lg:ml-3"></div>
-                      </div>
+                  {playVideo ? (
+                    <div className="relative w-full max-w-[360px] mx-auto aspect-[9/16] overflow-hidden bg-black rounded-2xl shadow-inner">
+                      <iframe
+                        src="https://www.youtube.com/embed/qAwf-wdWJKY?autoplay=1"
+                        title="O que é a Assembleia"
+                        className="absolute inset-0 w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
-                  </a>
+                  ) : (
+                    <button
+                      onClick={() => setPlayVideo(true)}
+                      className="relative w-full max-w-[360px] mx-auto aspect-[9/16] block group overflow-hidden bg-[#003b2a] cursor-pointer rounded-2xl border-0 p-0"
+                    >
+                      <Image
+                        src="/soltas/1-assembleia-credicitrus.webp"
+                        alt="O que é a Assembleia"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors">
+                        <div className="w-24 h-24 lg:w-32 lg:h-32 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110">
+                          <div className="w-0 h-0 border-t-[15px] lg:border-t-[20px] border-t-transparent border-l-[25px] lg:border-l-[35px] border-l-primary border-b-[15px] lg:border-b-[20px] border-b-transparent ml-2 lg:ml-3"></div>
+                        </div>
+                      </div>
+                    </button>
+                  )}
 
                   {/* Área do Texto */}
                   <div className="flex-grow flex items-center justify-center py-8 lg:py-10">
@@ -127,6 +116,28 @@ export default function AssembleiaCredicitrusPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Bottom row: 4th topic on the left, empty space on the right */}
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch mt-6">
+              {/* Coluna Esquerda: 4º tópico */}
+              <div className="w-full lg:w-[55%]">
+                <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full">
+                  <h3 className="text-secondary font-bold text-xl md:text-2xl mb-4">
+                    O que é discutido nas Assembleias?
+                  </h3>
+                  <div className="text-primary text-base md:text-lg leading-relaxed font-medium">
+                    <ul className="list-none p-0 flex flex-col gap-3">
+                      <li>• <strong>Prestação de contas:</strong> acompanhamento dos resultados e das evidências de gestão do último período.</li>
+                      <li>• <strong>Eleição de conselheiros:</strong> quando previsto, os associados elegem representantes.</li>
+                      <li>• <strong>Direcionamento do futuro:</strong> deliberação sobre prioridades e próximos passos da Credicitrus.</li>
+                      <li>• <strong>Fortalecimento da governança:</strong> decisões coletivas, com base em transparência e responsabilidade.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {/* Espaço vazio para alinhar com o grid */}
+              <div className="hidden lg:block lg:w-[45%]" />
             </div>
           </div>
         </section>

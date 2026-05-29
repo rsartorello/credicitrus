@@ -29,6 +29,12 @@ const LinkedinIcon = ({ size = 24, strokeWidth = 2, className = "" }) => (
   </svg>
 );
 
+const TikTokIcon = ({ size = 24, strokeWidth = 2, className = "" }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="0.5" className={className} width={size} height={size}>
+    <path d="M12.525.01V15.75c0 1.8-1.46 3.26-3.26 3.26s-3.26-1.46-3.26-3.26 1.46-3.26 3.26-3.26c.33 0 .65.05.95.14v-3.41c-.31-.04-.63-.06-.95-.06-3.69 0-6.68 2.99-6.68 6.68s2.99 6.68 6.68 6.68 6.68-2.99 6.68-6.68V6.16c1.68 1.42 3.88 2.27 6.27 2.27V5.02c-2.4 0-4.57-.96-6.15-2.52V.01h-3.54z"/>
+  </svg>
+);
+
 const YoutubeIcon = ({ size = 24, strokeWidth = 2, className = "" }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className} width={size} height={size} strokeLinecap="round" strokeLinejoin="round">
     <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
@@ -37,9 +43,10 @@ const YoutubeIcon = ({ size = 24, strokeWidth = 2, className = "" }) => (
 );
 
 const redesSociais = [
-  { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/SicoobCredicitrus/' },
   { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/credicitrus/' },
+  { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/SicoobCredicitrus/' },
   { name: 'LinkedIn', icon: LinkedinIcon, href: 'https://www.linkedin.com/company/sicoob-credicitrus/' },
+  { name: 'TikTok', icon: TikTokIcon, href: 'https://www.tiktok.com/@credicitrus' },
   { name: 'Youtube', icon: YoutubeIcon, href: 'https://www.youtube.com/channel/UCjdKzIzfl5Ywst_XO_tsJjA/featured?view_as=subscriber' },
 ];
 
@@ -66,7 +73,7 @@ export default function NossasRedesSociaisPage() {
               </p>
             </AnimateIn>
 
-            <AnimateIn direction="none" delay={0.4} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto px-4">
+            <AnimateIn direction="none" delay={0.4} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto px-4">
               {redesSociais.map((rede, idx) => {
                 const Icon = rede.icon;
                 return (

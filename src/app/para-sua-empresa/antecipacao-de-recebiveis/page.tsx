@@ -57,8 +57,8 @@ export default function AntecipacaoRecebiveisPage() {
           highlightIndices={1}
           subtitleColor="secondary"
           buttons={[
-            { label: "Abra já sua conta PJ", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e tenho interesse", href: "#", variant: "primary" }
+            { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
+            { label: "Já sou associado e tenho interesse", href: "https://wa.me/551633445020", variant: "primary" }
           ]}
         />
 
@@ -122,14 +122,14 @@ export default function AntecipacaoRecebiveisPage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "#"
+            href: "https://wa.me/551633445020"
           }}
         />
 
         <SejaAssociado
           title={`Pronto para\nreforçar o\ncapital de giro?`}
           description={`Abra sua conta e habilite a\nantecipação de recebíveis por\nboleto e Sipag para dar mais\nfôlego ao caixa do seu negócio.`}
-          buttonText="Abra já sua conta PJ"
+          buttonText="Abra já sua conta"
         />
 
       </main>
