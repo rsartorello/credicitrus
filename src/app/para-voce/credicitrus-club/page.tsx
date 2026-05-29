@@ -216,3 +216,11 @@ export default function CredicitrusClub2Page() {
           title={`Pronto para\ncomeçar?`}
           description={`Abra sua conta e aproveite as\nvantagens do Credicitrus Club:\nbenefícios exclusivos e\ncondições diferenciadas`}
           buttonText="Abra sua conta Pessoal"
+          imageSrc="/soltas/cartoes.webp"
+        />
+
+      </main>
+      <Rodape />
+    </div>
+  );
+}

@@ -27,7 +27,79 @@ export default function InvestimentosObjetivosPage() {
         />
 
         {/* 2. Sessão Para Você */}
-
+        <FeatureCardsSection
+          eyebrowText="PARA VOCÊ"
+          title="Investimento para cada objetivo"
+          description="Na Credicitrus, você conta com soluções pensadas para cada etapa do seu planejamento financeiro, com a segurança do cooperativismo, transparência e solidez."
+          cards={[
+            {
+              id: 'lca',
+              image: '/soltas/investimento-1.webp',
+              title: 'LCA',
+              description: 'Renda fixa de baixo risco, pós-fixada, com recursos direcionados ao agronegócio.'
+            },
+            {
+              id: 'lci',
+              image: '/soltas/investimento-2.webp',
+              title: 'LCI',
+              description: 'Renda fixa de baixo risco, pós-fixada, com recursos direcionados ao mercado imobiliário.'
+            },
+            {
+              id: 'rdc',
+              image: '/soltas/investimento-3.webp',
+              title: 'RDC',
+              description: 'Renda fixa da cooperativa, pós-fixada, semelhante ao CDB, para objetivos do dia a dia.'
+            },
+            {
+              id: 'rdc-progressivo',
+              image: '/soltas/investimento-4.webp',
+              title: 'RDC Progressivo',
+              description: 'Renda fixa pós-fixada, pensada para quem quer planejar objetivos com horizonte de tempo definido.'
+            },
+            {
+              id: 'rdc-carencia',
+              image: '/soltas/investimento-5.webp',
+              title: 'RDC com carência',
+              description: 'Renda fixa pós-fixada, com carência definida conforme as condições do produto.'
+            },
+            {
+              id: 'rdc-fidelidade',
+              image: '/soltas/investimento-6.webp',
+              title: 'RDC Fidelidade DI',
+              description: 'Renda fixa pós-fixada (Fidelidade DI), ideal para prazos mais longos.'
+            },
+            {
+              id: 'fundos',
+              image: '/soltas/investimento-7.webp',
+              title: 'Fundos',
+              description: 'Carteiras com gestão profissional e estratégias por perfil; destaque ao Referenciado DI atrelado ao CDI.'
+            },
+            {
+              id: 'poupanca',
+              image: '/soltas/investimento-8.webp',
+              title: 'Poupança',
+              description: 'A poupança é um investimento conservador, com rentabilidade padrão em todas as instituições financeiras.'
+            },
+            {
+              id: 'previdencia',
+              image: '/soltas/investimento-9.webp',
+              title: 'Previdência',
+              description: 'Ajuda você a planejar e garantir seu padrão de vida no futuro.'
+            },
+            {
+              id: 'tesouro',
+              image: '/soltas/investimento-10.webp',
+              title: 'Tesouro Direto',
+              description: 'Compra e venda de títulos públicos federais aos investidores pessoas físicas, pelo App Sicoob.'
+            },
+            {
+              id: 'home-broker',
+              image: '/soltas/investimento-11.webp',
+              title: 'Home Broker',
+              description: 'O Home Broker permite operar ações, FIIs (Fundos de Investimento Imobiliário), ETFs (Exchange Traded Funds) e BDRs (Brazilian Depositary Receipts) pelo App Sicoob.'
+            },
+          ]}
+        />
 
         {/* 3. Outras Soluções */}
         <OutrasSolucoesGeral
@@ -125,70 +197,3 @@ export default function InvestimentosObjetivosPage() {
     </div>
   );
 }
-<FeatureCardsSection
-  eyebrowText="PARA VOCÊ"
-  title="Investimento para cada objetivo"
-  description="Na Credicitrus, você conta com soluções pensadas para cada etapa do seu planejamento financeiro, com a segurança do cooperativismo, transparência e solidez."
-  cards={[
-    {
-      id: 'lca',
-      image: '/soltas/investimento-1.webp',
-      title: 'LCA',
-      description: 'Renda fixa de baixo risco, pós-fixada, com recursos direcionados ao agronegócio.'
-    },
-    {
-      id: 'lci',
-      image: '/soltas/investimento-2.webp',
-      title: 'LCI',
-      description: 'Renda fixa de baixo risco, pós-fixada, com recursos direcionados ao mercado imobiliário.'
-    },
-    {
-      id: 'rdc',
-      image: '/soltas/investimento-3.webp',
-      title: 'RDC',
-      description: 'Renda fixa da cooperativa, pós-fixada, semelhante ao CDB, para objetivos do dia a dia.'
-    },
-    {
-      id: 'rdc-progressivo',
-      image: '/soltas/investimento-4.webp',
-      title: 'RDC Progressivo',
-      description: 'Renda fixa pós-fixada, pensada para quem quer planejar objetivos com horizonte de tempo definido.'
-    },
-    {
-      id: 'rdc-carencia',
-      image: '/soltas/investimento-5.webp',
-      title: 'RDC com carência',
-      description: 'Renda fixa pós-fixada, com carência definida conforme as condições do produto.'
-    },
-    {
-      id: 'rdc-fidelidade',
-      image: '/soltas/investimento-6.webp',
-      title: 'RDC Fidelidade DI',
-      description: 'Renda fixa pós-fixada (Fidelidade DI), ideal para prazos mais longos.'
-    },
-    {
-      id: 'fundos',
-      image: '/soltas/investimento-7.webp',
-      title: 'Fundos',
-      description: 'Carteiras com gestão profissional e estratégias por perfil; destaque ao Referenciado DI atrelado ao CDI.'
-    },
-    {
-      id: 'poupanca',
-      image: '/soltas/investimento-8.webp',
-      title: 'Poupança',
-      description: 'A poupança é um investimento conservador, com rentabilidade padrão em todas as instituições financeiras.'
-    },
-    {
-      id: 'previdencia',
-      image: '/soltas/investimento-9.webp',
-      title: 'Previdência',
-      description: 'Ajuda você a planejar e garantir seu padrão de vida no futuro.'
-    },
-    {
-      id: 'tesouro',
-      image: '/soltas/investimento-10.webp',
-      title: 'Tesouro Direto',
-      description: 'Compra e venda de títulos públicos federais aos investidores pessoas físicas, pelo App Sicoob.'
-    },
-    {
-      id: 'home-broker',

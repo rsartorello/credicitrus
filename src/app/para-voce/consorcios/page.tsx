@@ -192,3 +192,10 @@ export default function ConsorciosParaCadaObjetivoPage() {
           description={"Abra sua conta e transforme planos em conquistas: consórcio com taxas justas, previsibilidade e a solidez do cooperativismo."}
           buttonText="Abra sua conta Pessoal"
           imageSrc="/soltas/cartoes.webp"
+        />
+
+      </main>
+      <Rodape />
+    </div>
+  );
+}
