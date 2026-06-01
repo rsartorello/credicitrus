@@ -14,21 +14,21 @@ const paraOAgroItems = [
     image: '/soltas/credito-rural-1.webp',
     title: 'Fortaleça o Agronegócio',
     description: 'A Credicitrus faz uma gestão financeira eficiente e fortalece a economia do campo.',
-    href: 'https://wa.me/551633445020',
+    href: 'https://wa.me/551733445020',
   },
   {
     id: 2,
     image: '/soltas/credito-rural-2.webp',
     title: 'Invista na sua propriedade',
     description: 'Adquira novos equipamentos, compre máquinas e modernize a infraestrutura do seu agronegócio.',
-    href: 'https://wa.me/551633445020',
+    href: 'https://wa.me/551733445020',
   },
   {
     id: 3,
     image: '/soltas/credito-rural-3.webp',
     title: 'Atendimento exclusivo',
     description: 'A Credicitrus conta com uma equipe especializada que entende as necessidades de cada produtor rural.',
-    href: 'https://wa.me/551633445020',
+    href: 'https://wa.me/551733445020',
   },
 ];
 
@@ -100,7 +100,7 @@ export default function CreditoRuralPage() {
           subtitleColor="secondary"
           buttons={[
             { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 
@@ -121,7 +121,7 @@ export default function CreditoRuralPage() {
         <Faq
           title="Tire suas dúvidas sobre Crédito Rural"
           items={faqItems}
-          cta={{ text: "Fale com nosso especialista!", href: "https://wa.me/551633445020" }}
+          cta={{ text: "Fale com nosso especialista!", href: "https://wa.me/551733445020" }}
         />
 
         <SejaAssociado

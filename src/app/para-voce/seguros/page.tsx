@@ -159,7 +159,7 @@ export default function SeguroParaVocePage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "https://wa.me/551633445020"
+            href: "https://wa.me/551733445020"
           }}
         />
 

@@ -42,7 +42,7 @@ export default function HeroAbraConta({
 
         <div className={HERO_TITLE_AREA_CLASSES}>
           <div className={HERO_TITLE_INNER_CLASSES}>
-            <div className="max-w-[90%] md:max-w-[70%] lg:max-w-[60%]">
+            <div className="max-w-[90%] md:max-w-[70%] lg:max-w-[70%]">
               <h1 className="flex flex-col items-start text-white font-extrabold text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.25rem] leading-[1.1] tracking-tight uppercase">
                 {titleLines.map((line, idx) => {
                   const isLastTwo = idx >= titleLines.length - 2;

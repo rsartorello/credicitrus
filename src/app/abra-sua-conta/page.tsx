@@ -75,9 +75,9 @@ export default function AbraSuaContaPage() {
       <main className="flex-grow">
         <HeroAbraConta
           backgroundImage="/soltas/hero-abra-sua-conta.webp"
-          titleLines={["SUA CONTA", "CREDICITRUS:", "MAIS QUE UM BANCO,", "UM PARCEIRO PARA", "TODA A VIDA"]}
+          titleLines={["MAIS QUE UMA", "INSTITUIÇÃO FINANCEIRA,", "UM PARCEIRO PARA", "TODA A VIDA"]}
           buttonLabel="Abra já sua conta"
-          buttonHref="https://wa.me/551633445020"
+          buttonHref="https://wa.me/551733445020"
         />
 
         <BeneficiosAbraSuaConta />
@@ -87,7 +87,7 @@ export default function AbraSuaContaPage() {
         <Faq
           title="Tire suas dúvidas sobre crédito"
           items={faqItems}
-          cta={{ text: "Fale com nosso especialista!", href: "https://wa.me/551633445020" }}
+          cta={{ text: "Fale com nosso especialista!", href: "https://wa.me/551733445020" }}
         />
       </main>
       <Rodape />

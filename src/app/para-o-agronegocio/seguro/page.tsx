@@ -97,7 +97,7 @@ export default function SeguroAgroCredicitrusPage() {
           subtitleColor="secondary"
           buttons={[
             { label: "Abra sua conta", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero contratar", href: "https://api.whatsapp.com/send?phone=551633445020", variant: "primary" }
+            { label: "Já sou associado e quero contratar", href: "https://api.whatsapp.com/send?phone=551733445020", variant: "primary" }
           ]}
         />
 

@@ -10,7 +10,7 @@ interface InfoCard {
   topText?: string;
   highlightText: string;
   bottomText: string;
-  href: string;
+  href?: string;
 }
 
 interface StatsSectionProps {
@@ -58,32 +58,42 @@ export default function StatsSection({
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8 justify-center mt- max-w-5xl order-4 md:order-none">
           {cards.map((card) => {
-            return (
+            const cardContent = (
+              <div className="flex flex-row md:flex-col gap-4 md:gap-3 lg:gap-4 relative z-10 flex-grow items-center md:items-stretch">
+                <img src={card.icon} className="w-8 h-8 object-contain shrink-0 self-start md:self-auto mt-1 md:mt-0" alt="" />
+
+                <div className="flex flex-col flex-grow justify-center">
+                  {card.topText && (
+                    <span className="text-xs md:text-sm lg:text-base font-bold text-white mb-1">
+                      {card.topText}
+                    </span>
+                  )}
+                  <div className={`flex ${card.topText ? 'flex-row flex-wrap items-center gap-x-2 gap-y-0.5' : 'flex-col'} md:flex-col md:items-stretch md:gap-0`}>
+                    <span className="text-5xl md:text-[1.4rem] xl:text-[1.5rem] font-extrabold text-secondary leading-none md:mb-2 shrink-0">
+                      {card.highlightText}
+                    </span>
+                    <span className="text-xs md:text-sm lg:text-base font-bold text-white whitespace-pre-line leading-snug">
+                      {card.bottomText}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+
+            const baseClass = "relative flex flex-row md:flex-col justify-between md:justify-start items-center md:items-stretch bg-primary rounded-2xl p-4 md:py-2 md:px-4 lg:py-3 lg:px-5 min-h-[100px] md:min-h-[180px] xl:min-h-[200px] h-full overflow-hidden";
+
+            return card.href ? (
               <Link
                 key={card.id}
                 href={card.href}
-                className="group relative flex flex-row md:flex-col justify-between md:justify-start items-center md:items-stretch bg-primary rounded-2xl p-4 md:py-2 md:px-4 lg:py-3 lg:px-5 min-h-[100px] md:min-h-[180px] xl:min-h-[200px] h-full hover:shadow-[0_15px_30px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className={`group ${baseClass} hover:shadow-[0_15px_30px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-2`}
               >
-                <div className="flex flex-row md:flex-col gap-4 md:gap-3 lg:gap-4 relative z-10 flex-grow items-center md:items-stretch">
-                  <img src={card.icon} className="w-8 h-8 object-contain shrink-0 self-start md:self-auto mt-1 md:mt-0" alt="" />
-
-                  <div className="flex flex-col flex-grow justify-center">
-                    {card.topText && (
-                      <span className="text-xs md:text-sm lg:text-base font-bold text-white mb-1">
-                        {card.topText}
-                      </span>
-                    )}
-                    <div className={`flex ${card.topText ? 'flex-row flex-wrap items-center gap-x-2 gap-y-0.5' : 'flex-col'} md:flex-col md:items-stretch md:gap-0`}>
-                      <span className="text-5xl md:text-[1.4rem] xl:text-[1.5rem] font-extrabold text-secondary leading-none md:mb-2 shrink-0">
-                        {card.highlightText}
-                      </span>
-                      <span className="text-xs md:text-sm lg:text-base font-bold text-white whitespace-pre-line leading-snug">
-                        {card.bottomText}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                {cardContent}
               </Link>
+            ) : (
+              <div key={card.id} className={baseClass}>
+                {cardContent}
+              </div>
             );
           })}
         </div>

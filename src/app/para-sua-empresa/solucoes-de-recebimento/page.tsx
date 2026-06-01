@@ -54,7 +54,7 @@ export default function RecebaPraticidadeSegurancaPage() {
           subtitleColor="secondary"
           buttons={[
             { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero receber melhor", href: "https://wa.me/551633445020", variant: "primary" }
+            { label: "Já sou associado e quero receber melhor", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 

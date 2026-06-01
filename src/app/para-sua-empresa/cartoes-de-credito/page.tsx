@@ -102,7 +102,7 @@ export default function CartoesPJPage() {
           subtitleColor="secondary"
           buttons={[
             { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 
@@ -170,7 +170,7 @@ export default function CartoesPJPage() {
           cta={{
             title: "Sua dúvida não foi resolvida?",
             buttonText: "Fale com nosso especialista!",
-            href: "https://wa.me/551633445020"
+            href: "https://wa.me/551733445020"
           }}
         />
 

@@ -115,7 +115,7 @@ export default function FeatureCardsSection({
   gridCols = 3,
   ctaTitle,
   ctaButtonText = 'Fale com nosso especialista!',
-  ctaButtonHref = 'https://wa.me/551633445020',
+  ctaButtonHref = 'https://wa.me/551733445020',
   disclaimer,
   compact,
 }: FeatureCardsSectionProps) {

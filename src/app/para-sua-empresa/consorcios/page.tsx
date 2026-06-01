@@ -47,7 +47,7 @@ export default function ConsorciosParaSuaEmpresaPage() {
           highlightIndices={[2]}
           buttons={[
             { label: "Abra já sua conta", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551633445020", variant: "primary" }
+            { label: "Já sou associado e quero solicitar", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 

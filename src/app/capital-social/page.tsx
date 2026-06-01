@@ -48,22 +48,22 @@ const faqCapitalSocial = [
   {
     id: 1,
     question: "O que é Capital Social?",
-    answer: ""
+    answer: "O capital social é o valor formado pelas quotas-partes investidas pelos associados na cooperativa. Cada quota tem valor unitário de R$ 1,00, e o total investido pode variar conforme a quantidade de quotas que cada associado integraliza. Esse valor representa a participação do associado na cooperativa e fica registrado em sua conta de capital."
   },
   {
     id: 2,
     question: "Como me associo para se tornar co-proprietário da credicitrus?",
-    answer: ""
+    answer: "Para se tornar co-proprietário, é necessário se associar à Credicitrus, o que inclui a subscrição e integralização de quotas-partes de capital. Na prática, isso significa investir no capital da cooperativa, com valores registrados em uma conta individual. O processo segue as diretrizes do Estatuto Social e do Regulamento do Associado."
   },
   {
     id: 3,
     question: "Quais os benefícios de se tornar um co-proprietário?",
-    answer: ""
+    answer: "Ao se tornar associado, você passa a participar dos resultados da cooperativa, podendo receber sobras proporcionais à sua participação. Além disso, tem direito a voto nas assembleias e acesso aos produtos e serviços oferecidos pela Credicitrus."
   },
   {
     id: 4,
     question: "Quanto rende o Capital Social da Credicitrus?",
-    answer: ""
+    answer: "A remuneração das quotas-partes do capital social pode ser feita até o percentual da taxa referencial do Sistema Especial de Liquidação e de Custódia (Selic) para títulos federais, conforme deliberação do Conselho de Administração. Pelo menos 50% dessa remuneração é obrigatoriamente capitalizada."
   }
 ];
 

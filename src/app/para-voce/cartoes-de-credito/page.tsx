@@ -24,7 +24,7 @@ export default function CartoesQueAcompanhamOSeuDiaADiaPage() {
           highlightIndices={[2]}
           buttons={[
             { label: "Abra já sua conta pessoal", href: "/abra-sua-conta", variant: "secondary" },
-            { label: "Já sou associado e quero solicitar o cartão", href: "https://wa.me/551633445020", variant: "primary" }
+            { label: "Já sou associado e quero solicitar o cartão", href: "https://wa.me/551733445020", variant: "primary" }
           ]}
         />
 

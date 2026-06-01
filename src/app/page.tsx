@@ -84,44 +84,39 @@ export default function Home() {
             icon: "/soltas/icone-ativos-financeiros-00ae9d.svg",
             topText: 'Mais de',
             highlightText: '15 Bi',
-            bottomText: 'em ativos\nfinanceiros',
-            href: '#'
+            bottomText: 'em ativos\nfinanceiros'
           },
           {
             id: 'cooperados',
             icon: "/soltas/icone-cooperados-00ae9d.svg",
             topText: 'Mais de',
             highlightText: '170',
-            bottomText: 'mil\ncooperados',
-            href: '#'
+            bottomText: 'mil\ncooperados'
           },
           {
             id: 'cidades',
             icon: "/soltas/icone-cidades-00ae9d.svg",
             topText: 'Presente em',
             highlightText: '114',
-            bottomText: 'cidades\npelo país',
-            href: '#'
+            bottomText: 'cidades\npelo país'
           },
           {
             id: 'agencias',
             icon: "/soltas/icone-agencias-00ae9d.svg",
             topText: 'Mais de',
             highlightText: '106',
-            bottomText: 'agências\nno Brasil',
-            href: '#'
+            bottomText: 'agências\nno Brasil'
           },
           {
             id: 'rating',
             icon: "/soltas/icone-fitch-00ae9d.svg",
             highlightText: 'AA+ (bra)',
-            bottomText: 'Fitch Ratings',
-            href: '#'
+            bottomText: 'Fitch Ratings'
           }
         ]}
         description="Essa posição de destaque reforça nosso compromisso em transformar recursos em prosperidade, beneficiando associados e impulsionando as economias locais."
         buttonText="Conheça todos os diferenciais"
-        buttonHref="#"
+        buttonHref="/quem-somos#diferenciais"
       />
 
       <AppSicoob withSejaAssociado={true} />
