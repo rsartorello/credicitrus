@@ -75,7 +75,7 @@ export default function AbraSuaContaPage() {
       <main className="flex-grow">
         <HeroAbraConta
           backgroundImage="/soltas/hero-abra-sua-conta.webp"
-          titleLines={["MAIS QUE UMA", "INSTITUIÇÃO FINANCEIRA,", "UM PARCEIRO PARA", "TODA A VIDA"]}
+          titleLines={["MAIS QUE UMA", "INSTITUIÇÃO FINANCEIRA,", "UMA PARCEIRA PARA", "TODA A VIDA"]}
           buttonLabel="Abra já sua conta"
           buttonHref="https://wa.me/551733445020"
         />
