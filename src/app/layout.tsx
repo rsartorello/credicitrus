@@ -12,6 +12,18 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Credicitrus App",
   description: "Projeto base com Tailwind integrado e Style Guide Aplicado",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      noarchive: true,
+      nosnippet: true,
+    },
+  },
 };
 
 export default function RootLayout({

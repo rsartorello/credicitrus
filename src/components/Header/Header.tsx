@@ -82,6 +82,10 @@ export default function Header() {
     setSearchResults(filtered.sort((a, b) => b.score - a.score));
   }, [searchQuery, searchIndex]);
 
+  if (pathname === "/acesso") {
+    return null;
+  }
+
   return (
     <header className="w-full bg-white sticky top-0 z-50 shadow-sm relative">
       {/* Top Bar - Mobile Only */}
