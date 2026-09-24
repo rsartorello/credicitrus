@@ -44,3 +44,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# docs / guias internos (não versionar)
+AGENTS.md
+CLAUDE.md
+STYLE_GUIDE.md
+changelog.md
+nossas agencias.xlsx
+\# Guia de Estilo (Style Guide).litcoffee
+update-links.js
+sql/Tabelas.zip
+
+# assets de design (não usados pelo app)
+/mobile/
+/public/Layouts/
+/public/Pagina Home descriçoes.txt
