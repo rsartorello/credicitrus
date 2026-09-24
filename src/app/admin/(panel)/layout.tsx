@@ -33,6 +33,9 @@ export default async function AdminPanelLayout({
   if (!session) {
     redirect("/admin/login");
   }
+  if (session.mustChangePassword) {
+    redirect("/admin/trocar-senha");
+  }
 
   const visibleNav = NAV.filter((item) => {
     if (item.superAdminOnly) return session.isSuperAdmin;

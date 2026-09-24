@@ -202,7 +202,8 @@ GO</pre>
         <li><span class="mono">002_seed_categories.sql</span> — categorias iniciais</li>
         <li><span class="mono">003_users.sql</span> — usuários e permissões</li>
         <li><span class="mono">004_session_version.sql</span> — SessionVersion</li>
-        <li><span class="mono">005_seed_admin_suave.sql</span> — usuário inicial super-admin</li>
+        <li><span class="mono">006_must_change_password.sql</span> — MustChangePassword</li>
+        <li><span class="mono">005_seed_admin_suave.sql</span> — usuário inicial super-admin (troca obrigatória no 1º acesso)</li>
       </ol>
       Os scripts são idempotentes (podem ser reexecutados com segurança).
     </li>
@@ -237,15 +238,16 @@ SELECT Module, Slug, Title FROM dbo.DocumentCategory ORDER BY Module, SortOrder;
       <tr><td>Login (Username)</td><td><span class="mono">suave@suave.ppg.br</span></td></tr>
       <tr><td>Nome de exibição</td><td>Suave</td></tr>
       <tr><td>Perfil</td><td>Super-admin (acesso total)</td></tr>
-      <tr><td>Senha inicial</td><td><em>Constante apenas no PDF gerado para envio por canal seguro — não versionar em README/HTML do repositório.</em></td></tr>
+      <tr><td>Senha inicial</td><td><em>Consta apenas no PDF gerado para envio por canal seguro — não versionar em README/HTML do repositório.</em></td></tr>
     </table>
     <p style="margin:0;">
       O CMS autentica por <strong>Username</strong> (não há coluna de e-mail). O endereço acima foi cadastrado como login.
     </p>
   </div>
   <div class="box warn">
-    <strong>Obrigatório:</strong> trocar a senha no primeiro acesso. Não reutilizar a senha inicial
-    como senha definitiva de produção.
+    <strong>Obrigatório:</strong> no primeiro login o CMS redireciona para
+    <span class="mono">/admin/trocar-senha</span> e bloqueia o painel até a nova senha ser definida.
+    Não reutilizar a senha inicial como senha definitiva de produção.
   </div>
   <div class="box crit">
     <strong>Produção:</strong> o login bootstrap via variáveis <span class="mono">ADMIN_USERNAME</span> /
@@ -406,7 +408,7 @@ SELECT Module, Slug, Title FROM dbo.DocumentCategory ORDER BY Module, SortOrder;
 
   <h3>6.2 Confirmações operacionais (além das variáveis)</h3>
   <ul class="check">
-    <li>Scripts SQL 001–005 executados com sucesso no database informado</li>
+    <li>Scripts SQL 001–006 executados com sucesso no database informado</li>
     <li>Subpastas de upload criadas e permissão de escrita da conta do Node</li>
     <li>Política de backup da pasta <span class="mono">CMS_UPLOAD_PATH</span></li>
     <li>Firewall/VPN: servidor da app consegue alcançar <span class="mono">DATABASE_HOST:DATABASE_PORT</span></li>
@@ -441,7 +443,7 @@ TRUST_PROXY=true
 SITE_ROBOTS_INDEX=true
 SITE_ACCESS_ENABLED=false
 
-Scripts 001-005: [OK | pendente]
+Scripts 001-006: [OK | pendente]
 Pastas upload: [OK | pendente]
 Observações / firewall / VPN / proxy:</pre>
 
@@ -454,7 +456,7 @@ Observações / firewall / VPN / proxy:</pre>
 
   <h3>7.1 Ordem recomendada</h3>
   <ol class="steps">
-    <li><strong>SQL Server</strong> — criar database, usuário e executar scripts 001–005 (seção 4).</li>
+    <li><strong>SQL Server</strong> — criar database, usuário e executar scripts 001–006 (seção 4).</li>
     <li><strong>Storage de uploads</strong> — provisionar pasta persistente (seção 7.2).</li>
     <li><strong>App Service (ou equivalente)</strong> — criar o app Node por ambiente (Dev / Prod).</li>
     <li><strong>Variáveis</strong> — preencher App Settings / Variable Group / Key Vault (seção 6).</li>
@@ -518,7 +520,7 @@ npm run build</pre>
     <li>Páginas de Transparência listam o item publicado</li>
     <li>Após novo deploy, o arquivo de upload <strong>ainda existe</strong> (prova de storage persistente)</li>
     <li><span class="mono">SITE_ACCESS_ENABLED=false</span> em produção pública</li>
-    <li>Troca da senha do super-admin no primeiro acesso</li>
+    <li>Login em <span class="mono">/admin/login</span> → troca obrigatória em <span class="mono">/admin/trocar-senha</span></li>
   </ul>
 
   <h3>7.6 Rede e SQL</h3>

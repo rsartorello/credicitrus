@@ -10,6 +10,7 @@ BEGIN
     PasswordHash  NVARCHAR(256) NOT NULL,
     IsSuperAdmin  BIT NOT NULL CONSTRAINT DF_CmsUser_IsSuperAdmin DEFAULT (0),
     IsActive      BIT NOT NULL CONSTRAINT DF_CmsUser_IsActive DEFAULT (1),
+    MustChangePassword BIT NOT NULL CONSTRAINT DF_CmsUser_MustChangePassword DEFAULT (0),
     CreatedAt     DATETIME2 NOT NULL CONSTRAINT DF_CmsUser_CreatedAt DEFAULT (SYSUTCDATETIME()),
     UpdatedAt     DATETIME2 NOT NULL CONSTRAINT DF_CmsUser_UpdatedAt DEFAULT (SYSUTCDATETIME()),
     CONSTRAINT UQ_CmsUser_Username UNIQUE (Username)

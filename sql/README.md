@@ -15,6 +15,8 @@ Banco **separado** do código. Um banco por ambiente (Dev / Prod).
 
 Coluna importante de segurança: `CmsUser.SessionVersion` — incrementada ao trocar senha; invalida sessões antigas.
 
+Coluna `CmsUser.MustChangePassword` — quando `1`, o painel redireciona para `/admin/trocar-senha` e as APIs do CMS ficam bloqueadas até a troca.
+
 ## Ordem de execução
 
 1. Criar o database (`CredicitrusCms` ou nome definido em `DATABASE_NAME`)
@@ -22,9 +24,10 @@ Coluna importante de segurança: `CmsUser.SessionVersion` — incrementada ao tr
 3. `002_seed_categories.sql` — categorias iniciais
 4. `003_users.sql` — tabelas de usuários/permissões
 5. `004_session_version.sql` — coluna `SessionVersion`
-6. `005_seed_admin_suave.sql` — usuário inicial super-admin
+6. `006_must_change_password.sql` — coluna `MustChangePassword` (+ marca o seed antigo se a senha nunca foi trocada)
+7. `005_seed_admin_suave.sql` — usuário inicial super-admin (`MustChangePassword=1`)
 
-Scripts 001–005 são seguros para reexecução (IF NOT EXISTS / MERGE / checagem de Username).
+Scripts 001–006 são seguros para reexecução (IF NOT EXISTS / MERGE / checagem de Username / COL_LENGTH).
 
 ## Usuário inicial (entregue à TI)
 
@@ -36,7 +39,7 @@ Scripts 001–005 são seguros para reexecução (IF NOT EXISTS / MERGE / checag
 | Perfil | Super-admin (acesso total) |
 | Senha inicial | **Não versionada neste README** — consta apenas nos PDFs de handoff em `docs/ti/` (envio por canal seguro) |
 
-**Obrigatório após o primeiro login:** trocar a senha no painel (ou via SQL regenerando o hash). Não reutilizar a senha inicial em produção além do bootstrap.
+**Obrigatório no primeiro login:** o sistema redireciona para `/admin/trocar-senha` e bloqueia o restante do painel até a nova senha ser definida. Usuários novos e resets de senha feitos por admin também exigem troca no próximo acesso.
 
 O CMS autentica por **Username** (não há coluna de e-mail). O endereço `suave@suave.ppg.br` foi cadastrado como login.
 

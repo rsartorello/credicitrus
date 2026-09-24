@@ -78,5 +78,11 @@ export async function POST(request: NextRequest) {
     details: `ip=${ip}`,
   });
 
-  return NextResponse.json({ ok: true });
+  const { getAdminSession } = await import("@/lib/cms/auth");
+  const session = await getAdminSession();
+
+  return NextResponse.json({
+    ok: true,
+    mustChangePassword: Boolean(session?.mustChangePassword),
+  });
 }

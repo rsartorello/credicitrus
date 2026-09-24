@@ -43,5 +43,23 @@ export async function cmsFetch(
     ...init,
     headers,
     credentials: init.credentials ?? "same-origin",
+  }).then(async (res) => {
+    if (
+      res.status === 403 &&
+      typeof window !== "undefined" &&
+      !window.location.pathname.startsWith("/admin/trocar-senha") &&
+      !window.location.pathname.startsWith("/admin/login")
+    ) {
+      try {
+        const clone = res.clone();
+        const data = (await clone.json()) as { code?: string };
+        if (data.code === "PASSWORD_CHANGE_REQUIRED") {
+          window.location.replace("/admin/trocar-senha");
+        }
+      } catch {
+        // ignore parse errors
+      }
+    }
+    return res;
   });
 }

@@ -11,6 +11,7 @@ import {
   type PermissionModule,
 } from "./permissions";
 import {
+  changeOwnPassword,
   getUserById,
   getUserByUsername,
   listUserPermissions,
@@ -157,6 +158,7 @@ export async function getAdminSession(): Promise<CmsSession | null> {
       username: creds.username,
       isSuperAdmin: true,
       isEnvAdmin: true,
+      mustChangePassword: false,
       permissions: fullPermissions(),
     };
   }
@@ -170,6 +172,7 @@ export async function getAdminSession(): Promise<CmsSession | null> {
       username: user.Username,
       isSuperAdmin: user.IsSuperAdmin,
       isEnvAdmin: false,
+      mustChangePassword: user.MustChangePassword,
       permissions: user.IsSuperAdmin
         ? fullPermissions()
         : await listUserPermissions(user.Id),
@@ -179,16 +182,58 @@ export async function getAdminSession(): Promise<CmsSession | null> {
   }
 }
 
-export async function requireAdminSession(): Promise<CmsSession> {
+export async function requireAdminSession(options?: {
+  /** Permite sessão com MustChangePassword (me / change-password / logout). */
+  allowMustChangePassword?: boolean;
+}): Promise<CmsSession> {
   const session = await getAdminSession();
   if (!session) throw new Error("UNAUTHORIZED");
+  if (session.mustChangePassword && !options?.allowMustChangePassword) {
+    throw new Error("PASSWORD_CHANGE_REQUIRED");
+  }
   return session;
+}
+
+export async function completePasswordChange(
+  currentPassword: string,
+  newPassword: string,
+): Promise<CmsSession> {
+  const session = await requireAdminSession({ allowMustChangePassword: true });
+  if (session.userId == null) {
+    throw new Error("Troca de senha indisponível para admin via .env");
+  }
+
+  const { sessionVersion } = await changeOwnPassword(
+    session.userId,
+    currentPassword,
+    newPassword,
+  );
+
+  await setSessionCookie({
+    userId: session.userId,
+    username: session.username,
+    sv: sessionVersion,
+    ts: Date.now(),
+  });
+
+  const refreshed = await getAdminSession();
+  if (!refreshed) throw new Error("UNAUTHORIZED");
+  return refreshed;
 }
 
 export function sessionErrorResponse(error: unknown) {
   if (error instanceof Error) {
     if (error.message === "UNAUTHORIZED") {
       return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
+    }
+    if (error.message === "PASSWORD_CHANGE_REQUIRED") {
+      return NextResponse.json(
+        {
+          error: "É necessário trocar a senha antes de continuar",
+          code: "PASSWORD_CHANGE_REQUIRED",
+        },
+        { status: 403 },
+      );
     }
     if (error.message === "FORBIDDEN") {
       return NextResponse.json({ error: "Sem permissão" }, { status: 403 });

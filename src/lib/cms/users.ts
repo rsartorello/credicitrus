@@ -1,5 +1,5 @@
 import { query, execute } from "./db";
-import { assertPasswordPolicy, hashPassword } from "./password";
+import { assertPasswordPolicy, hashPassword, verifyPassword } from "./password";
 import {
   emptyPermissions,
   isPermissionLevel,
@@ -17,6 +17,7 @@ export interface CmsUserRow {
   IsSuperAdmin: boolean;
   IsActive: boolean;
   SessionVersion: number;
+  MustChangePassword: boolean;
 }
 
 export interface CmsUserPublic {
@@ -25,6 +26,7 @@ export interface CmsUserPublic {
   DisplayName: string;
   IsSuperAdmin: boolean;
   IsActive: boolean;
+  MustChangePassword: boolean;
   permissions: Record<PermissionModule, PermissionLevel>;
 }
 
@@ -37,15 +39,18 @@ function mapUser(row: CmsUserRow): CmsUserRow {
     ...row,
     IsSuperAdmin: asBool(row.IsSuperAdmin),
     IsActive: asBool(row.IsActive),
+    MustChangePassword: asBool(row.MustChangePassword),
     SessionVersion: Number(row.SessionVersion ?? 0),
   };
 }
+
+const USER_SELECT = `Id, Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, SessionVersion, MustChangePassword`;
 
 export async function getUserByUsername(
   username: string,
 ): Promise<CmsUserRow | null> {
   const rows = await query<CmsUserRow>(
-    `SELECT Id, Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, SessionVersion
+    `SELECT ${USER_SELECT}
      FROM CmsUser
      WHERE Username = @username`,
     { username },
@@ -55,7 +60,7 @@ export async function getUserByUsername(
 
 export async function getUserById(id: number): Promise<CmsUserRow | null> {
   const rows = await query<CmsUserRow>(
-    `SELECT Id, Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, SessionVersion
+    `SELECT ${USER_SELECT}
      FROM CmsUser
      WHERE Id = @id`,
     { id },
@@ -88,13 +93,14 @@ export async function toPublicUser(user: CmsUserRow): Promise<CmsUserPublic> {
     DisplayName: user.DisplayName,
     IsSuperAdmin: user.IsSuperAdmin,
     IsActive: user.IsActive,
+    MustChangePassword: user.MustChangePassword,
     permissions: await listUserPermissions(user.Id),
   };
 }
 
 export async function listUsers(): Promise<CmsUserPublic[]> {
   const rows = await query<CmsUserRow>(
-    `SELECT Id, Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, SessionVersion
+    `SELECT ${USER_SELECT}
      FROM CmsUser
      ORDER BY Username`,
   );
@@ -161,9 +167,9 @@ export async function createUser(input: {
 
   const passwordHash = await hashPassword(input.password);
   const rows = await query<{ Id: number }>(
-    `INSERT INTO CmsUser (Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive)
+    `INSERT INTO CmsUser (Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, MustChangePassword)
      OUTPUT INSERTED.Id
-     VALUES (@username, @displayName, @passwordHash, @isSuperAdmin, @isActive)`,
+     VALUES (@username, @displayName, @passwordHash, @isSuperAdmin, @isActive, 1)`,
     {
       username,
       displayName,
@@ -220,6 +226,11 @@ export async function updateUser(
   const sessionVersion = passwordChanged
     ? current.SessionVersion + 1
     : current.SessionVersion;
+  const mustChangePassword = passwordChanged
+    ? 1
+    : current.MustChangePassword
+      ? 1
+      : 0;
 
   await execute(
     `UPDATE CmsUser SET
@@ -228,6 +239,7 @@ export async function updateUser(
        IsSuperAdmin = @isSuperAdmin,
        IsActive = @isActive,
        SessionVersion = @sessionVersion,
+       MustChangePassword = @mustChangePassword,
        UpdatedAt = SYSUTCDATETIME()
      WHERE Id = @id`,
     {
@@ -237,6 +249,7 @@ export async function updateUser(
       isSuperAdmin: isSuperAdmin ? 1 : 0,
       isActive: isActive ? 1 : 0,
       sessionVersion,
+      mustChangePassword,
     },
   );
 
@@ -259,4 +272,44 @@ export async function deactivateUser(id: number): Promise<void> {
     `UPDATE CmsUser SET IsActive = 0, UpdatedAt = SYSUTCDATETIME() WHERE Id = @id`,
     { id },
   );
+}
+
+/**
+ * Troca de senha pelo próprio usuário (primeiro acesso ou voluntária).
+ * Limpa MustChangePassword e incrementa SessionVersion.
+ */
+export async function changeOwnPassword(
+  userId: number,
+  currentPassword: string,
+  newPassword: string,
+): Promise<{ sessionVersion: number }> {
+  const user = await getUserById(userId);
+  if (!user || !user.IsActive) {
+    throw new Error("Usuário não encontrado");
+  }
+
+  const ok = await verifyPassword(currentPassword, user.PasswordHash);
+  if (!ok) {
+    throw new Error("Senha atual incorreta");
+  }
+
+  assertPasswordPolicy(newPassword);
+  if (currentPassword === newPassword) {
+    throw new Error("A nova senha deve ser diferente da senha atual");
+  }
+
+  const passwordHash = await hashPassword(newPassword);
+  const sessionVersion = user.SessionVersion + 1;
+
+  await execute(
+    `UPDATE CmsUser SET
+       PasswordHash = @passwordHash,
+       MustChangePassword = 0,
+       SessionVersion = @sessionVersion,
+       UpdatedAt = SYSUTCDATETIME()
+     WHERE Id = @id`,
+    { id: userId, passwordHash, sessionVersion },
+  );
+
+  return { sessionVersion };
 }

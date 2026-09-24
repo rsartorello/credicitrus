@@ -12,10 +12,10 @@ export default function AdminLoginPage() {
   useEffect(() => {
     void ensureClientCsrf();
     cmsFetch("/api/cms/auth/me")
-      .then((res) => {
-        if (res.ok) {
-          router.replace("/admin");
-        }
+      .then(async (res) => {
+        if (!res.ok) return;
+        const data = (await res.json()) as { mustChangePassword?: boolean };
+        router.replace(data.mustChangePassword ? "/admin/trocar-senha" : "/admin");
       })
       .catch(() => undefined);
   }, [router]);
@@ -45,7 +45,10 @@ export default function AdminLoginPage() {
       return;
     }
 
-    router.replace("/admin");
+    const data = (await res.json().catch(() => ({}))) as {
+      mustChangePassword?: boolean;
+    };
+    router.replace(data.mustChangePassword ? "/admin/trocar-senha" : "/admin");
     router.refresh();
   }
 

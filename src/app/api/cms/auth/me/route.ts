@@ -21,6 +21,7 @@ export async function GET() {
     userId: session.userId,
     isSuperAdmin: session.isSuperAdmin,
     isEnvAdmin: session.isEnvAdmin,
+    mustChangePassword: session.mustChangePassword,
     permissions: session.permissions,
     csrfToken,
   });

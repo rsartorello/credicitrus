@@ -8,6 +8,7 @@ import {
 export async function requireModulePage(module: PermissionModule) {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");
+  if (session.mustChangePassword) redirect("/admin/trocar-senha");
   if (!canAccess(session, module, "view")) redirect("/admin");
   return session;
 }
@@ -15,6 +16,7 @@ export async function requireModulePage(module: PermissionModule) {
 export async function requireSuperAdminPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");
+  if (session.mustChangePassword) redirect("/admin/trocar-senha");
   if (!session.isSuperAdmin) redirect("/admin");
   return session;
 }

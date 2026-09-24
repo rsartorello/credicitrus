@@ -35,6 +35,8 @@ export type CmsSession = {
   username: string;
   isSuperAdmin: boolean;
   isEnvAdmin: boolean;
+  /** true = sessão válida, mas o painel/APIs ficam bloqueados até trocar a senha */
+  mustChangePassword: boolean;
   permissions: Record<PermissionModule, PermissionLevel>;
 };
 

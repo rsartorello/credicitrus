@@ -1,7 +1,8 @@
 -- Seed: usuário inicial super-admin para TI / go-live.
 -- Login no CMS: suave@suave.ppg.br
--- Senha em texto: ver sql/README.md (seção "Usuário inicial") — trocar após o primeiro acesso.
+-- Senha em texto: apenas nos PDFs de handoff (docs/ti/) — canal seguro.
 -- Hash: scrypt (salt:hex) — mesmo formato de src/lib/cms/password.ts
+-- MustChangePassword = 1: o painel bloqueia até trocar a senha no primeiro acesso.
 -- Idempotente: só cria se o Username ainda não existir.
 
 SET NOCOUNT ON;
@@ -13,11 +14,15 @@ DECLARE @UserId INT;
 
 IF NOT EXISTS (SELECT 1 FROM dbo.CmsUser WHERE Username = @Username)
 BEGIN
-  INSERT INTO dbo.CmsUser (Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, SessionVersion)
-  VALUES (@Username, @DisplayName, @PasswordHash, 1, 1, 0);
+  INSERT INTO dbo.CmsUser (
+    Username, DisplayName, PasswordHash, IsSuperAdmin, IsActive, SessionVersion, MustChangePassword
+  )
+  VALUES (
+    @Username, @DisplayName, @PasswordHash, 1, 1, 0, 1
+  );
 
   SET @UserId = SCOPE_IDENTITY();
-  PRINT N'Usuário criado: ' + @Username + N' (Id=' + CAST(@UserId AS NVARCHAR(20)) + N')';
+  PRINT N'Usuário criado: ' + @Username + N' (Id=' + CAST(@UserId AS NVARCHAR(20)) + N', MustChangePassword=1)';
 END
 ELSE
 BEGIN
