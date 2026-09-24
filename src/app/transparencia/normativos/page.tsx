@@ -4,28 +4,11 @@ import Rodape from '@/components/Rodape/Rodape';
 import Section from '@/components/ui/Section';
 import Container from '@/components/ui/Container';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { getNormativosList } from '@/lib/cms';
+import { normativosFallback } from '@/data/normativos-fallback';
 
-const documents = [
-  { name: "Estatuto Social", link: "/files/transparencia/normativos/Estatuto-Social-Aprovado-pela-AGE-16.4.2025.pdf" },
-  { name: "Lei nº 5.764/1971", link: "https://www.planalto.gov.br/ccivil_03/leis/l5764.htm" },
-  { name: "Lei Complementar nº 130/2005", link: "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp130.htm" },
-  { name: "Regulamento do Canal de Conduta Ética", link: "/files/transparencia/normativos/Regulamento-do-Canal-de-Conduta-Etica-27112025.pdf" },
-  { name: "Política Institucional de Responsabilidade Social, Ambiental e Climática do Sicoob", link: "/files/transparencia/normativos/Politica-Institucional-de-PRSAC.pdf" },
-  { name: "Resumo da Política de Segurança Cibernética", link: "/files/transparencia/normativos/84.-POLITICA-DE-SEGURANCA-CIBERNETICA-1-1.pdf" },
-  { name: "Lei 12.741/12 - Tabela do Custo Tributário", link: "/files/transparencia/normativos/Lei1274112-Tabela-do-Custo-Tributario.pdf" },
-  { name: "Política de Privacidade e Tratamento de Dados", link: "/files/transparencia/normativos/AVISO-DE-PRIVACIDADE-E-TRATAMENTO-DE-DADOS-CREDICITRUS.pdf" },
-  { name: "Código de Conduta Ética, de Segurança da Informação e Segurança Cibernética para terceiros e prestadores de serviços", link: "/files/transparencia/normativos/Codigo-de-Conduta-Etica_-de-Seguranca-da-Informacao-e-Seguranca-Cibernetica-para-Terceiros-e-Prestadores-de-Servicos-22.pdf" },
-  { name: "Regulamento do Comitê de Auditoria", link: "/files/transparencia/normativos/Regulamento-do-Comite-de-Auditoria-377.pdf" },
-  { name: "Pacto de Ética Sicoob", link: "/files/transparencia/normativos/Pacto-de-Etica-do-Sicoob-versao-02.09.2025-1.pdf" },
-  { name: "Termos e Condições de Uso do Site", link: "/files/transparencia/normativos/TERMOS-E-CONDICOES-DE-USO-DO-SITE-INSTITUCIONAL.pdf" },
-  { name: "Política de Controles Internos e Conformidade [Compliance]", link: "/files/transparencia/normativos/Politica-de-Controles-Internos-e-Conformidade-20042026.pdf" },
-  { name: "Programa de Integridade", link: "/files/transparencia/normativos/Programa-de-Integridade-Sicoob-3.pdf" },
-  { name: "Política Institucional de Prevenção à Lavagem de Dinheiro e ao Financiamento do Terrorismo", link: "/files/transparencia/normativos/Politica-Institucional-de-PLDFT.pdf" },
-  { name: "Política Ambiental", link: "/files/transparencia/normativos/Politica-Institucional-de-PRSAC.pdf" },
-  { name: "Política de Renovação dos Membros do Conselho de Administração", link: "/files/transparencia/normativos/Politica-de-Renovacao-dos-Membros-do-Conselho-de-Administracao-765.pdf" }
-];
-
-export default function NormativosCredicitrusPage() {
+export default async function NormativosCredicitrusPage() {
+  const documents = await getNormativosList(normativosFallback);
   return (
     <div className="min-h-screen bg-white">
       <main>

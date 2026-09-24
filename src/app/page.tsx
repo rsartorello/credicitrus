@@ -9,20 +9,25 @@ import Informativo from "@/components/Informativo/Informativo";
 import AcessoRapido from "@/components/AcessoRapido/AcessoRapido";
 import SejaAssociado from "@/components/SejaAssociado/SejaAssociado";
 import Rodape from "@/components/Rodape/Rodape";
+import { getHomeHeroFromCms } from "@/lib/cms";
+import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
+import { PageGeoJsonLd } from "@/components/seo/PageGeoJsonLd";
 
-export default function Home() {
+export const metadata: Metadata = buildPageMetadata("/");
+
+export default async function Home() {
+  const hero = await getHomeHeroFromCms();
+
   return (
     <>
+      <PageGeoJsonLd path="/" />
       <Hero
         isHome
-        backgroundImage={[
-          "/soltas/hero-home.webp",
-          "/soltas/hero-home.webp"
-        ]}
-        mobileBackgroundImage={[
-          "/soltas/hero-home-mobile.webp",
-          "/soltas/hero-home-mobile.webp"
-        ]}
+        backgroundImage={hero.backgroundImage}
+        mobileBackgroundImage={hero.mobileBackgroundImage}
+        imageAlts={hero.imageAlts}
+        buttons={hero.buttons}
         isSlider={true}
       />
 

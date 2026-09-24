@@ -33,6 +33,7 @@ interface HeroProps {
   imagePosition?: string;
   mirrorImage?: boolean;
   isSlider?: boolean;
+  imageAlts?: string[];
 }
 
 export default function Hero({
@@ -45,7 +46,8 @@ export default function Hero({
   highlightIndices,
   imagePosition = 'center',
   mirrorImage = false,
-  isSlider = false
+  isSlider = false,
+  imageAlts = [],
 }: HeroProps) {
   const singleImage = Array.isArray(backgroundImage) ? backgroundImage[0] : backgroundImage;
 
@@ -56,7 +58,10 @@ export default function Hero({
       : `w-full relative shrink-0 overflow-hidden ${HERO_HEIGHT_CLASSES}`;
 
     return (
-      <section className={sectionClass}>
+      <section className={sectionClass} aria-label="Destaques">
+        {isHome ? (
+          <h1 className="sr-only">Credicitrus — Cooperativa de Crédito</h1>
+        ) : null}
         <div className="absolute inset-0 z-0 w-full h-full">
           <Swiper
             modules={[Navigation, Pagination]}
@@ -81,6 +86,7 @@ export default function Hero({
                   ? mobileBackgroundImage[idx]
                   : (idx === 0 ? mobileBackgroundImage : undefined))
                 : undefined;
+              const alt = imageAlts[idx] || `Banner Credicitrus ${idx + 1}`;
 
               return (
                 <SwiperSlide key={idx} className="relative w-full h-full overflow-hidden">
@@ -89,7 +95,7 @@ export default function Hero({
                       <div className="hidden md:block absolute inset-0 size-full">
                         <Image
                           src={img}
-                          alt={`Fundo Hero ${idx + 1}`}
+                          alt={alt}
                           fill
                           priority={idx === 0}
                           sizes="100vw"
@@ -99,7 +105,7 @@ export default function Hero({
                       <div className="block md:hidden absolute inset-0 size-full">
                         <Image
                           src={mobImg}
-                          alt={`Fundo Hero Mobile ${idx + 1}`}
+                          alt={alt}
                           fill
                           priority={idx === 0}
                           sizes="100vw"
@@ -110,7 +116,7 @@ export default function Hero({
                   ) : (
                     <Image
                       src={img}
-                      alt={`Fundo Hero ${idx + 1}`}
+                      alt={alt}
                       fill
                       priority={idx === 0}
                       sizes="100vw"
@@ -190,7 +196,7 @@ export default function Hero({
         <div className="relative z-10 container mx-auto px-4 lg:px-6 xl:px-8 flex flex-col lg:flex-row items-center justify-between w-full h-full gap-8 xl:gap-2 py-10 md:py-12">
 
           <div className="w-full lg:w-[48%] xl:w-[42%] flex flex-col items-start gap-8 lg:gap-12">
-            <AnimateIn direction="left" delay={0.1}>
+            <AnimateIn direction="none" delay={0} duration={0.4}>
               <h1 className="flex flex-col items-start text-white font-extrabold text-3xl lg:text-4xl xl:text-[2.75rem] leading-[1.1] tracking-tight uppercase">
                 {titleLines.map((line, idx) => (
                   <span key={idx} className="bg-primary px-4 md:px-5 py-2 block w-fit -mt-[1px]">

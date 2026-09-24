@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Credicitrus — Tutorial do CMS (Painel Administrativo)</title>
+  <style>
+    @page { size: A4; margin: 16mm 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #1a2b2e;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      margin: 0;
+    }
+    h1 {
+      font-size: 20pt;
+      color: #003641;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 13pt;
+      color: #003641;
+      border-bottom: 2px solid #00A79D;
+      padding-bottom: 4px;
+      margin: 20px 0 8px;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 11pt;
+      color: #005560;
+      margin: 12px 0 6px;
+      page-break-after: avoid;
+    }
+    p, li { margin: 0 0 7px; }
+    .meta { color: #5a6b6e; font-size: 9pt; margin-bottom: 14px; }
+    .badge {
+      display: inline-block;
+      background: #00A79D;
+      color: #fff;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 12px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #d5e0e2;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f0f7f7; color: #003641; font-weight: 700; }
+    code, .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 9pt;
+      background: #f4f7f7;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+    .box {
+      border: 1px solid #b8e0dc;
+      background: #f3fbfa;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      page-break-inside: avoid;
+    }
+    .warn {
+      border-color: #f0c36d;
+      background: #fff8ea;
+    }
+    .step {
+      background: #fff;
+      border: 1px solid #d5e0e2;
+      border-left: 4px solid #00A79D;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin: 8px 0;
+      page-break-inside: avoid;
+    }
+    .step strong { color: #003641; }
+    ol.compact > li { margin-bottom: 6px; }
+    .footer-note {
+      margin-top: 22px;
+      padding-top: 8px;
+      border-top: 1px solid #d5e0e2;
+      font-size: 8.5pt;
+      color: #5a6b6e;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media print {
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+  <div class="badge">Tutorial para o cliente · Credicitrus</div>
+  <h1>Painel CMS — Guia de uso</h1>
+  <p class="meta">
+    Tutorial do painel administrativo do novo site Credicitrus: acesso, publicação de
+    conteúdo, banners e usuários.<br />
+    Versão 1.0 · 09/09/2026 · Destinatário: equipe Credicitrus / editores de conteúdo
+  </p>
+
+  <h2>1. O que é o CMS</h2>
+  <p>
+    O CMS é o painel em <span class="mono">/admin</span> usado para gerenciar conteúdos
+    exibidos no site público — principalmente a área de <strong>Transparência</strong>
+    e os <strong>banners da home</strong> — sem alterar código.
+  </p>
+  <div class="two-col">
+    <div class="box">
+      <strong>Site público</strong><br />
+      Páginas que o cooperado e o visitante acessam.
+    </div>
+    <div class="box">
+      <strong>Painel CMS</strong><br />
+      Área restrita para cadastrar, editar, publicar e excluir conteúdos.
+    </div>
+  </div>
+
+  <h2>2. Como acessar</h2>
+  <div class="step">
+    <strong>Passo 1 —</strong> Abra no navegador:
+    <span class="mono">https://SEU-DOMINIO/admin/login</span>
+    <br /><span style="color:#5a6b6e;font-size:9pt;">(substitua pelo endereço oficial do ambiente)</span>
+  </div>
+  <div class="step">
+    <strong>Passo 2 —</strong> Informe usuário e senha.
+  </div>
+  <div class="step">
+    <strong>Passo 3 —</strong> Ao entrar, você verá o <strong>Dashboard</strong> com resumo do conteúdo.
+  </div>
+
+  <div class="box warn">
+    <strong>Usuário inicial (super-admin)</strong><br />
+    Login: <span class="mono">suave@suave.ppg.br</span><br />
+    Senha inicial: <em>consta apenas no PDF entregue por canal seguro</em><br />
+    <strong>Troque a senha no primeiro acesso.</strong> Não compartilhe a senha por e-mail sem canal seguro.
+  </div>
+
+  <h2>3. Menu do painel</h2>
+  <table>
+    <thead>
+      <tr><th>Menu</th><th>O que controla no site</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dashboard</td><td>Visão geral e alertas</td></tr>
+      <tr><td>Relatórios</td><td>Documentos de Transparência → Relatórios</td></tr>
+      <tr><td>Normativos</td><td>Políticas e documentos oficiais</td></tr>
+      <tr><td>Ética</td><td>Cards de Ética e Integridade</td></tr>
+      <tr><td>Tarifas</td><td>Tabela de tarifas (arquivo vigente no site)</td></tr>
+      <tr><td>Assembleias</td><td>Documentos complementares de Assembleia</td></tr>
+      <tr><td>Banners</td><td>Campanhas do hero da home (desktop/mobile)</td></tr>
+      <tr><td>Usuários</td><td>Cadastro de editores (somente super-admin)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4. Fluxo padrão (documentos)</h2>
+  <p>Em Relatórios, Normativos, Ética, Tarifas e Assembleias o fluxo é o mesmo:</p>
+  <ol class="compact">
+    <li>Abra o módulo no menu.</li>
+    <li>Veja a lista <strong>Itens cadastrados</strong>.</li>
+    <li>Clique em <strong>Novo…</strong> para criar (abre página dedicada).</li>
+    <li>Preencha título/dados, envie o PDF (ou informe link externo, quando disponível).</li>
+    <li>Marque <strong>Publicado</strong> se o item deve aparecer no site.</li>
+    <li>Salve. O item volta para a lista.</li>
+    <li>Use o ícone de <strong>lápis</strong> para editar, <strong>olho</strong> para publicar/despublicar, <strong>lixeira</strong> para excluir.</li>
+  </ol>
+  <div class="box">
+    <strong>Exclusão:</strong> pede confirmação em duas etapas no modal. A ação é permanente.
+  </div>
+  <div class="box">
+    <strong>Tarifas:</strong> além de publicar, use o ícone de estrela para definir o arquivo
+    <em>vigente</em> (é o que aparece no Header/Rodapé do site).
+  </div>
+
+  <h2>5. Banners da home</h2>
+  <ol class="compact">
+    <li>Menu <strong>Banners</strong> → <strong>Nova campanha</strong>.</li>
+    <li>Envie imagem <strong>desktop</strong> (obrigatória) e <strong>mobile</strong> (opcional).</li>
+    <li>Preencha título, CTA (texto + link), ordem e datas de vigência, se houver.</li>
+    <li>Publique para exibir no carrossel da home.</li>
+  </ol>
+  <p>
+    Dica: use imagens leves (WebP/JPG otimizado) e proporção consistente para evitar
+    cortes diferentes entre desktop e mobile.
+  </p>
+
+  <h2>6. Publicar vs rascunho</h2>
+  <table>
+    <thead>
+      <tr><th>Status</th><th>Significado</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Publicado</td><td>Visível no site (nas páginas correspondentes)</td></tr>
+      <tr><td>Rascunho</td><td>Salvo no CMS, mas não aparece para o público</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Você pode cadastrar com antecedência em rascunho e publicar na data desejada.
+  </p>
+
+  <h2>7. Usuários e permissões</h2>
+  <p>
+    Apenas <strong>super-admin</strong> acessa o menu Usuários. É possível criar editores
+    com níveis por módulo:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Nível</th><th>Pode</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sem acesso</td><td>Não vê o módulo</td></tr>
+      <tr><td>Visualizar</td><td>Só consulta</td></tr>
+      <tr><td>Editar</td><td>Cria e altera (sem publicar, conforme regra do módulo)</td></tr>
+      <tr><td>Publicar</td><td>Pode publicar no site</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Super-admin tem acesso total, inclusive gestão de usuários.
+  </p>
+
+  <div class="page-break"></div>
+
+  <h2>8. Boas práticas</h2>
+  <ul>
+    <li>Use títulos claros e padronizados (ano, semestre, tipo do documento).</li>
+    <li>Confira o PDF antes de publicar (arquivo correto, legível, sem dados sensíveis indevidos).</li>
+    <li>Despublique conteúdos desatualizados em vez de deixar links quebrados.</li>
+    <li>Não compartilhe senha de super-admin; crie usuários individuais.</li>
+    <li>Após editar, abra a página pública correspondente e valide o resultado.</li>
+    <li>Em caso de erro de login repetido, aguarde alguns minutos (proteção contra tentativas).</li>
+  </ul>
+
+  <h2>9. Problemas comuns</h2>
+  <table>
+    <thead>
+      <tr><th>Situação</th><th>O que fazer</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Item não aparece no site</td>
+        <td>Verifique se está <strong>Publicado</strong>. Em tarifas, confira se está <strong>Vigente</strong>.</td>
+      </tr>
+      <tr>
+        <td>Falha no upload</td>
+        <td>Use PDF/imagem nos formatos aceitos e tamanho adequado; tente novamente.</td>
+      </tr>
+      <tr>
+        <td>Sem menu Usuários</td>
+        <td>Somente super-admin vê esse módulo.</td>
+      </tr>
+      <tr>
+        <td>Saiu sozinho do painel</td>
+        <td>Sessão expirou ou a senha foi alterada — entre novamente.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>10. Anexo — o que a TI configura (integração)</h2>
+  <p>
+    Esta seção é para a equipe de infraestrutura. O conteúdo do site depende dessas
+    configurações no pipeline / servidor.
+  </p>
+  <div class="box warn" style="border:1px solid #f0c36d;background:#fff8ea;border-radius:8px;padding:12px 14px;margin:12px 0;">
+    <strong>Importante:</strong> se a TI preencher as variáveis no Azure DevOps ou no servidor,
+    os valores devem ser <strong>enviados depois</strong> à equipe de desenvolvimento para
+    atualização no projeto. Formato de cada variável, modelo de resposta e
+    <strong>passo a passo de deploy no Azure</strong> estão em
+    <strong>Credicitrus-CMS-Orientacao-TI.pdf</strong> (seções 6 e 7).
+  </div>
+  <table>
+    <thead>
+      <tr><th>Grupo</th><th>Variáveis</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Site</td>
+        <td><span class="mono">NODE_ENV</span>, <span class="mono">NEXT_PUBLIC_SITE_URL</span>, <span class="mono">CMS_ENABLED</span></td>
+      </tr>
+      <tr>
+        <td>SQL Server</td>
+        <td><span class="mono">DATABASE_HOST</span>, <span class="mono">DATABASE_PORT</span>, <span class="mono">DATABASE_NAME</span>, <span class="mono">DATABASE_USER</span>, <span class="mono">DATABASE_PASSWORD</span>, <span class="mono">DATABASE_ENCRYPT</span>, <span class="mono">DATABASE_TRUST_SERVER_CERTIFICATE</span></td>
+      </tr>
+      <tr>
+        <td>Uploads</td>
+        <td><span class="mono">CMS_UPLOAD_PATH</span>, <span class="mono">CMS_MEDIA_PUBLIC_PREFIX</span></td>
+      </tr>
+      <tr>
+        <td>Segurança</td>
+        <td><span class="mono">ADMIN_AUTH_SECRET</span>, <span class="mono">TRUST_PROXY</span></td>
+      </tr>
+      <tr>
+        <td>Indexação (opcional)</td>
+        <td><span class="mono">SITE_ROBOTS_INDEX</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Detalhes técnicos do banco e checklist de devolutiva: pasta <span class="mono">docs/ti/</span>,
+    arquivo <strong>Credicitrus-CMS-Orientacao-TI.pdf</strong>.
+  </p>
+
+  <h2>11. Suporte</h2>
+  <p>
+    Em caso de dúvida de uso do painel, contate a equipe responsável pelo projeto
+    (desenvolvimento / suporte). Para problemas de servidor, rede ou banco, acione a TI interna.
+  </p>
+
+  <div class="footer-note">
+    Credicitrus · Tutorial CMS v1.0 · Uso interno do cliente · Não versionar senhas em repositórios públicos.
+  </div>
+</body>
+</html>

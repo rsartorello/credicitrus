@@ -32,6 +32,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# CMS uploads locais (nunca versionar)
+/credicitrus-uploads/
+/.cms-uploads/
 
 # vercel
 .vercel

@@ -6,20 +6,12 @@ import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper';
-import { Montserrat } from 'next/font/google';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import './Informativo.css';
-
-// Configurando tipografia local para atender à exigência "Montserrat Light 21.67pt"
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['300'], // Light
-  display: 'swap',
-});
 
 export interface InformativoArticle {
   id: string;
@@ -145,9 +137,9 @@ export default function Informativo({
           </h4>
           
           {/* Title H1 ExtraBold 62.25pt Primary scaled */}
-          <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#003641] leading-[1.05] tracking-tight mb-8 lg:mb-12 max-w-sm">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#003641] leading-[1.05] tracking-tight mb-8 lg:mb-12 max-w-sm">
             {title}
-          </h1>
+          </h2>
 
           {/* Master Button scaled */}
           <Link 
@@ -212,7 +204,7 @@ export default function Informativo({
                 {/* Content Area */}
                 <div className="flex flex-col p-6 lg:p-8 flex-grow bg-[#f9fafb]">
                   {/* Article Title: Montserrat Light 21.67pt scaled to base */}
-                  <h2 className={`${montserrat.className} text-base lg:text-lg text-[#003641] leading-tight mb-6 lg:mb-8 font-light flex-grow`}>
+                  <h2 className="text-base lg:text-lg text-[#003641] leading-tight mb-6 lg:mb-8 font-light flex-grow">
                     {article.title}
                   </h2>
 

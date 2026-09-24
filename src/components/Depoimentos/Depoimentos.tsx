@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -12,6 +12,67 @@ import 'swiper/css/pagination';
 
 // Import CSS
 import './Depoimentos.css';
+
+function getYoutubeId(url: string): string | null {
+  const cleanUrl = url.replace(/^h+ttps/, 'https');
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = cleanUrl.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+}
+
+function DepoimentoVideoFacade({
+  embedUrl,
+  name,
+}: {
+  embedUrl: string;
+  name: string;
+}) {
+  const [playing, setPlaying] = useState(false);
+  const videoId = getYoutubeId(embedUrl);
+  const thumbnailUrl = videoId
+    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    : '';
+
+  if (playing && videoId) {
+    return (
+      <div className="w-full aspect-[3/4.5] rounded-3xl overflow-hidden mb-4 lg:mb-6 bg-black drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)]">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+          title={name}
+          className="h-full w-full border-none"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setPlaying(true)}
+      className="group relative mb-4 block w-full aspect-[3/4.5] overflow-hidden rounded-3xl text-left drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] transition-transform duration-300 hover:-translate-y-2 lg:mb-6"
+      aria-label={`Reproduzir vídeo: ${name}`}
+    >
+      {thumbnailUrl ? (
+        <Image
+          src={thumbnailUrl}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 80vw, 40vw"
+          className="object-cover"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-[#003641]" />
+      )}
+      <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-white bg-[#e3000f] text-white shadow-lg transition-transform group-hover:scale-110 md:h-16 md:w-16">
+          <Play className="ml-0.5 h-6 w-6 fill-current md:h-7 md:w-7" />
+        </span>
+      </div>
+    </button>
+  );
+}
 
 export interface DepoimentoSlide {
   id: string;
@@ -78,15 +139,10 @@ export default function Depoimentos({
             {slides.map((slide) => (
               <SwiperSlide key={slide.id} className="flex flex-col">
                 {slide.embedUrl ? (
-                  <div className="w-full aspect-[3/4.5] rounded-3xl overflow-hidden mb-4 lg:mb-6 block transition-transform duration-300 hover:-translate-y-2 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-black">
-                    <iframe
-                      src={slide.embedUrl}
-                      title={slide.name}
-                      className="w-full h-full border-none"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
+                  <DepoimentoVideoFacade
+                    embedUrl={slide.embedUrl}
+                    name={slide.name}
+                  />
                 ) : (
                   <button 
                     className="group relative w-full aspect-[3/4.5] rounded-3xl overflow-hidden mb-4 lg:mb-6 block text-left transition-transform duration-300 hover:-translate-y-2 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] focus:outline-none"
@@ -173,9 +229,9 @@ export default function Depoimentos({
             {subtitle}
           </h4>
           
-          <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#003641] leading-[1.05] tracking-tight mb-6 lg:mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#003641] leading-[1.05] tracking-tight mb-6 lg:mb-8">
             {title}
-          </h1>
+          </h2>
 
           <h3 className="text-lg md:text-xl lg:text-[1.33rem] font-normal text-[#003641] leading-[1.3] mb-10 lg:mb-14 max-w-lg">
             {description}

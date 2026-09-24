@@ -32,7 +32,7 @@ export default function SolucoesFinanceiras() {
       prefix: '#Para',
       mid: '',
       line2: 'oAgro',
-      link: '/para-o-agro'
+      link: '/para-o-agronegocio'
     }
   ];
 

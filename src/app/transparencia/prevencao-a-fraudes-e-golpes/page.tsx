@@ -22,7 +22,7 @@ const protectionTips = [
 
 const videos = [
   { url: 'https://www.youtube.com/watch?v=5TIIrg-fnbU', alt: 'Golpe | Motoboy' },
-  { url: 'hhttps://www.youtube.com/watch?v=gl4IVpkDjzI', alt: 'Fraude' },
+  { url: 'https://www.youtube.com/watch?v=gl4IVpkDjzI', alt: 'Fraude' },
   { url: 'https://www.youtube.com/watch?v=f-hNb16pYCY', alt: 'Golpe | WhatsApp' },
   { url: 'https://www.youtube.com/watch?v=z5wuW5cbHJ4', alt: 'Golpe | Mão Fantasma' }
 ];

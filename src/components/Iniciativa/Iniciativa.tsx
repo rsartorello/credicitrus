@@ -73,9 +73,9 @@ export default function Iniciativa({
           <h4 className="text-sm md:text-base lg:text-lg font-medium text-[#8fb534] uppercase tracking-wider mb-4">
             {subtitle}
           </h4>
-          <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#003641] leading-[1.05] tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#003641] leading-[1.05] tracking-tight">
             {title}
-          </h1>
+          </h2>
         </div>
 
         {/* Grade de Cards (Desktop) */}

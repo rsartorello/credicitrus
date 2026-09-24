@@ -20,6 +20,18 @@ interface FooterSection {
 
 export default function Rodape() {
   const [openSection, setOpenSection] = React.useState<string | null>(null);
+  const [tarifaUrl, setTarifaUrl] = React.useState(
+    "/files/transparencia/tabela_tarifa_atualizada_2025_A4_nov-1.pdf",
+  );
+
+  React.useEffect(() => {
+    fetch("/api/cms/public/tarifa")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.url) setTarifaUrl(data.url);
+      })
+      .catch(() => undefined);
+  }, []);
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
@@ -59,7 +71,7 @@ export default function Rodape() {
         { label: 'Relatórios', href: '/transparencia/relatorios' },
         { label: 'Normativos', href: '/transparencia/normativos' },
         { label: 'Ética e integridade', href: '/transparencia/etica-e-integridade' },
-        { label: 'Tabela de tarifas', href: '/files/transparencia/tabela_tarifa_atualizada_2025_A4_nov-1.pdf', download: true, target: '_blank' },
+        { label: 'Tabela de tarifas', href: tarifaUrl, download: true, target: '_blank' },
         { label: 'Prevenção a fraudes e golpes', href: '/transparencia/prevencao-a-fraudes-e-golpes' },
         { label: 'Gerenciamento de riscos e de capital', href: '/transparencia/gerenciamento-de-riscos-e-capital' },
         { label: 'Segurança e privacidade', href: '/transparencia/seguranca-e-privacidade' },

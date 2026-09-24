@@ -38,14 +38,14 @@ const outrasSolucoesFazenda = [
     title: "Crédito Rural",
     description: "Créditos para suas necessidades.",
     icon: '/soltas/icone-creditorural.svg',
-    link: "para-o-agronegocio/credito-rural"
+    link: "/para-o-agronegocio/credito-rural"
   },
   {
     id: 2,
     title: "Consórcio",
     description: "Realize seus sonhos de forma planejada.",
     icon: '/soltas/icone-consorcio.svg',
-    link: "para-o-agronegocio/consorcio"
+    link: "/para-o-agronegocio/consorcios"
   },
   {
     id: 3,

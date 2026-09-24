@@ -48,9 +48,9 @@ export default function AppSicoob({
           </h4>
 
           {/* Text 2: H1 ExtraBold 62.25pt White */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.05] tracking-tight mb-8 lg:mb-12 max-w-xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.05] tracking-tight mb-8 lg:mb-12 max-w-xl">
             {title}
-          </h1>
+          </h2>
 
           {description && (
             <p className="text-white text-lg md:text-xl lg:text-[1.33rem] font-medium leading-[1.3] mb-8 lg:mb-12 opacity-95 max-w-xl">

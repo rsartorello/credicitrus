@@ -1,13 +1,12 @@
-'use client';
-
-import React from 'react';
 import Image from 'next/image';
 import Hero from "@/components/Hero/Hero";
 import Rodape from "@/components/Rodape/Rodape";
 import Button from "@/components/ui/Button";
+import AssembleiaVideoCard from "@/components/AssembleiaVideoCard/AssembleiaVideoCard";
+import { getAssembleiasList } from "@/lib/cms";
 
-export default function AssembleiaCredicitrusPage() {
-  const [playVideo, setPlayVideo] = React.useState(false);
+export default async function AssembleiaCredicitrusPage() {
+  const assembleiaDocs = await getAssembleiasList([]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -74,47 +73,7 @@ export default function AssembleiaCredicitrusPage() {
 
               {/* Coluna Direita: Card de Vídeo */}
               <div className="w-full lg:w-[45%] flex flex-col">
-                <div className="bg-white rounded-[2rem] p-6 lg:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.08)] overflow-hidden flex-grow flex flex-col justify-between">
-                  {/* Área da Imagem / Vídeo */}
-                  {playVideo ? (
-                    <div className="relative w-full max-w-[360px] mx-auto aspect-[9/16] overflow-hidden bg-black rounded-2xl shadow-inner">
-                      <iframe
-                        src="https://www.youtube.com/embed/qAwf-wdWJKY?autoplay=1"
-                        title="O que é a Assembleia"
-                        className="absolute inset-0 w-full h-full border-0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => setPlayVideo(true)}
-                      className="relative w-full max-w-[360px] mx-auto aspect-[9/16] block group overflow-hidden bg-[#003b2a] cursor-pointer rounded-2xl border-0 p-0"
-                    >
-                      <Image
-                        src="/soltas/1-assembleia-credicitrus.webp"
-                        alt="O que é a Assembleia"
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        priority
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      {/* Play Button Overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors">
-                        <div className="w-24 h-24 lg:w-32 lg:h-32 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110">
-                          <div className="w-0 h-0 border-t-[15px] lg:border-t-[20px] border-t-transparent border-l-[25px] lg:border-l-[35px] border-l-primary border-b-[15px] lg:border-b-[20px] border-b-transparent ml-2 lg:ml-3"></div>
-                        </div>
-                      </div>
-                    </button>
-                  )}
-
-                  {/* Área do Texto */}
-                  <div className="flex-grow flex items-center justify-center py-8 lg:py-10">
-                    <h4 className="text-primary font-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] leading-[1.1] tracking-tight text-center">
-                      Clique <br /> e Assista
-                    </h4>
-                  </div>
-                </div>
+                <AssembleiaVideoCard />
               </div>
             </div>
 
@@ -199,6 +158,31 @@ export default function AssembleiaCredicitrusPage() {
             <Button href="https://assembleia.sicoobcredicitrus.com.br/auth" variant="secondary" size="lg" className="md:px-50">
               ACESSAR
             </Button>
+
+            {assembleiaDocs.length > 0 ? (
+              <div className="mt-12 max-w-5xl mx-auto">
+                <h3 className="text-secondary font-extrabold text-2xl md:text-3xl text-center mb-6">
+                  Documentos da Assembleia
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {assembleiaDocs.map((doc) => {
+                    const isPdf = doc.link.toLowerCase().endsWith(".pdf");
+                    return (
+                      <a
+                        key={doc.link}
+                        href={doc.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download={isPdf}
+                        className="flex items-center justify-center rounded-[1.25rem] border border-gray-200 bg-white px-4 py-4 text-primary font-bold hover:border-verdecredicitrus hover:text-verdecredicitrus transition"
+                      >
+                        {doc.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
           </div>
         </section>
 

@@ -19,7 +19,7 @@ export default function AnimateIn({
   duration = 0.6,
   className = '',
   direction = 'up',
-  distance = 50,
+  distance = 24,
   disableOnMobile = false,
 }: AnimateInProps) {
   const [isMobile, setIsMobile] = React.useState(false);

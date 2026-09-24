@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Credicitrus CMS — Orientação TI: Banco de Dados e Integração</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #1a2b2e;
+      font-size: 11pt;
+      line-height: 1.45;
+      margin: 0;
+    }
+    h1 {
+      font-size: 20pt;
+      color: #003641;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 13pt;
+      color: #003641;
+      border-bottom: 2px solid #00A79D;
+      padding-bottom: 4px;
+      margin: 22px 0 10px;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 11.5pt;
+      color: #005560;
+      margin: 14px 0 6px;
+      page-break-after: avoid;
+    }
+    p, li { margin: 0 0 8px; }
+    .meta {
+      color: #5a6b6e;
+      font-size: 9.5pt;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: #00A79D;
+      color: #fff;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 14px;
+      font-size: 10pt;
+    }
+    table.keep-together {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .vars-block > h3,
+    .keep-with-table {
+      page-break-after: avoid;
+      break-after: avoid-page;
+    }
+    table.vars {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    table.vars th, table.vars td {
+      padding: 5px 6px;
+      font-size: 8.5pt;
+    }
+    table.vars .mono {
+      font-size: 8pt;
+    }
+    thead { display: table-header-group; }
+    tr { page-break-inside: avoid; break-inside: avoid; }
+    th, td {
+      border: 1px solid #d5e0e2;
+      padding: 7px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f0f7f7;
+      color: #003641;
+      font-weight: 700;
+    }
+    code, .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 9.5pt;
+      background: #f4f7f7;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+    pre {
+      background: #f4f7f7;
+      border: 1px solid #d5e0e2;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 9pt;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+    .box {
+      border: 1px solid #b8e0dc;
+      background: #f3fbfa;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0;
+      page-break-inside: avoid;
+    }
+    .warn {
+      border-color: #f0c36d;
+      background: #fff8ea;
+    }
+    .crit {
+      border-color: #e8a0a0;
+      background: #fff5f5;
+    }
+    ol.steps > li { margin-bottom: 10px; }
+    .footer-note {
+      margin-top: 28px;
+      padding-top: 10px;
+      border-top: 1px solid #d5e0e2;
+      font-size: 9pt;
+      color: #5a6b6e;
+    }
+    ul.check { list-style: none; padding-left: 0; }
+    ul.check li:before { content: "☐ "; color: #00A79D; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <!-- AVISO: a senha inicial do super-admin NÃO deve ficar neste HTML versionado.
+       Ela consta apenas nos PDFs de handoff. Ao regenerar o PDF, inserir a senha
+       temporariamente antes do print e remover de novo do HTML antes do commit. -->
+  <div class="badge">Documento para TI · Credicitrus</div>
+  <h1>CMS Credicitrus — Banco de Dados e Integração</h1>
+  <p class="meta">
+    Orientação operacional para provisionamento do SQL Server, execução dos scripts e
+    devolutiva dos dados necessários à integração com a aplicação Next.js.<br />
+    Versão: 1.2 · Data: 24/09/2026 · Ambiente alvo: Dev e/ou Produção (isolados)
+  </p>
+
+  <h2>1. Objetivo</h2>
+  <p>
+    Preparar um banco SQL Server dedicado ao CMS do novo site Credicitrus, com schema,
+    categorias iniciais e usuário administrador, e devolver à equipe de desenvolvimento
+    os parâmetros de conexão e infraestrutura para integração no projeto.
+  </p>
+
+  <h2>2. Pré-requisitos (lado TI)</h2>
+  <ul>
+    <li>Instância Microsoft SQL Server acessível pela aplicação (rede/firewall liberados).</li>
+    <li>Permissão para criar database e login (ou database já criada + usuário com DML/DDL necessários).</li>
+    <li>Pasta de uploads <strong>fora</strong> do diretório sobrescrito no deploy, com escrita para a conta do processo Node.</li>
+    <li>Scripts SQL entregues pela equipe de desenvolvimento na pasta <span class="mono">sql/</span> do repositório.</li>
+  </ul>
+
+  <h2>3. Estrutura do banco</h2>
+  <table class="keep-together">
+    <thead>
+      <tr><th>Tabela</th><th>Função</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="mono">DocumentCategory</span></td><td>Categorias por módulo (relatórios, normativos, ética, tarifas, assembleia)</td></tr>
+      <tr><td><span class="mono">Document</span></td><td>Documentos/PDFs/links publicados no site</td></tr>
+      <tr><td><span class="mono">HeroCampaign</span></td><td>Banners da home (desktop/mobile + CTA)</td></tr>
+      <tr><td><span class="mono">CmsUser</span></td><td>Usuários do painel <span class="mono">/admin</span></td></tr>
+      <tr><td><span class="mono">CmsUserPermission</span></td><td>Permissão por módulo (<span class="mono">none | view | edit | publish</span>)</td></tr>
+      <tr><td><span class="mono">CmsAuditLog</span></td><td>Auditoria de ações do CMS</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Coluna de segurança: <span class="mono">CmsUser.SessionVersion</span> — invalida sessões após troca de senha.
+  </p>
+
+  <h2>4. Procedimento — criação do banco e scripts</h2>
+  <ol class="steps">
+    <li>
+      <strong>Criar o database</strong> (um por ambiente), por exemplo:
+      <pre>CREATE DATABASE CredicitrusCms;
+GO
+USE CredicitrusCms;
+GO</pre>
+      Em produção, usar nome acordado e registrar em <span class="mono">DATABASE_NAME</span>.
+    </li>
+    <li>
+      <strong>Criar login/usuário SQL</strong> com senha forte, permissões no database
+      (SELECT/INSERT/UPDATE/DELETE nas tabelas do CMS; evitar sa em aplicação).
+    </li>
+    <li>
+      <strong>Executar os scripts nesta ordem exata</strong> (SSMS, Azure Data Studio ou sqlcmd),
+      conectado ao database criado:
+      <ol>
+        <li><span class="mono">001_schema.sql</span> — tabelas de conteúdo + audit</li>
+        <li><span class="mono">002_seed_categories.sql</span> — categorias iniciais</li>
+        <li><span class="mono">003_users.sql</span> — usuários e permissões</li>
+        <li><span class="mono">004_session_version.sql</span> — SessionVersion</li>
+        <li><span class="mono">005_seed_admin_suave.sql</span> — usuário inicial super-admin</li>
+      </ol>
+      Os scripts são idempotentes (podem ser reexecutados com segurança).
+    </li>
+    <li>
+      <strong>Validar</strong> com consultas rápidas:
+      <pre>SELECT name FROM sys.tables ORDER BY name;
+SELECT Username, DisplayName, IsSuperAdmin, IsActive FROM dbo.CmsUser;
+SELECT Module, Slug, Title FROM dbo.DocumentCategory ORDER BY Module, SortOrder;</pre>
+    </li>
+    <li>
+      <strong>Criar pastas de upload</strong> (fora do path de deploy):
+      <pre>{CMS_UPLOAD_PATH}/
+  relatorios/
+  normativos/
+  etica/
+  tarifas/
+  assembleia/
+  banners/</pre>
+      Exemplos Windows: <span class="mono">D:\dados\credicitrus\prod\uploads</span><br />
+      Exemplos Linux: <span class="mono">/var/dados/credicitrus/uploads</span>
+    </li>
+    <li>
+      <strong>Testar conectividade</strong> a partir do servidor da aplicação (host, porta 1433 ou a configurada, TLS conforme política).
+    </li>
+  </ol>
+
+  <h2>5. Usuário inicial do CMS</h2>
+  <div class="box">
+    <table class="keep-together">
+      <tr><th>Campo</th><th>Valor</th></tr>
+      <tr><td>Painel</td><td><span class="mono">/admin/login</span></td></tr>
+      <tr><td>Login (Username)</td><td><span class="mono">suave@suave.ppg.br</span></td></tr>
+      <tr><td>Nome de exibição</td><td>Suave</td></tr>
+      <tr><td>Perfil</td><td>Super-admin (acesso total)</td></tr>
+      <tr><td>Senha inicial</td><td><em>Constante apenas no PDF gerado para envio por canal seguro — não versionar em README/HTML do repositório.</em></td></tr>
+    </table>
+    <p style="margin:0;">
+      O CMS autentica por <strong>Username</strong> (não há coluna de e-mail). O endereço acima foi cadastrado como login.
+    </p>
+  </div>
+  <div class="box warn">
+    <strong>Obrigatório:</strong> trocar a senha no primeiro acesso. Não reutilizar a senha inicial
+    como senha definitiva de produção.
+  </div>
+  <div class="box crit">
+    <strong>Produção:</strong> o login bootstrap via variáveis <span class="mono">ADMIN_USERNAME</span> /
+    <span class="mono">ADMIN_PASSWORD</span> do <span class="mono">.env</span> está <strong>desabilitado</strong>.
+    Use somente usuários da tabela <span class="mono">CmsUser</span>.
+  </div>
+
+  <h2>6. Variáveis de ambiente — formato e devolutiva</h2>
+  <div class="box crit">
+    <strong>Obrigatório:</strong> se a TI preencher as variáveis no Azure DevOps, no servidor
+    ou em qualquer painel de configuração, os <strong>mesmos valores preenchidos</strong> devem
+    ser enviados depois à equipe de desenvolvimento (canal seguro), para atualização /
+    validação no projeto e alinhamento do deploy. Não basta configurar “lá”: sem a devolutiva,
+    o código e o pipeline do time de desenvolvimento ficam desatualizados.
+  </div>
+  <p>
+    Preferencialmente <strong>um bloco por ambiente</strong> (Dev e Prod separados).
+    Nunca versionar senhas ou segredos no Git.
+  </p>
+
+  <div class="vars-block">
+  <h3>6.1 Formato de cada variável</h3>
+  <p class="keep-with-table">
+    Use exatamente os nomes abaixo. Valores booleanos são literais
+    <span class="mono">true</span> ou <span class="mono">false</span> (minúsculos, sem aspas).
+    Não use espaços em branco no início/fim do valor.
+  </p>
+  <table class="vars">
+    <thead>
+      <tr>
+        <th>Variável</th>
+        <th>Obrig.</th>
+        <th>Formato / valores aceitos</th>
+        <th>Exemplo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="mono">NODE_ENV</span></td>
+        <td>Sim</td>
+        <td>Texto fixo: <span class="mono">production</span>, <span class="mono">development</span> ou <span class="mono">test</span>. Em Dev/Prod do servidor use <span class="mono">production</span> se o build for de produção.</td>
+        <td><span class="mono">production</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">NEXT_PUBLIC_SITE_URL</span></td>
+        <td>Sim</td>
+        <td>URL absoluta pública, com protocolo <span class="mono">https://</span>, sem barra final.</td>
+        <td><span class="mono">https://www.credicitrus.com.br</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">CMS_ENABLED</span></td>
+        <td>Sim</td>
+        <td>Booleano. Só ativa o CMS se for exatamente <span class="mono">true</span>. Qualquer outro valor = CMS desligado (fallback estático).</td>
+        <td><span class="mono">true</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_HOST</span></td>
+        <td>Sim</td>
+        <td>Hostname DNS ou endereço IPv4/IPv6 acessível pelo servidor da aplicação. Sem protocolo e sem porta.</td>
+        <td><span class="mono">sql-credicitrus.interno</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_PORT</span></td>
+        <td>Sim*</td>
+        <td>Número inteiro (porta TCP). Se omitido, a aplicação assume <span class="mono">1433</span>.</td>
+        <td><span class="mono">1433</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_NAME</span></td>
+        <td>Sim</td>
+        <td>Nome do database SQL Server (identificador; sem espaços preferencialmente).</td>
+        <td><span class="mono">CredicitrusCms</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_USER</span></td>
+        <td>Sim</td>
+        <td>Login SQL da aplicação (texto). Não usar <span class="mono">sa</span> em produção.</td>
+        <td><span class="mono">credicitrus_cms_app</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_PASSWORD</span></td>
+        <td>Sim</td>
+        <td>Senha do login SQL (texto livre; caracteres especiais permitidos). Enviar por canal seguro.</td>
+        <td><em>(senha forte gerada pela TI)</em></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_ENCRYPT</span></td>
+        <td>Sim*</td>
+        <td>Booleano. TLS na conexão. Se omitido ou diferente de <span class="mono">false</span>, a app trata como criptografado (<span class="mono">true</span>).</td>
+        <td><span class="mono">true</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">DATABASE_TRUST_SERVER_CERTIFICATE</span></td>
+        <td>Sim*</td>
+        <td>Booleano. Só <span class="mono">true</span> confia no certificado do servidor (útil em lab/self-signed). Em produção preferir <span class="mono">false</span> + certificado válido.</td>
+        <td><span class="mono">false</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">CMS_UPLOAD_PATH</span></td>
+        <td>Sim</td>
+        <td>Caminho absoluto no disco do servidor da app, <strong>fora</strong> do diretório sobrescrito no deploy. Windows: usar barras invertidas ou escapadas conforme o painel; Linux: path POSIX.</td>
+        <td><span class="mono">D:\dados\credicitrus\prod\uploads</span><br /><span class="mono">/var/dados/credicitrus/uploads</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">CMS_MEDIA_PUBLIC_PREFIX</span></td>
+        <td>Não</td>
+        <td>Prefixo de URL pública dos arquivos, começando com <span class="mono">/</span>, sem barra final. Padrão se omitido: <span class="mono">/media</span>.</td>
+        <td><span class="mono">/media</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">ADMIN_AUTH_SECRET</span></td>
+        <td>Sim</td>
+        <td>Segredo opaco, mínimo 32 caracteres aleatórios (hex ou base64). Gerar com <span class="mono">openssl rand -hex 32</span>. Único por ambiente; rotacionar no go-live se necessário.</td>
+        <td><span class="mono">a1b2c3…</span> (64 hex)</td>
+      </tr>
+      <tr>
+        <td><span class="mono">TRUST_PROXY</span></td>
+        <td>Cond.</td>
+        <td>Booleano. Use <span class="mono">true</span> atrás de reverse proxy (IIS, nginx, Azure) para confiar em <span class="mono">X-Forwarded-For</span>. Em local sem proxy: omitir ou <span class="mono">false</span>.</td>
+        <td><span class="mono">true</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">SITE_ROBOTS_INDEX</span></td>
+        <td>Não</td>
+        <td>Booleano opcional. <span class="mono">true</span> = forçar indexação; <span class="mono">false</span> = forçar noindex. Se omitido: indexa quando o gate de acesso estiver desligado.</td>
+        <td><span class="mono">true</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">SITE_ACCESS_ENABLED</span></td>
+        <td>Não</td>
+        <td>Booleano. Gate temporário <span class="mono">/acesso</span>. Manter <span class="mono">false</span> em produção pública. Só <span class="mono">true</span> ativa o gate.</td>
+        <td><span class="mono">false</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">SITE_ACCESS_PASSWORD</span></td>
+        <td>Cond.</td>
+        <td>Texto. Obrigatório apenas se <span class="mono">SITE_ACCESS_ENABLED=true</span>.</td>
+        <td><em>(se gate ativo)</em></td>
+      </tr>
+      <tr>
+        <td><span class="mono">SITE_ACCESS_SECRET</span></td>
+        <td>Cond.</td>
+        <td>Segredo ≥ 32 caracteres (ex.: <span class="mono">openssl rand -hex 32</span>). Obrigatório se o gate estiver ativo.</td>
+        <td><em>(se gate ativo)</em></td>
+      </tr>
+      <tr>
+        <td><span class="mono">ADMIN_USERNAME</span> / <span class="mono">ADMIN_PASSWORD</span></td>
+        <td>Não (prod)</td>
+        <td>Bootstrap via .env. Em <span class="mono">NODE_ENV=production</span> está <strong>bloqueado</strong>. Não usar em Prod; login só via <span class="mono">CmsUser</span>.</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:9.5pt;color:#5a6b6e;">
+    * “Sim*” = fortemente recomendado enviar o valor explícito mesmo quando há padrão na aplicação.
+  </p>
+  </div>
+
+  <h3>6.2 Confirmações operacionais (além das variáveis)</h3>
+  <ul class="check">
+    <li>Scripts SQL 001–005 executados com sucesso no database informado</li>
+    <li>Subpastas de upload criadas e permissão de escrita da conta do Node</li>
+    <li>Política de backup da pasta <span class="mono">CMS_UPLOAD_PATH</span></li>
+    <li>Firewall/VPN: servidor da app consegue alcançar <span class="mono">DATABASE_HOST:DATABASE_PORT</span></li>
+    <li>HTTPS / reverse proxy confirmados (e se <span class="mono">TRUST_PROXY</span> foi aplicado)</li>
+  </ul>
+
+  <h3>6.3 Modelo de resposta (preencher e devolver)</h3>
+  <p>
+    Copiar o bloco abaixo, preencher com os valores reais do ambiente e enviar à equipe de
+    desenvolvimento para atualização no projeto / pipeline.
+  </p>
+  <pre>Ambiente: [Dev | Prod]
+Data do preenchimento:
+
+NODE_ENV=production
+NEXT_PUBLIC_SITE_URL=https://
+CMS_ENABLED=true
+
+DATABASE_HOST=
+DATABASE_PORT=1433
+DATABASE_NAME=CredicitrusCms
+DATABASE_USER=
+DATABASE_PASSWORD=
+DATABASE_ENCRYPT=true
+DATABASE_TRUST_SERVER_CERTIFICATE=false
+
+CMS_UPLOAD_PATH=
+CMS_MEDIA_PUBLIC_PREFIX=/media
+
+ADMIN_AUTH_SECRET=
+TRUST_PROXY=true
+SITE_ROBOTS_INDEX=true
+SITE_ACCESS_ENABLED=false
+
+Scripts 001-005: [OK | pendente]
+Pastas upload: [OK | pendente]
+Observações / firewall / VPN / proxy:</pre>
+
+  <h2>7. Passo a passo — deploy no Azure</h2>
+  <p>
+    A aplicação é Next.js (Node). O pipeline e a infraestrutura ficam a cargo da TI.
+    Não há <span class="mono">azure-pipelines.yml</span> no repositório: configure o pipeline
+    no Azure DevOps conforme o padrão interno.
+  </p>
+
+  <h3>7.1 Ordem recomendada</h3>
+  <ol class="steps">
+    <li><strong>SQL Server</strong> — criar database, usuário e executar scripts 001–005 (seção 4).</li>
+    <li><strong>Storage de uploads</strong> — provisionar pasta persistente (seção 7.2).</li>
+    <li><strong>App Service (ou equivalente)</strong> — criar o app Node por ambiente (Dev / Prod).</li>
+    <li><strong>Variáveis</strong> — preencher App Settings / Variable Group / Key Vault (seção 6).</li>
+    <li><strong>Pipeline</strong> — build e publicação (seção 7.4).</li>
+    <li><strong>Validação</strong> — checklist pós-deploy (seção 7.5).</li>
+    <li><strong>Devolutiva</strong> — enviar bloco 6.3 preenchido à equipe de desenvolvimento.</li>
+  </ol>
+
+  <h3>7.2 Uploads persistentes (obrigatório)</h3>
+  <div class="box warn">
+    No Azure App Service, o sistema de arquivos do site é <strong>efêmero</strong>: um novo deploy
+    ou reinício pode apagar arquivos gravados na pasta do app. Os uploads do CMS
+    (<span class="mono">CMS_UPLOAD_PATH</span>) <strong>não</strong> podem ficar nesse disco.
+  </div>
+  <ul>
+    <li>Preferir <strong>Azure Files</strong> montado no App Service (path de mount estável).</li>
+    <li>Apontar <span class="mono">CMS_UPLOAD_PATH</span> para o caminho montado (ex.: <span class="mono">/home/site/wwwroot-data/uploads</span> ou o path Windows equivalente no mount).</li>
+    <li>Garantir permissão de escrita da identidade do processo Node e backup da share.</li>
+    <li>Criar (ou deixar a app criar) as subpastas: <span class="mono">relatorios</span>, <span class="mono">normativos</span>, <span class="mono">etica</span>, <span class="mono">tarifas</span>, <span class="mono">assembleia</span>, <span class="mono">banners</span>.</li>
+  </ul>
+
+  <h3>7.3 App Service / runtime</h3>
+  <table class="keep-together">
+    <thead>
+      <tr><th>Item</th><th>Orientação</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Runtime</td><td>Node.js LTS compatível com o projeto (verificar <span class="mono">package.json</span> / engines se houver)</td></tr>
+      <tr><td>Build</td><td><span class="mono">npm ci</span> → <span class="mono">npm run build</span></td></tr>
+      <tr><td>Start</td><td><span class="mono">npm start</span> (equivale a <span class="mono">next start</span>)</td></tr>
+      <tr><td>HTTPS</td><td>Terminar TLS no App Service / Front Door / Application Gateway; redirecionar HTTP→HTTPS</td></tr>
+      <tr><td>Proxy</td><td>Com Front Door / gateway na frente: <span class="mono">TRUST_PROXY=true</span></td></tr>
+      <tr><td>Ambientes</td><td>Dev e Prod isolados (apps, Variable Groups, SQL e share de upload separados)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.4 Pipeline Azure DevOps (modelo)</h3>
+  <ol class="steps">
+    <li>Conectar o repositório Git e apontar o branch de release (ex.: <span class="mono">main</span>).</li>
+    <li>Criar Variable Group por ambiente (ou App Settings no App Service) com as variáveis da seção 6 — <strong>secrets</strong> em Key Vault / variáveis secretas do pipeline.</li>
+    <li>Estágio de build (agente Linux ou Windows, conforme padrão TI):
+      <pre>npm ci
+npm run build</pre>
+    </li>
+    <li>Publicar artefato (pasta do app após build, incluindo <span class="mono">.next</span>, <span class="mono">package.json</span>, <span class="mono">node_modules</span> de produção ou reinstalar no release com <span class="mono">npm ci --omit=dev</span>).</li>
+    <li>Estágio de deploy: publicar no App Service do ambiente alvo e injetar as App Settings (não gravar senhas no YAML do repositório).</li>
+    <li>Confirmar que o processo sobe com <span class="mono">npm start</span> e que as variáveis estão visíveis ao Node em runtime (não só em build, exceto <span class="mono">NEXT_PUBLIC_*</span>).</li>
+  </ol>
+  <div class="box">
+    <strong>Importante sobre <span class="mono">NEXT_PUBLIC_SITE_URL</span>:</strong> prefixo
+    <span class="mono">NEXT_PUBLIC_</span> é embutido no bundle no momento do <em>build</em>.
+    Defina o valor correto no pipeline de build de cada ambiente (ou build separado por ambiente).
+  </div>
+
+  <h3>7.5 Checklist pós-deploy</h3>
+  <ul class="check">
+    <li>Site público abre (home) sem erro 500</li>
+    <li><span class="mono">/admin/login</span> carrega e autentica com o usuário inicial (seção 5)</li>
+    <li>Upload de PDF de teste em um módulo (ex.: Relatórios) e arquivo aparece em <span class="mono">CMS_UPLOAD_PATH</span></li>
+    <li>URL pública do arquivo via prefixo <span class="mono">/media/...</span> responde 200</li>
+    <li>Páginas de Transparência listam o item publicado</li>
+    <li>Após novo deploy, o arquivo de upload <strong>ainda existe</strong> (prova de storage persistente)</li>
+    <li><span class="mono">SITE_ACCESS_ENABLED=false</span> em produção pública</li>
+    <li>Troca da senha do super-admin no primeiro acesso</li>
+  </ul>
+
+  <h3>7.6 Rede e SQL</h3>
+  <ul>
+    <li>App Service (ou outbound IPs) deve alcançar <span class="mono">DATABASE_HOST:DATABASE_PORT</span>.</li>
+    <li>Se SQL for Azure SQL / SQL em VNet: configurar firewall / private endpoint conforme política.</li>
+    <li><span class="mono">DATABASE_ENCRYPT=true</span> em produção; <span class="mono">DATABASE_TRUST_SERVER_CERTIFICATE=false</span> com certificado válido.</li>
+  </ul>
+
+  <h2>8. Responsabilidades</h2>
+  <table class="keep-together">
+    <thead>
+      <tr><th>TI</th><th>Desenvolvimento</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SQL, scripts, storage persistente, App Service, pipeline, HTTPS/proxy, backups, variáveis no Azure</td>
+        <td>Código no Git, <span class="mono">.env.example</span>, validação funcional do CMS após o deploy</td>
+      </tr>
+      <tr>
+        <td>Preencher variáveis e <strong>devolver o bloco 6.3</strong> com os valores usados</td>
+        <td>Alinhar documentação/projeto com a devolutiva e apoiar testes de publicação</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>9. Contato / próximos passos</h2>
+  <ol>
+    <li>TI executa banco e storage (seções 4, 5 e 7.2).</li>
+    <li>TI configura App Service + variáveis + pipeline (seções 6 e 7).</li>
+    <li>TI envia o bloco preenchido (6.3) por canal seguro à equipe de desenvolvimento.</li>
+    <li>Validar checklist 7.5 e trocar a senha de <span class="mono">suave@suave.ppg.br</span>.</li>
+  </ol>
+
+  <div class="footer-note">
+    Documento gerado para handoff TI · Projeto Credicitrus (Next.js + SQL Server CMS).<br />
+    Scripts: pasta <span class="mono">sql/</span> · Variáveis: <span class="mono">.env.example</span> · Senha inicial do admin: somente neste PDF (não versionar em README).
+  </div>
+</body>
+</html>

@@ -35,7 +35,7 @@ export default function GerenciamentoRiscosCapitalPage1() {
       <main>
         {/* 1. Hero Section */}
         <Hero 
-          backgroundImage="/soltas/hero-risco-capital-1.png"
+          backgroundImage="/soltas/hero-transparencia-gerenciamento-de-riscos-e-capital.webp"
           titleLines={[
             "GERENCIAMENTO DE",
             "RISCOS E DE CAPITAL",

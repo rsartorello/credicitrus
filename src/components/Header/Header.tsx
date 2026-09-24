@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -12,7 +12,22 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchIndex, setSearchIndex] = useState<any[]>([]);
+  const [tarifaUrl, setTarifaUrl] = useState(
+    "/files/transparencia/tabela_tarifa_atualizada_2025_A4_nov-1.pdf",
+  );
+  const tarifaFetched = useRef(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (!isMenuOpen || tarifaFetched.current) return;
+    tarifaFetched.current = true;
+    fetch("/api/cms/public/tarifa")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.url) setTarifaUrl(data.url);
+      })
+      .catch(() => undefined);
+  }, [isMenuOpen]);
   const isParaVoce = pathname === '/para-voce' || pathname.startsWith('/para-voce/');
   const isParaEmpresa = pathname === '/para-sua-empresa' || pathname.startsWith('/para-sua-empresa/');
   const isParaAgro = pathname === '/para-o-agronegocio' || pathname.startsWith('/para-o-agronegocio/');
@@ -230,7 +245,7 @@ export default function Header() {
                     <li><Link href="/transparencia/relatorios" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Relatórios</Link></li>
                     <li><Link href="/transparencia/normativos" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Normativos</Link></li>
                     <li><Link href="/transparencia/etica-e-integridade" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Ética e integridade</Link></li>
-                    <li><a href="/files/transparencia/tabela_tarifa_atualizada_2025_A4_nov-1.pdf" download target="_blank" rel="noopener noreferrer" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Tabela de tarifas</a></li>
+                    <li><a href={tarifaUrl} download target="_blank" rel="noopener noreferrer" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Tabela de tarifas</a></li>
                     <li><Link href="/transparencia/prevencao-a-fraudes-e-golpes" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Prevenção a fraudes e golpes</Link></li>
                     <li><Link href="/transparencia/gerenciamento-de-riscos-e-capital" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Gerenciamento de riscos e capital</Link></li>
                     <li><Link href="/transparencia/seguranca-e-privacidade" onClick={toggleMenu} className="text-white/80 hover:text-secondary text-sm md:text-base transition-colors">Segurança e privacidade</Link></li>

@@ -43,9 +43,9 @@ export default function SejaAssociado({
             </h4>
 
             {/* Title H1 ExtraBold 62.25pt Primary scaled */}
-            <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] font-extrabold text-primary leading-[1.1] tracking-tight mb-6 lg:mb-8 whitespace-pre-line">
+            <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-extrabold text-primary leading-[1.1] tracking-tight mb-6 lg:mb-8 whitespace-pre-line">
               {title}
-            </h1>
+            </h2>
 
             {/* Description Paragraph Regular Primary scaled */}
             <p className="text-base md:text-xl lg:text-[1.4rem] font-normal text-primary leading-relaxed mb-8 lg:mb-12 whitespace-pre-line max-w-xl opacity-90">

@@ -53,14 +53,14 @@ const outrasSolucoesPJ = [
     title: "Consórcio",
     description: "Conquiste bens com planejamento e sem pagar juros.",
     icon: '/soltas/icone-cooperados.svg',
-    link: "/para-empresas/consorcios"
+    link: "/para-sua-empresa/consorcios"
   },
   {
     id: 4,
     title: "Seguro",
     description: "Proteja o que importa com tranquilidade.",
     icon: '/soltas/icone-grafico-cadeado.svg',
-    link: "/para-empresas/seguros"
+    link: "/para-sua-empresa/seguros"
   }
 ];
 

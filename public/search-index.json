@@ -204,9 +204,9 @@
     "content": "use client RELATÓRIOS SEGURANÇA DA INFORMAÇÃO cards= title: , href: , title: description= title= sectionBgClass= itemBgClass= items= question: , answer: , question: Como o titular dos dados pode entrar em contato com o Encarregado de Dados Pessoais? mailto:dpo@credicitrus.com.br https://www.sicoob.com.br/web/sicoob/privacidade noopener noreferrer Sua dúvida não foi resolvida? Fale com nosso especialista!"
   },
   {
-    "route": "/transparencia-e-prestacao-de-contas",
-    "title": "Transparência E Prestação De Contas - Sicoob Credicitrus",
-    "description": ", ; export default function TransparenciaPage() return (",
-    "content": "use client next/link Relatórios Ética e integridade Tabela de tarifas , label: , href: , ; export default function TransparenciaPage() return ( titleLines= E PRESTAÇÃO DE CONTAS container mx-auto px-4 lg:px-8 max-w-4xl TRANSPARÊNCIA Acesse nossos documentos e prestações de contas"
+    "route": "/transparencia",
+    "title": "Transparência - Sicoob Credicitrus",
+    "description": "Acesse nossos documentos e prestações de contas",
+    "content": "Transparência Relatórios Ética e integridade Tabela de tarifas Assembleia Normativos Gerenciamento de riscos Segurança e privacidade Prevenção a fraudes"
   }
 ]
